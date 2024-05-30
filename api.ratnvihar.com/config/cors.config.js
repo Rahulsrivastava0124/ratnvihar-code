@@ -1,0 +1,27 @@
+module.exports = {
+    corsOptions: {
+        origin: [
+            "http://localhost:8080",
+            "http://localhost:8080/",
+            "http://localhost:8888/",
+            "http://localhost:8888",
+            "http://super.ratanvihar.com",
+            "http://super.localhost:8888/",
+            "http://super.localhost:8888",
+            "http://team.localhost:8888/",
+            "http://team.localhost:8888",
+            "http://admin.localhost:8888/",
+            "http://admin.localhost:8888",
+            "http://admin.ratanvihar.com",
+            "http://team.ratanvihar.com",
+            "http://ratanvihar.com",
+            "http://www.ratnvihar.com",
+            "http://api.ratanvihar.com",
+            "https://super.ratnvihar.com",
+            "https://admin.ratnvihar.com",
+            "https://team.ratnvihar.com",
+            "https://ratnvihar.com",
+	    "    https://www.ratnvihar.com"
+        ]
+    }
+};
