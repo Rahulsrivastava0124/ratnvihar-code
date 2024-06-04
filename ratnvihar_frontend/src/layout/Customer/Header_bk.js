@@ -214,8 +214,7 @@ const Header = (props) => {
                             </a>
                         </div>
                         <div className='support'>
-                            <div className='s-inner'>
-
+                            <div className='s-inner rounded shadow'>
                                 <div className='s-content'>
                                     <InputGroup className="">
                                         <Form.Control

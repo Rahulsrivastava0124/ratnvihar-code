@@ -20,6 +20,7 @@ const router = express.Router();
 
 const corsConfig = require('./config/cors.config');
 app.use(cors(corsConfig.corsOptions));
+// app.use(cors())
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json({limit: "50mb"}));

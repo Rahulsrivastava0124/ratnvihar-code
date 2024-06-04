@@ -457,7 +457,7 @@ class ProductsPage extends React.Component {
                                                                     product.have_offer ?
                                                                         <>
                                                                             <div className='ring-price-wrapper'>
-                                                                                <span className='offer-price'>{product.sale_price_display} </span>
+                                                                                <span className='offer-price'> {product.sale_price_display} </span>
                                                                                 <span className='item-price'>{product.mrp_display}</span>
                                                                             </div>
                                                                             <div>

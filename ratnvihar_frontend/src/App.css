@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap'); */
 
 body {
   background-color: #fff !important;
@@ -8,6 +8,10 @@ body {
   box-sizing: border-box !important;
   padding: 0;
   margin: 0;
+  font-family: "Reddit Mono", monospace;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>;
+  font-style: normal; */
 }
 
 /*--------pages/Customer/LOADER/index-----------*/
@@ -26,7 +30,6 @@ body {
   z-index: 1000;
   position: relative;
   top: 1000%;
-
 }
 
 /*-----file---src/layout/Customer/Header*/
@@ -35,8 +38,8 @@ body {
 }
 
 .btn:first-child:hover,
-:not(.btn-check)+.btn:hover {
-  color: #2C2A2B !important;
+:not(.btn-check) + .btn:hover {
+  color: #2c2a2b !important;
   background-color: transparent !important;
 }
 
@@ -53,18 +56,17 @@ span.c-price {
   position: absolute;
   top: -8px;
   right: -3px;
-  border: 1px solid #636161;
-  background-color: #fff;
+  /* border: 1px solid #636161; */
+  background-color:#f05d4d;
   width: 19px;
   height: 19px;
   line-height: 19px;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 50%;
   font-size: 13px;
   font-weight: 500;
-  font-family: 'Muli';
-  color: #2C2A2B !important;
-
+  font-family: "Muli";
+  color: #ffffff !important;
 }
 
 .voucher-wrapper {
@@ -106,16 +108,16 @@ ul.certified_images {
 }
 
 .p-certified span {
-  font-family: 'Muli';
-  color: #2C2A2B;
+  font-family: "Muli";
+  color: #2c2a2b;
   font-size: 14px;
 }
 
 .c-content a span {
   max-width: 120px;
   display: block;
-  font-family: 'Muli';
-  color: #2C2A2B;
+  font-family: "Muli";
+  color: #2c2a2b;
 }
 
 .c-content:hover a span {
@@ -142,7 +144,7 @@ a {
   color: #3d3d3f !important;
 }
 
-.input-group>.form-control:focus {
+.input-group > .form-control:focus {
   box-shadow: none;
 }
 
@@ -206,7 +208,7 @@ img {
 }
 
 @font-face {
-  font-family: 'Muli';
+  font-family: "Muli";
   src: url(./assets/fonts/NotoSerifJP-Bold.otf);
   font-weight: 800;
 }
@@ -236,25 +238,25 @@ img {
 }
 
 @font-face {
-  font-family: 'Muli';
+  font-family: "Muli";
   src: url(./assets/fonts/Muli.ttf);
   /* font-weight: 400; */
 }
 
 @font-face {
-  font-family: 'Muli-Bold';
+  font-family: "Muli-Bold";
   src: url(./assets/fonts/Muli-Bold.ttf);
   font-weight: 600;
 }
 
 @font-face {
-  font-family: 'Muli-Light';
+  font-family: "Muli-Light";
   src: url(./assets/fonts/Muli-Light.ttf);
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Muli-SemiBold';
+  font-family: "Muli-SemiBold";
   src: url(./assets/fonts/Muli-SemiBold.ttf);
   font-weight: 500;
 }
@@ -266,7 +268,7 @@ img {
 }
 
 .menubar .navbar .navbar-nav a.dropdown-item {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-weight: 400;
   font-size: 13px;
   padding: 8px 18px;
@@ -279,16 +281,16 @@ img {
 
 .menubar .nav-item a {
   color: #fff !important;
-  font-family: 'Muli-Light', Arial, sans-serif;
+  font-family: "Muli-Light", Arial, sans-serif;
   font-weight: 300;
-  font-size: 14px;
-  padding: 13.5px 18px;
+  font-size: 12px;
+  padding: 13px 13px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .menu-wrapper .dropdown-toggle::after {
-  content: '⌄';
+  content: "⌄";
   position: relative;
   top: 2px;
   content: "";
@@ -320,7 +322,7 @@ img {
 }
 
 .my-account-button .dropdown-item {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-weight: 500;
   font-size: 14px;
   padding: 8px 12px;
@@ -332,7 +334,7 @@ img {
 }
 
 .menubar .navbar .navbar-nav .dropdown-item {
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .flex-start {
@@ -355,7 +357,7 @@ img {
 }
 
 .s-inner .form-control {
-  border: 1px solid #C6C6C6;
+  border: 1px solid #c6c6c6;
   border-radius: 0;
   font-size: 15px;
   color: #909090;
@@ -364,7 +366,7 @@ img {
 }
 
 .s-inner .input-group-text {
-  background-color: #F05D4D;
+  background-color: #f05d4d;
   color: #fff !important;
   font-size: 20px !important;
   padding: 6px 21px !important;
@@ -388,14 +390,14 @@ span.s-number,
 
 .s-content span:first-child,
 .c-content span:first-child {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 10px;
   /* text-transform: uppercase; */
 }
 
 .s-content span:last-child,
 .c-content span:last-child {
-  color: #2C2A2B;
+  color: #2c2a2b;
   font-size: 14px;
   font-family: "Muli", Arial, sans-serif;
 }
@@ -438,7 +440,7 @@ span.s-number,
 
 .logo-container img {
   max-width: 277px;
-  max-height: 66px;
+  max-height: 56px;
   margin-bottom: 10px;
 }
 
@@ -471,10 +473,10 @@ span.s-number,
   font-size: 18px;
   /* border: 2px solid #000; */
   border-radius: 0px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   /* padding: 7px 15px; */
   /* width: 144px; */
-  font-family: 'Muli';
+  font-family: "Muli";
   font-weight: 400;
   border: none;
   padding: 0;
@@ -485,11 +487,8 @@ span.s-number,
   /* border: 2px solid #000; */
   background-color: transparent;
   /* color: #fff; */
-  color: #2C2A2B;
+  color: #2c2a2b;
 }
-
-
-
 
 .topbar-account-wrapper ul {
   display: flex;
@@ -507,17 +506,15 @@ span.s-number,
   font-size: 14px;
   font-family: "Muli-bold", Arial, sans-serif;
   color: #999;
-  letter-spacing: -1px
+  letter-spacing: -1px;
 }
-
-
 
 .topbar-account-wrapper ul li .btn-primary {
   background-color: transparent;
   font-size: 14px;
   /* border: 2px solid #000; */
   border-radius: 0px;
-  color: #3579B8;
+  color: #3579b8;
   /* padding: 7px 15px; */
   /* width: 144px; */
   font-family: "Muli", Arial, sans-serif;
@@ -531,7 +528,7 @@ span.s-number,
   /* border: 2px solid #000; */
   background-color: transparent;
   /* color: #fff; */
-  color: #3579B8 !important;
+  color: #3579b8 !important;
 }
 
 .menu-wrapper .navbar {
@@ -569,7 +566,7 @@ span.s-number,
 }
 
 .breadcrumb-wrapper .breadcrumb-item a {
-  color: #3579B8 !important;
+  color: #3579b8 !important;
 }
 
 /*------ banner ----*/
@@ -594,11 +591,11 @@ span.s-number,
 }
 
 .shop-now {
-  background-color: #3D3D3F;
+  background-color: #3d3d3f;
   text-transform: uppercase;
   font-size: 16px;
   max-width: 175px;
-  font-family: 'Muli';
+  font-family: "Muli";
   display: block;
   height: 48px;
   text-align: center;
@@ -619,15 +616,15 @@ span.s-number,
 }
 
 .banner .header h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 56px;
-  color: #2C2A2B;
+  color: #2c2a2b;
 }
 
 .banner .header p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
-  color: #2C2A2B;
+  color: #2c2a2b;
 }
 
 .banner-image {
@@ -639,7 +636,6 @@ span.s-number,
 .banner-image img {
   max-width: 430px;
 }
-
 
 /*----- diamond offer ----*/
 .diamond-inner {
@@ -653,12 +649,11 @@ span.s-number,
 }
 
 .diamond-offer .diamond-inner {
-  background-color: #FFFDD0;
+  background-color: #fffdd0;
 }
 
 .diamond-offer .diamond-inner .offer-header h2 {
   color: rgb(21, 24, 37);
-
 }
 
 section.pendant-offer .pendant-inner .pendant-header h2 {
@@ -736,48 +731,50 @@ section.pendant-offer .pendant-inner {
 }
 
 .offer-header h2 {
-  color: #A2E0E9;
+  color: #a2e0e9;
   font-size: 56px;
-  font-family: 'Muli';
+  font-family: "Muli";
   max-width: 600px;
   margin-bottom: 25px;
 }
 
 /*----- earring offer -----*/
 .earring-inner {
-  background: url(./assets/images/earring.png) no-repeat right bottom rgba(235, 236, 238, 1);
+  background: url(./assets/images/earring.png) no-repeat right bottom
+    rgba(235, 236, 238, 1);
   background-size: auto 100%;
   height: 400px;
   /* border-radius: 10px; */
 }
 
 .earring-header h2 {
-  color: #3D3D3F;
+  color: #3d3d3f;
   font-size: 36px;
-  font-family: 'Muli';
+  font-family: "Muli";
   max-width: 400px;
   margin-bottom: 25px;
 }
 
 .earring-header p {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
   max-width: 570px;
 }
 
 /*----- pendant offer ----*/
 .pendant-inner {
-  background: url(./assets/images/pendant.png) no-repeat right bottom rgba(247, 221, 186, 1);
+  background: url(./assets/images/pendant.png) no-repeat right bottom
+    rgba(247, 221, 186, 1);
   background-size: auto 100%;
   height: 400px;
   /* border-radius: 10px; */
 }
 
 .pendant-header h2 {
-  color: #3D3D3F;
+  color: #3d3d3f;
   font-size: 48px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin-bottom: 35px;
 }
 
@@ -787,7 +784,7 @@ section.pendant-offer .pendant-inner {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.50);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .pendant-header {
@@ -814,31 +811,32 @@ section.pendant-offer .pendant-inner {
 
 /*----- affordable-earring ----*/
 .affordable-earring-inner {
-  background: url(./assets/images/affordable-earring.png) no-repeat right bottom rgba(253, 253, 255, 1);
+  background: url(./assets/images/affordable-earring.png) no-repeat right bottom
+    rgba(253, 253, 255, 1);
   background-size: auto 100%;
   height: 470px;
   border-radius: 10px;
 }
 
 .affordable-earring-header h2 {
-  color: #3D3D3F;
+  color: #3d3d3f;
   font-size: 48px;
-  font-family: 'Muli';
+  font-family: "Muli";
   max-width: 600px;
   margin-bottom: 25px;
 }
 
 .affordable-earring-header p,
 .offer-header p {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
   max-width: 570px;
 }
 
 /*------ selling product ----*/
 .selling-product .selling-product-header h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 44px;
   margin-bottom: 30px;
 }
@@ -860,7 +858,7 @@ section.pendant-offer .pendant-inner {
 
 .reach-us span {
   display: block;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
 }
 
@@ -875,21 +873,21 @@ section.pendant-offer .pendant-inner {
 }
 
 .selling-product .s-slider-content h2 {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
   font-size: 24px;
 }
 
 .selling-product .offer-price {
   font-size: 28px;
-  font-family: 'Muli';
-  color: #2C2A2B;
+  font-family: "Muli";
+  color: #2c2a2b;
 }
 
 .selling-product .item-price {
   font-size: 20px;
   font-family: NotoSerifJP-semibold;
-  color: #8E8E8E;
+  color: #8e8e8e;
   text-decoration: line-through;
 }
 
@@ -903,13 +901,13 @@ section.pendant-offer .pendant-inner {
   right: 15px;
   top: 15px;
   font-size: 30px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   border-radius: 5px;
 }
 
 /*------ feature product ----*/
 .feature-product .feature-product-header h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 38px;
   margin-bottom: 20px;
 }
@@ -917,7 +915,8 @@ section.pendant-offer .pendant-inner {
 .feature-product .s-slider-image {
   position: relative;
   padding-bottom: 100%;
-  transition: .5s linear;
+  transition: 0.5s linear;
+  overflow: hidden;
 }
 
 .feature-product .s-slider-image img {
@@ -937,8 +936,8 @@ section.pendant-offer .pendant-inner {
 }
 
 .feature-product .s-slider-content h2 {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
   font-size: 24px;
 }
 
@@ -947,7 +946,6 @@ section.pendant-offer .pendant-inner {
 }
 
 .s-slider-content {
-
   cursor: pointer;
 }
 
@@ -959,20 +957,20 @@ section.pendant-offer .pendant-inner {
 
 .feature-product .offer-price {
   font-size: 20px;
-  font-family: 'Muli';
-  color: #2C2A2B;
+  font-family: "Muli";
+  color: #2c2a2b;
 }
 
 .feature-product .item-price {
   font-size: 16px;
   font-family: NotoSerifJP-semibold;
-  color: #8E8E8E;
+  color: #8e8e8e;
   text-decoration: line-through;
 }
 
 .feature-product .wishlist {
   position: absolute;
-  background: #eee;
+  background: #ffffff;
   width: 46px;
   height: 46px;
   line-height: 41px;
@@ -980,7 +978,7 @@ section.pendant-offer .pendant-inner {
   right: 15px;
   top: 15px;
   font-size: 30px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   border-radius: 5px;
 }
 
@@ -1012,20 +1010,20 @@ section.pendant-offer .pendant-inner {
 
 .blue-pearl-content h2 {
   color: #fff;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 36px;
 }
 
 .blue-pearl-content p {
   color: #fff;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 36px;
 }
 
 /*------ promise ----*/
 .promise h2 {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
   font-size: 44px;
   margin-bottom: 32px;
 }
@@ -1054,7 +1052,7 @@ section.pendant-offer .pendant-inner {
   height: 0;
   bottom: -42px;
   overflow: hidden;
-  transition: .5s ease;
+  transition: 0.5s ease;
   left: 0;
   right: 0;
   padding: 14px;
@@ -1064,14 +1062,14 @@ section.pendant-offer .pendant-inner {
 .promise-overlay-content h2 {
   color: #f05d4d;
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 
 .promise-overlay-content p {
   font-size: 13px;
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #7a7a7a;
   margin-top: 4px;
   margin-bottom: 0px;
@@ -1091,14 +1089,14 @@ section.pendant-offer .pendant-inner {
 .promise-overlay-mob a {
   color: #ff0000 !important;
   /* text-decoration: underline !important; */
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 13px;
 }
 
 .promise-overlay-content li,
 .promise-overlay-mob li {
   font-size: 13px;
-  font-family: 'Muli';
+  font-family: "Muli";
   line-height: 2;
 }
 
@@ -1161,7 +1159,7 @@ section.pendant-offer .pendant-inner {
 span.pro-icon {
   position: absolute;
   right: 0;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .promise-box.active span.pro-icon {
@@ -1178,14 +1176,14 @@ span.pro-icon {
 
 .promise-mob-content h4 {
   color: #7a7a7a;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin: 0;
 }
 
 .promise-content h4 {
   font-size: 20px;
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #7a7a7a;
   max-width: 230px;
   margin: auto;
@@ -1193,11 +1191,11 @@ span.pro-icon {
 
 /*----- browse rings -----*/
 .browse-now {
-  background-color: #3D3D3F;
+  background-color: #001e38;
   text-transform: uppercase;
   font-size: 16px;
   width: 180px;
-  font-family: 'Muli';
+  font-family: "Muli";
   display: block;
   height: 48px;
   text-align: center;
@@ -1212,7 +1210,7 @@ span.pro-icon {
 }
 
 .browse-rings {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
   margin: 100px 0;
 }
 
@@ -1222,8 +1220,8 @@ span.pro-icon {
 }
 
 .browse-ring-header h3 {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
   font-size: 42px;
 }
 
@@ -1234,7 +1232,7 @@ span.pro-icon {
 }
 
 .browse-ring-header p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
   max-width: 373px;
   margin: 10px auto 15px;
@@ -1242,7 +1240,7 @@ span.pro-icon {
 
 /*----- reviews ----*/
 .reviews {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
   padding: 50px 0;
 }
 
@@ -1252,7 +1250,7 @@ span.pro-icon {
   height: 56px;
   background-color: #fff;
   border-radius: 50%;
-  color: #2C2A2B;
+  color: #2c2a2b;
   top: calc(50% - 44px);
 }
 
@@ -1262,8 +1260,8 @@ span.pro-icon {
 }
 
 .review-header h3 {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
   font-size: 50px;
   margin-bottom: 10px;
 }
@@ -1271,15 +1269,14 @@ span.pro-icon {
 .review-header p {
   font-size: 18px;
   text-align: center;
-  font-family: 'Muli';
+  font-family: "Muli";
   max-width: 850px;
   margin: 0 auto 8px;
-
 }
 
 .address-map .nav-item .nav-link {
   background-color: transparent !important;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-bottom: 1px solid #3d3d3f;
   border-radius: 0;
   min-width: 150px;
@@ -1288,7 +1285,6 @@ span.pro-icon {
   text-align: center;
   font-size: 14px;
   box-shadow: 2px 1px rgb(0 0 0 / 10%);
-
 }
 
 .address-map .nav-pills {
@@ -1314,7 +1310,7 @@ span.pro-icon {
 }
 */
 .address-map .nav-item .nav-link.active {
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
   color: #fff !important;
   background: #001e38 !important;
   font-size: 14px;
@@ -1338,13 +1334,13 @@ span.pro-icon {
 }
 
 .list-wrapper .list-name h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
   margin-bottom: 5px;
 }
 
 .list-wrapper .list-name p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   margin-bottom: 0;
 }
@@ -1379,7 +1375,7 @@ span.pro-icon {
   background: #fff;
   max-width: 796px;
   margin: auto;
-  border-left: 10px solid #2C2A2B;
+  border-left: 10px solid #2c2a2b;
   padding: 60px;
   position: relative;
   margin-bottom: 80px;
@@ -1396,22 +1392,22 @@ span.pro-icon {
 }
 
 .c-content h5 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 28px;
-  color: #2C2A2B;
+  color: #2c2a2b;
 }
 
 .c-content h6 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
-  color: #8B9AA6;
+  color: #8b9aa6;
   text-align: left;
 }
 
 .client-area p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
-  color: #3D3D3F;
+  color: #3d3d3f;
   margin-bottom: 0;
 }
 
@@ -1444,7 +1440,11 @@ span.pro-icon {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(259.92deg, rgba(31, 31, 31, 0.9) 13.58%, rgba(31, 31, 31, 0.6) 89.67%);
+  background: linear-gradient(
+    259.92deg,
+    rgba(31, 31, 31, 0.9) 13.58%,
+    rgba(31, 31, 31, 0.6) 89.67%
+  );
   border-radius: 10px;
   display: grid;
   place-items: center;
@@ -1453,7 +1453,7 @@ span.pro-icon {
 
 .banner-overlay p {
   color: #fff;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 34px;
   max-width: 890px;
   margin: auto;
@@ -1465,30 +1465,31 @@ span.pro-icon {
   text-transform: uppercase;
   font-size: 16px;
   width: 166px;
-  font-family: 'Muli';
+  font-family: "Muli";
   display: block;
   height: 36px;
   text-align: center;
   line-height: 36px;
-  color: #3D3D3F;
+  color: #3d3d3f;
   text-decoration: none;
   margin: auto;
 }
 
-.learn-more:hover {}
+.learn-more:hover {
+}
 
 /*----- address map ------*/
 .view-more {
   background-color: #fff;
   text-transform: uppercase;
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   display: block;
   height: 52px;
   text-align: center;
   line-height: 52px;
-  color: #3D3D3F;
-  border: 1px solid #3D3D3F;
+  color: #3d3d3f;
+  border: 1px solid #3d3d3f;
   text-decoration: none;
   max-width: 228px;
 }
@@ -1503,12 +1504,12 @@ span.pro-icon {
 }
 
 .address-header h3 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 36px;
 }
 
 .address-header p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -1565,7 +1566,7 @@ ul.social-info li {
 
 /*------ footer ----*/
 .footer {
-  background-color: #2C2A2B;
+  background-color: #001e38;
   padding: 16px 0;
 }
 
@@ -1575,21 +1576,21 @@ ul.social-info li {
 
 .f-header h3 {
   color: #fff;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
   margin-bottom: 15px;
 }
 
 .f-list li {
-  color: #C4C4C4 !important;
-  font-family: 'Muli';
+  color: #c4c4c4 !important;
+  font-family: "Muli";
   font-size: 16px;
   line-height: 1.8;
 }
 
 .f-list li a {
-  color: #C4C4C4 !important;
-  font-family: 'Muli';
+  color: #c4c4c4 !important;
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -1620,7 +1621,7 @@ ul.f-social-media li a {
 
 /*----- copyright -----*/
 .copyright {
-  background-color: #3D3D3F;
+  background-color: #3d3d3f;
   padding: 12px 0;
   text-align: center;
 }
@@ -1631,9 +1632,9 @@ ul.f-social-media li a {
 
 .copyright h4 {
   margin: 0;
-  color: #C2C2C2;
+  color: #c2c2c2;
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
   text-align: left;
 }
 
@@ -1645,9 +1646,9 @@ ul.f-social-media li a {
 
 .copyright h5 {
   margin: 0;
-  color: #C2C2C2;
+  color: #c2c2c2;
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
   text-align: right;
 }
 
@@ -1687,16 +1688,16 @@ section.float-f-menu ul {
 }
 
 section.float-f-menu ul li {
-  border: 1px solid #F7DDBA;
+  border: 1px solid #f7ddba;
   border-radius: 10px;
   padding: 5px 5px;
   text-align: center;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 12px;
 }
 
 section.float-f-menu ul li.active {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
 }
 
 /*---- ornament slider ----*/
@@ -1716,7 +1717,7 @@ section.float-f-menu ul li.active {
   color: #212529 !important;
 }
 
-.ornament-image :not(.btn-check)+.btn:active {
+.ornament-image :not(.btn-check) + .btn:active {
   background-color: transparent;
   border: none;
   color: #212529;
@@ -1730,7 +1731,7 @@ section.float-f-menu ul li.active {
 }
 
 .ornament-image .btn:first-child:hover,
-.ornament-image :not(.btn-check)+.ornament-image .btn:hover {
+.ornament-image :not(.btn-check) + .ornament-image .btn:hover {
   background-color: transparent;
   border: none;
   color: #212529;
@@ -1740,7 +1741,7 @@ section.float-f-menu ul li.active {
 .ornament-image h4 {
   margin: 0;
   font-size: 12px;
-  font-family: 'Muli';
+  font-family: "Muli";
   min-height: 30px;
 }
 
@@ -1768,13 +1769,13 @@ section.ornament-slider .swiper {
 
 .breadcrumb-wrapper .breadcrumb .breadcrumb-item,
 .breadcrumb-wrapper .breadcrumb .breadcrumb-item a {
-  color: #3D3D3F;
+  color: #3d3d3f;
   text-decoration: none;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
-.form-inner-control .form-floating>.form-select {
+.form-inner-control .form-floating > .form-select {
   padding: 0.4rem 0.75rem;
   line-height: 2.5;
 }
@@ -1787,7 +1788,7 @@ section.ornament-slider .swiper {
   opacity: 1;
 }
 
-.product-slider .swiper-free-mode>.swiper-wrapper {
+.product-slider .swiper-free-mode > .swiper-wrapper {
   margin: 10px auto;
 }
 
@@ -1797,7 +1798,7 @@ section.ornament-slider .swiper {
   height: 34px;
   background-color: #fff;
   border-radius: 50%;
-  color: #2C2A2B;
+  color: #2c2a2b;
   box-shadow: 0px 10px 27px rgba(0, 0, 0, 0.08);
 }
 
@@ -1813,13 +1814,13 @@ section.ornament-slider .swiper {
 }
 
 .price-breakup {
-  background-color: #ECECEC;
+  background-color: #ececec;
   padding: 12px 18px;
   margin-top: 0px;
 }
 
 .price-breakup h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1829,18 +1830,18 @@ section.ornament-slider .swiper {
   display: block;
   height: 1px;
   width: 100%;
-  background: #A2E0E9;
+  background: #a2e0e9;
   position: relative;
   margin-bottom: 10px;
 }
 
 .underline:before {
-  content: '';
+  content: "";
   position: absolute;
   left: -8px;
   width: 92px;
   height: 5px;
-  background-color: #3D3D3F;
+  background-color: #3d3d3f;
   border-radius: 25px;
   bottom: -2px;
 }
@@ -1856,16 +1857,16 @@ section.ornament-slider .swiper {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
 }
 
 .price-breakup .breakup-item span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
 .price-breakup .breakup-item span.total {
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
   font-size: 16px;
 }
 
@@ -1876,7 +1877,7 @@ section.ornament-slider .swiper {
 }
 
 .product-details-items {
-  background-color: #ECECEC;
+  background-color: #ececec;
   padding: 20px;
   margin-top: 15px;
 }
@@ -1893,21 +1894,21 @@ section.ornament-slider .swiper {
 }
 
 .product-details-items .header a {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   text-decoration: none;
-  color: #3D3D3F;
+  color: #3d3d3f;
 }
 
 .line-through {
   text-decoration: line-through;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin-right: 12px;
   font-size: 12px !important;
 }
 
 .product-details-items h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1921,7 +1922,7 @@ section.ornament-slider .swiper {
 }
 
 .product-details-items .product-details-items-item span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   color: #212529;
 }
@@ -1929,12 +1930,12 @@ section.ornament-slider .swiper {
 .product-details-items .product-details-items-item.details-header span {
   font-size: 16px;
   color: #000;
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
   margin: 8px 0;
 }
 
 .p-container-header span h3 {
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
   font-size: 24px;
   margin: 0;
 }
@@ -1951,8 +1952,6 @@ section.ornament-slider .swiper {
   border: none;
 }
 
-
-
 .p-container-header div ul {
   display: flex;
   gap: 8px;
@@ -1961,33 +1960,30 @@ section.ornament-slider .swiper {
 }
 
 .p-container-header div ul li {
-  color: #F4DF1C;
+  color: #f4df1c;
 }
 
 .blank-star {
-  color: #C4C4C4 !important;
+  color: #c4c4c4 !important;
 }
 
 .rating {
-  color: #3D3D3F !important;
-  font-family: 'Muli';
+  color: #3d3d3f !important;
+  font-family: "Muli";
   font-size: 16px;
 }
 
 .share-icons p {
   margin: 0;
   font-size: 16px;
-
 }
 
 .share-icons p svg {
   cursor: pointer;
 }
 
-
-
 .p-customize-design-product {
-  background-color: #ECECEC;
+  background-color: #ececec;
   padding: 16px 18px;
   margin-top: 0px;
 }
@@ -1999,7 +1995,7 @@ section.ornament-slider .swiper {
 }
 
 .p-customize-design-product h2 {
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
   font-size: 20px;
   text-transform: uppercase;
   margin-bottom: 0px;
@@ -2028,9 +2024,9 @@ section.ornament-slider .swiper {
   position: absolute;
   height: 1px;
   width: 100%;
-  background: #A2E0E9;
+  background: #a2e0e9;
   left: 0;
-  content: '';
+  content: "";
   bottom: -12px;
 }
 
@@ -2046,7 +2042,7 @@ section.ornament-slider .swiper {
   left: -8px;
   width: 92px;
   height: 5px;
-  background-color: #3D3D3F;
+  background-color: #3d3d3f;
   border-radius: 25px;
   bottom: -14px;
 }
@@ -2063,9 +2059,9 @@ section.ornament-slider .swiper {
 }
 
 .p-header-price h3 {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin: 0;
 }
 
@@ -2080,20 +2076,20 @@ section.ornament-slider .swiper {
 }
 
 .p-headder-offer-price span h2 {
-  color: #3D3D3F;
+  color: #3d3d3f;
   font-size: 28px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .p-headder-offer-price .disc {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
   font-size: 15px;
   padding: 8px;
 }
 
 .p-item-delivery h4 {
-  color: #3D3D3F;
-  font-family: 'Muli';
+  color: #3d3d3f;
+  font-family: "Muli";
   font-size: 18px;
   margin: 0;
 }
@@ -2108,21 +2104,20 @@ section.ornament-slider .swiper {
 }
 
 .p-item-delivery .btn-primary {
-  border: 1px solid #3D3D3F;
+  border: 1px solid #3d3d3f;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
-  color: #3D3D3F;
+  color: #3d3d3f;
   background-color: transparent;
   border-radius: 0;
   padding: 5px 20px;
   height: 38px;
-
 }
 
 .p-item-delivery .btn-primary:hover {
-  background-color: #3D3D3F !important;
-  color: #3D3D3F;
+  background-color: #3d3d3f !important;
+  color: #3d3d3f;
   border: 1px solid transparent !important;
 }
 
@@ -2133,18 +2128,18 @@ section.ornament-slider .swiper {
 }
 
 .delivery-date p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   margin-top: 5px;
   margin-bottom: 0;
 }
 
 .p-customize-design .accordion-header .accordion-button {
-  color: #2C2A2B;
+  color: #2c2a2b;
   background-color: transparent;
   box-shadow: none;
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .p-size {
@@ -2170,7 +2165,6 @@ section.ornament-slider .swiper {
   padding: 0 10px;
   width: 58px;
   height: 26px;
-
 }
 
 .p-size .gold-type .form-select {
@@ -2183,13 +2177,13 @@ section.ornament-slider .swiper {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
 .p-purity span,
 .p-variant span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   display: flex;
   gap: 20px;
@@ -2205,7 +2199,7 @@ section.ornament-slider .swiper {
 }
 
 .p-variant span h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   display: flex;
   gap: 5px;
@@ -2217,7 +2211,6 @@ section.ornament-slider .swiper {
   padding: 12px;
   display: flex;
   justify-content: space-between;
-
 }
 
 .ratn-wishlist .wishlist-buttons {
@@ -2244,7 +2237,7 @@ section.ornament-slider .swiper {
 }
 
 .ratn-wishlist .p_description h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   margin-bottom: 40px;
 }
@@ -2257,14 +2250,15 @@ section.ornament-slider .swiper {
 .ratn-wishlist .btn-primary {
   font-size: 14px !important;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 12px;
   height: 48px;
   border: none;
   width: 100%;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .ratn-wishlist .btn-primary:hover {
@@ -2275,14 +2269,15 @@ section.ornament-slider .swiper {
 .ratn-wishlist .btn-default {
   font-size: 14px !important;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 12px;
   height: 48px;
   width: 100%;
   background-color: #fff;
   border: 2px solid #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .ratn-wishlist .btn-default:hover {
@@ -2300,7 +2295,7 @@ section.ornament-slider .swiper {
 }
 
 .ratn-wishlist .cart-icons h4:first-child {
-  color: #2C2A2B;
+  color: #2c2a2b;
   font-size: 24px;
 }
 
@@ -2366,9 +2361,9 @@ img.p_details_slider {
 .modal-video-buttons .btn-secondary {
   width: 100%;
   border-radius: 0;
-  background: #F05D4D !important;
-  border-color: #F05D4D !important;
-  font-family: 'Muli';
+  background: #f05d4d !important;
+  border-color: #f05d4d !important;
+  font-family: "Muli";
   font-size: 16px;
   margin-top: -6px;
   padding: 10px 12px;
@@ -2403,13 +2398,13 @@ img.p_details_slider {
 .p-header-price h2 {
   position: relative;
   margin: 0;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 28px;
 }
 
 sup.discount {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .product-buttons {
@@ -2422,13 +2417,14 @@ sup.discount {
 .product-buttons .btn-secondary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 15px;
   background-color: #3d3d3f !important;
   border: none;
   opacity: 1 !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .product-buttons .btn-secondary:hover {
@@ -2439,14 +2435,15 @@ sup.discount {
 .product-buttons .btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 15px;
   background-color: #fff !important;
   color: #3d3d3f;
   border: 1px solid #3d3d3f;
   opacity: 1 !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .product-buttons .btn-primary:hover {
@@ -2456,23 +2453,24 @@ sup.discount {
 .product-buttons .btn-success {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 13px 15px;
   background-color: transparent;
-  border: 1px solid #3D3D3F;
-  color: #3D3D3F;
+  border: 1px solid #3d3d3f;
+  color: #3d3d3f;
   border: none;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .product-buttons .btn-success:hover {
-  color: #3D3D3F;
+  color: #3d3d3f;
   background-color: transparent;
 }
 
 .p-policy {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
 }
 
 .p-policy ul {
@@ -2483,16 +2481,16 @@ sup.discount {
 
 .p-policy ul li {
   position: relative;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
 .p-policy ul li:after {
-  content: '';
+  content: "";
   position: absolute;
   /* width: 1px; */
   height: 100%;
-  background-color: #2C2A2B;
+  background-color: #2c2a2b;
   right: 0;
   top: 0;
 }
@@ -2506,7 +2504,7 @@ sup.discount {
 }
 
 .p-policy p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -2544,7 +2542,7 @@ ul.authenticity_list li img {
 
 .p-authenticity h4 {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .p-details-authenticity .cart-authenticity li {
@@ -2568,7 +2566,7 @@ ul.authenticity_list li img {
 .purity-wrapper .form-label {
   margin: 0;
   margin-top: 7px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .purity-wrapper .form-select:first-child {
@@ -2577,7 +2575,7 @@ ul.authenticity_list li img {
 
 .p-authenticity p {
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .mobile-view {
@@ -2589,7 +2587,7 @@ ul.authenticity_list li img {
 }
 
 .wishlist_active {
-  fill: #ff0000;
+  fill: #001e38;
 }
 
 .terms-conditions,
@@ -2613,19 +2611,19 @@ ul.authenticity_list li img {
   display: flex !important;
   justify-content: space-between;
   gap: 20px;
-  border: 1px solid #C6C6C6;
+  border: 1px solid #c6c6c6;
 }
 
 .filter-button .filter-icon:active {
   width: max-content;
-  background-color: #3D3D3F;
+  background-color: #3d3d3f;
   border-radius: 0;
   height: 48px;
   border: none;
 }
 
 .filter-button .filter-icon:hover {
-  background-color: #3D3D3F !important;
+  background-color: #3d3d3f !important;
 }
 
 .filter-button .filter-icon:active:focus {
@@ -2634,7 +2632,7 @@ ul.authenticity_list li img {
 
 .filter-button .filter-icon {
   width: max-content;
-  background-color: #3D3D3F;
+  background-color: #3d3d3f;
   border-radius: 0;
   height: 48px;
   border: none;
@@ -2685,15 +2683,14 @@ ul.authenticity_list li img {
   background: #3d3d3f !important;
   bottom: 0;
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0 !important;
   opacity: 0;
-
 }
 
 .swap-on-hover__front-image {
   z-index: 99;
-  transition: opacity .5s linear;
+  transition: opacity 0.5s linear;
   cursor: pointer;
 }
 
@@ -2701,7 +2698,7 @@ ul.authenticity_list li img {
   opacity: 1;
 }
 
-.s-slider-image:hover>.swap-on-hover__front-image {
+.s-slider-image:hover > .swap-on-hover__front-image {
   opacity: 0;
 }
 
@@ -2715,7 +2712,7 @@ ul.authenticity_list li img {
   left: 15px;
   top: 25px;
   font-size: 22px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   border-radius: 5px;
   cursor: pointer;
   z-index: 999;
@@ -2741,13 +2738,12 @@ ul.authenticity_list li img {
   box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 40%);
   border: 2px solid #fff;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   z-index: 999;
 }
 
 .video_button:hover {
   background-color: #f15d4c;
-
 }
 
 .search-slider .s-slider-image img {
@@ -2769,7 +2765,7 @@ ul.authenticity_list li img {
 }
 
 .search_header h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #f15d47;
   font-size: 20px;
   margin: 20px 0;
@@ -2779,12 +2775,11 @@ ul.authenticity_list li img {
   color: #666;
   font-size: 16px;
   font-family: Muli, Arial, sans-serif;
-
 }
 
 .search-slider .s-slider-content h2 {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
   font-size: 20px;
   padding: 8px 12px;
   margin: 0;
@@ -2801,7 +2796,7 @@ ul.authenticity_list li img {
   width: 100%;
   padding: 3px;
   opacity: 0;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .search-inner:hover .search-button {
@@ -2816,13 +2811,12 @@ ul.authenticity_list li img {
   border: none;
   font-size: 13px;
   padding: 5px 15px;
-  font-family: 'Muli', Arial, sans-serif;
+  font-family: "Muli", Arial, sans-serif;
 }
 
 .search-button .btn-primary:hover {
   background-color: #3d3d3f !important;
   color: #fff !important;
-
 }
 
 .search-button .btn-secondary {
@@ -2834,8 +2828,7 @@ ul.authenticity_list li img {
   font-size: 13px;
   border: 1px solid #3d3d3f;
   padding: 5px 15px;
-  font-family: 'Muli', Arial, sans-serif;
-
+  font-family: "Muli", Arial, sans-serif;
 }
 
 .search-button .btn-secondary:hover {
@@ -2849,14 +2842,14 @@ ul.authenticity_list li img {
 
 .search-slider .offer-price {
   font-size: 20px;
-  font-family: 'Muli';
-  color: #2C2A2B;
+  font-family: "Muli";
+  color: #2c2a2b;
   display: block;
 }
 
 .search-slider .item-price {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #9e9e9e;
   text-decoration: line-through;
 }
@@ -2898,7 +2891,7 @@ ul.authenticity_list li img {
 .item-saving-price {
   display: flex;
   align-items: center;
-  font-family: 'Muli';
+  font-family: "Muli";
   gap: 5px;
   color: #2b2b2b;
   font-size: 14px;
@@ -2907,7 +2900,7 @@ ul.authenticity_list li img {
 .item-saving-price h4 {
   margin: 0;
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #f15d4c;
 }
 
@@ -2923,14 +2916,14 @@ ul.authenticity_list li img {
 
 .filter-button h5 {
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   padding: 0 15px;
   margin-bottom: 0;
 }
 
 .filter-button .dropdown-item {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .desktop-search {
@@ -2983,7 +2976,7 @@ ul.authenticity_list li img {
 #search-icon .input-group-text {
   background-color: transparent;
   border: none !important;
-  border-radius: .375rem !important;
+  border-radius: 0.375rem !important;
   font-size: 28px;
   padding: 3px 3px;
 }
@@ -3035,7 +3028,7 @@ ul.authenticity_list li img {
 
 .p-mobile-search .input-group .dropdown-menu .dropdown-item {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .p-mobile-search .input-group .dropdown-menu .dropdown-item svg {
@@ -3070,8 +3063,8 @@ ul.authenticity_list li img {
 
 .strikethrough {
   position: relative;
-  color: #8E8E8E;
-  font-family: 'Muli';
+  color: #8e8e8e;
+  font-family: "Muli";
   font-size: 14px;
   text-decoration: line-through;
 }
@@ -3099,8 +3092,8 @@ ul.authenticity_list li img {
 } */
 
 .cart-discount-price .price {
-  color: #2C2A2B;
-  font-family: 'Muli-semibold';
+  color: #2c2a2b;
+  font-family: "Muli-semibold";
   font-size: 18px;
 }
 
@@ -3108,7 +3101,7 @@ ul.authenticity_list li img {
 .delete-btn {
   min-width: 65px;
   border-radius: 0 !important;
-  font-family: 'Muli' !important;
+  font-family: "Muli" !important;
 }
 
 button.delete-btn.btn.btn-danger:hover {
@@ -3127,26 +3120,25 @@ button.delete-btn.btn.btn-danger:hover {
 button.close-btn.btn.btn-secondary {
   background-color: transparent !important;
   color: #212529 !important;
-
 }
 
 .cart-image-title h2 {
-  font-family: 'Muli-semibold';
+  font-family: "Muli-semibold";
   font-size: 18px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin-bottom: 0;
 }
 
 .cart-image-title p {
-  font-family: 'Muli';
-  color: #3D3D3F;
+  font-family: "Muli";
+  color: #3d3d3f;
   font-size: 14px;
   margin-bottom: 8px;
 }
 
 .cart-select .form-label {
-  font-family: 'Muli';
-  color: #3D3D3F;
+  font-family: "Muli";
+  color: #3d3d3f;
   font-size: 14px;
   margin-right: 4px;
   margin-bottom: 0px;
@@ -3159,15 +3151,15 @@ button.close-btn.btn.btn-secondary {
 }
 
 .cart-image-content .p-variant {
-  font-family: 'Muli';
-  color: #3D3D3F;
+  font-family: "Muli";
+  color: #3d3d3f;
   font-size: 18px;
   margin-bottom: 0px;
 }
 
 .cart-icons {
-  font-family: 'Muli';
-  color: #3D3D3F;
+  font-family: "Muli";
+  color: #3d3d3f;
   font-size: 18px;
   text-transform: uppercase;
   display: flex;
@@ -3180,20 +3172,20 @@ button.close-btn.btn.btn-secondary {
 }
 
 .cart-icons h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin: 0;
   cursor: pointer;
 }
 
 .cart-icons h4:first-child {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
 }
 
 .cart-icons h4:nth-child(2) {
-  color: #2C2A2B;
-  font-family: 'Muli';
+  color: #2c2a2b;
+  font-family: "Muli";
 }
 
 .cart-image {
@@ -3224,7 +3216,6 @@ button.close-btn.btn.btn-secondary {
   display: grid;
   grid-template-columns: 150px auto;
   grid-gap: 12px;
-
 }
 
 .cart-image-content {
@@ -3282,7 +3273,7 @@ button.close-btn.btn.btn-secondary {
 }
 
 .cart-notes ul li {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -3299,20 +3290,20 @@ button.close-btn.btn.btn-secondary {
 }
 
 .making-charge {
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #666;
   font-size: 12px;
 }
 
 .cart-wrapper h3 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin-bottom: 10px;
 }
 
 .order-summary-header h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
   color: #666;
   margin-bottom: 15px;
@@ -3321,13 +3312,14 @@ button.close-btn.btn.btn-secondary {
 .place-order-button .btn-primary {
   font-size: 16px !important;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 15px;
   border: none;
   width: 100%;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .place-order-button .btn-primary:hover {
@@ -3336,15 +3328,15 @@ button.close-btn.btn.btn-secondary {
 }
 
 .place-order-button p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   color: #666;
 }
 
 .queries {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 12px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   text-align: center;
   margin-bottom: 0;
 }
@@ -3357,12 +3349,12 @@ button.close-btn.btn.btn-secondary {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px dashed #c4c4c4;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
 .summary-save {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -3371,19 +3363,19 @@ button.close-btn.btn.btn-secondary {
 .summary-save p {
   margin: 0;
   margin: 8px 0 !important;
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
 }
 
 .summary-t-payable {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px dashed #c4c4c4;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
 .orange {
-  color: #E7701A;
+  color: #e7701a;
 }
 
 .gift-card .input-group {
@@ -3417,9 +3409,9 @@ button.close-btn.btn.btn-secondary {
 
 .cart-wrapper .breadcrumb .breadcrumb-item,
 .cart-wrapper .breadcrumb .breadcrumb-item a {
-  color: #3D3D3F;
+  color: #3d3d3f;
   text-decoration: none;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -3433,9 +3425,9 @@ button.close-btn.btn.btn-secondary {
 }
 
 .checkout-wrapper .checkout-header h3 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin-bottom: 10px;
 }
 
@@ -3457,13 +3449,13 @@ button.close-btn.btn.btn-secondary {
 }
 
 .c-address-area .header h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
   margin-bottom: 10px;
 }
 
 .c-address-area .header h5 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
@@ -3471,7 +3463,7 @@ button.close-btn.btn.btn-secondary {
   display: block;
   color: #848484;
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .address-edit {
@@ -3494,19 +3486,19 @@ button.close-btn.btn.btn-secondary {
 }
 
 .address-radio span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
 }
 
 .single-address p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
   color: #848484;
   max-width: 460px;
 }
 
 .add-address {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   cursor: pointer;
   background: #1889ff;
@@ -3515,11 +3507,12 @@ button.close-btn.btn.btn-secondary {
   padding: 12px 12px;
   color: #fff;
   background-color: #3d3d3f !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .checkout-summary-area {
-  background-color: #ECECEC;
+  background-color: #ececec;
   padding: 25px;
 }
 
@@ -3534,7 +3527,8 @@ button.close-btn.btn.btn-secondary {
   margin-bottom: 0;
 }
 
-.checkout-single-wrapper {}
+.checkout-single-wrapper {
+}
 
 .checkout-single-wrapper.border-right {
   border-right: 1px solid #cdcdcd;
@@ -3546,7 +3540,7 @@ button.close-btn.btn.btn-secondary {
 }
 
 .checkout-item-content h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin-bottom: 4px;
 }
@@ -3563,8 +3557,8 @@ button.close-btn.btn.btn-secondary {
   border: none !important;
 }
 
-.login-address-details .form-floating>label {
-  padding: .6rem 0.75rem;
+.login-address-details .form-floating > label {
+  padding: 0.6rem 0.75rem;
 }
 
 .login-address-details .input-group {
@@ -3572,13 +3566,13 @@ button.close-btn.btn.btn-secondary {
 }
 
 .checkout-item-content h5 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   margin-bottom: 0px;
 }
 
 .checkout-item-content p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin-bottom: 0px;
 }
@@ -3586,11 +3580,12 @@ button.close-btn.btn.btn-secondary {
 .add_submit.btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 32px;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   margin-bottom: 0px;
   max-width: 200px;
@@ -3598,7 +3593,8 @@ button.close-btn.btn.btn-secondary {
 
 .add_submit.btn-primary:hover {
   background-color: #3d3d3f !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   color: #fff !important;
 }
 
@@ -3606,29 +3602,29 @@ button.close-btn.btn.btn-secondary {
   border-radius: 0;
   height: 48px;
   border: 1px solid #cdcdcd;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .checkout-total .total {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
 .total-save {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
   padding: 8px;
   margin: 0;
   font-size: 12px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .checkout-total .total-price {
   font-size: 24px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .promo-code p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin-bottom: 8px;
 }
@@ -3641,7 +3637,7 @@ button.close-btn.btn.btn-secondary {
 
 .show-offer {
   color: #38c24d !important;
-  font-family: 'Muli-semibold' !important;
+  font-family: "Muli-semibold" !important;
   cursor: pointer;
 }
 
@@ -3657,13 +3653,13 @@ button.close-btn.btn.btn-secondary {
   background-color: transparent;
   border-radius: 0;
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
   padding: 5px 8px;
 }
 
 .view-offer {
   cursor: pointer;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -3678,11 +3674,11 @@ button.close-btn.btn.btn-secondary {
 
 .payment-method h5 {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .payment-method span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
@@ -3691,12 +3687,12 @@ button.close-btn.btn.btn-secondary {
   border-radius: 0;
   height: 48px !important;
   border: 1px solid #cdcdcd;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .c-address-area .form-label,
 .edit-profile-wrapper .form-label {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   color: #4d4d4d;
 }
@@ -3712,11 +3708,12 @@ button.close-btn.btn.btn-secondary {
 .payment-method .btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 32px;
   background-color: #3d3d3f !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   margin-bottom: 10px;
 }
@@ -3728,7 +3725,7 @@ button.close-btn.btn.btn-secondary {
 
 .checkout-s-header h3 {
   font-size: 20px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin-bottom: 0;
 }
 
@@ -3744,7 +3741,7 @@ button.close-btn.btn.btn-secondary {
 }
 
 .checkout-mobile .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -3780,7 +3777,7 @@ button.close-btn.btn.btn-secondary {
 
 .p-single-image-wrapper .p-single-image .close_img {
   position: absolute;
-  background-color: #1E2746;
+  background-color: #1e2746;
   color: #fff;
   width: 16px;
   height: 16px;
@@ -3814,7 +3811,7 @@ button.close-btn.btn.btn-secondary {
 
 .all-image-wrapper .all-single-image .close_img {
   position: absolute;
-  background-color: #1E2746;
+  background-color: #1e2746;
   color: #fff;
   width: 16px;
   height: 16px;
@@ -3836,12 +3833,12 @@ button.close-btn.btn.btn-secondary {
 /*----- edit profile ----*/
 .my-account-button .btn-success {
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 0;
   /* box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px; */
   border: none;
-  color: #2C2A2B;
+  color: #2c2a2b;
   /* margin: auto; */
   /* display: block; */
   /* max-width: 180px;
@@ -3850,14 +3847,13 @@ button.close-btn.btn.btn-secondary {
   font-size: 14px;
   /* border: 2px solid #000; */
   border-radius: 0px;
-  color: #3579B8;
+  color: #3579b8;
   /* padding: 7px 15px; */
   /* width: 144px; */
   font-family: "Muli", Arial, sans-serif;
   font-weight: 400;
   border: none;
   padding: 0;
-
 }
 
 .my-account-button .dropdown-menu {
@@ -3866,11 +3862,11 @@ button.close-btn.btn.btn-secondary {
 
 .my-account-button .btn-success:hover {
   background-color: transparent !important;
-  color: #2C2A2B !important;
+  color: #2c2a2b !important;
 }
 
 .edit-profile-wrapper .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
+.nav-pills .show > .nav-link {
   background-color: #fff;
   color: #000 !important;
 }
@@ -3885,7 +3881,7 @@ button.close-btn.btn.btn-secondary {
 }
 
 .edit-profile-wrapper h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
 }
 
@@ -3927,12 +3923,12 @@ button.close-btn.btn.btn-secondary {
 }
 
 .edit-profile-wrapper .nav-item:not(:last-child) {
-  border-bottom: 1px solid #A2E0E9;
+  border-bottom: 1px solid #a2e0e9;
   padding-bottom: 8px;
 }
 
 .edit-profile-wrapper .nav-pills .nav-link {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   border-radius: 0px !important;
   padding: 12px 14px;
@@ -3940,14 +3936,14 @@ button.close-btn.btn.btn-secondary {
 }
 
 .edit-profile-wrapper h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin-bottom: 20px;
 }
 
 .edit-profile-wrapper .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -4016,7 +4012,6 @@ button.close-btn.btn.btn-secondary {
   text-transform: uppercase;
   border-radius: 0;
   padding: 8px 15px;
-
 }
 
 .edit-profile-wrapper {
@@ -4025,7 +4020,7 @@ button.close-btn.btn.btn-secondary {
 }
 
 .edit-profile-wrapper .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -4040,7 +4035,7 @@ button.close-btn.btn.btn-secondary {
 .checkout-mobile .checkout-s-header h3,
 .checkout-mobile .mob-order-summary h3 {
   font-size: 12px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .checkout-mobile .checkout-single-item {
@@ -4054,11 +4049,11 @@ button.close-btn.btn.btn-secondary {
 .checkout-mobile .mobile-checkout-header h3 {
   font-size: 20px;
   margin: 0;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .checkout-mobile .checkout-item-content h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
 }
 
@@ -4070,7 +4065,7 @@ button.close-btn.btn.btn-secondary {
 .border-bottom {
   height: 1px;
   width: 100%;
-  background-color: #A2E0E9;
+  background-color: #a2e0e9;
 }
 
 .summary-total-area {
@@ -4081,14 +4076,14 @@ button.close-btn.btn.btn-secondary {
 .summary-total-area .order-save {
   margin: 0;
   font-size: 10px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .summary-total-area div {
   justify-content: space-between;
   display: flex;
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .checkout-mobile .payment-method {
@@ -4098,7 +4093,7 @@ button.close-btn.btn.btn-secondary {
 
 .checkout-mobile .address-radio span,
 .add-address-mobile .address-radio span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
@@ -4109,11 +4104,12 @@ button.close-btn.btn.btn-secondary {
 .mobile-pay-now .btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 32px;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   width: 100%;
 }
@@ -4139,11 +4135,12 @@ button.close-btn.btn.btn-secondary {
 .address-btn .btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 32px;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   width: 100%;
 }
@@ -4157,7 +4154,8 @@ button.close-btn.btn.btn-secondary {
   background-color: #3d3d3f;
 }
 
-.invalid-feedback {}
+.invalid-feedback {
+}
 
 .form-control:focus {
   box-shadow: none !important;
@@ -4174,23 +4172,22 @@ button.close-btn.btn.btn-secondary {
   border: 2px solid #000;
   border-radius: 0;
   background-color: transparent;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .address-btn .btn-default:hover {
   background-color: #3d3d3f !important;
   border: 2px solid #000;
   color: #fff !important;
-
 }
-
 
 .add-address-mobile {
   display: none;
 }
 
 .add-address-mobile .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -4211,12 +4208,12 @@ button.close-btn.btn.btn-secondary {
 }
 
 .order-successful-content h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 36px;
 }
 
 .order-successful-content p {
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #bebebe;
   font-size: 24px;
 }
@@ -4233,15 +4230,15 @@ button.close-btn.btn.btn-secondary {
 }
 
 .order-successful-wrapper ul li p:first-child {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
-  color: #8E8E8E;
+  color: #8e8e8e;
 }
 
 .order-successful-wrapper ul li p:last-child {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 22px;
-  color: #3D3D3F;
+  color: #3d3d3f;
 }
 
 .successful-wrapper-list ul li {
@@ -4261,15 +4258,15 @@ button.close-btn.btn.btn-secondary {
 }
 
 .successful-wrapper-list ul li p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
-  color: #3D3D3F;
+  color: #3d3d3f;
 }
 
 .successfull-total p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
-  color: #3D3D3F;
+  color: #3d3d3f;
 }
 
 .successfull-total p:last-child {
@@ -4291,7 +4288,6 @@ button.close-btn.btn.btn-secondary {
   box-shadow: 0px 24px 144px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   padding: 16px;
-
 }
 
 .login-form-wrapper .form-control {
@@ -4309,14 +4305,13 @@ button.close-btn.btn.btn-secondary {
 }
 
 .login-text {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 12px;
   text-align: right;
 }
 
 .login-text a {
-  color: #DD0707 !important;
-
+  color: #dd0707 !important;
 }
 
 .login-footer-button {
@@ -4325,50 +4320,50 @@ button.close-btn.btn.btn-secondary {
 }
 
 .login-footer-button .email-btn {
-  background-color: #F15D47;
+  background-color: #f15d47;
   border: none;
   border-radius: 0;
   color: #fff !important;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 13px;
   padding: 14.5px 8px;
   width: 100%;
 }
 
 .login-footer-button .email-btn:hover {
-  background-color: #F15D47 !important;
+  background-color: #f15d47 !important;
   color: #fff !important;
 }
 
 .login-footer-button .fb-btn {
-  background-color: #3B5998;
+  background-color: #3b5998;
   border: none;
   border-radius: 0;
   color: #fff !important;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 13px;
   padding: 14.5px 8px;
   width: 100%;
 }
 
 .login-footer-button .fb-btn:hover {
-  background-color: #3B5998 !important;
+  background-color: #3b5998 !important;
   color: #fff !important;
 }
 
 .login-header-wrapper .btn-primary {
   background-color: transparent;
   font-size: 20px;
-  border: 2px solid #2C2A2B;
+  border: 2px solid #2c2a2b;
   border-radius: 0px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   padding: 7px 15px;
   max-width: 200px;
   width: 100%;
 }
 
 .login-header-wrapper .btn-primary:hover {
-  background-color: #2C2A2B !important;
+  background-color: #2c2a2b !important;
   border: 2px solid #000 !important;
   color: #fff !important;
 }
@@ -4380,11 +4375,12 @@ button.close-btn.btn.btn-secondary {
 .login-button .btn-primary {
   font-size: 14px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 13.5px 15px;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   margin: auto;
   display: block;
@@ -4398,12 +4394,11 @@ button.close-btn.btn.btn-secondary {
 }
 
 .login-image {
-  background-color: #ECECEC;
+  background-color: #ececec;
   max-width: 480px;
   margin: auto;
   padding: 12px;
   border-radius: 6px;
-
 }
 
 .login-pro-inner {
@@ -4425,51 +4420,51 @@ img.login-profile {
 
 .login-header h5 {
   font-size: 18px;
-  font-family: 'Muli-bold';
+  font-family: "Muli-bold";
   /* max-width: 550px; */
   margin: 6px auto 6px;
   /* text-align: center; */
 }
 
 .login-header p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 12px;
   margin-bottom: 6px;
 }
 
 .login-form-wrapper h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 28px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin: 0;
 }
 
 .login-form-wrapper h2 span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
-  color: #8E8E8E;
+  color: #8e8e8e;
   display: block;
   text-align: right;
 }
 
 .signup-policy-wrapper {
   font-size: 12px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .signup-policy-wrapper a {
-  color: #F15D47 !important;
+  color: #f15d47 !important;
   text-decoration: underline !important;
 }
 
 .forgot-password {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   color: #848484;
 }
 
 .forgot-password a {
-  color: #4075DA !important;
+  color: #4075da !important;
 }
 
 .login-button-mob {
@@ -4478,14 +4473,14 @@ img.login-profile {
 
 .login-header-wrapper .btn-primary:hover {
   background-color: transparent;
-  color: #2C2A2B;
-  border-color: #2C2A2B;
+  color: #2c2a2b;
+  border-color: #2c2a2b;
 }
 
 .forgot-wrapper h2 span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
-  color: #8E8E8E;
+  color: #8e8e8e;
 }
 
 .forgot-wrapper h2 {
@@ -4504,9 +4499,9 @@ img.login-profile {
 }
 
 .email-wrapper h2 span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
-  color: #8E8E8E;
+  color: #8e8e8e;
   max-width: 456px;
   margin: 10px auto 0;
 }
@@ -4553,11 +4548,12 @@ img.login-profile {
 .tracker .btn-primary {
   font-size: 14px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 8px 8px;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   display: block;
   min-width: 140px;
@@ -4576,9 +4572,9 @@ img.login-profile {
 }
 
 .my-order-header h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin-bottom: 20px;
 }
 
@@ -4598,7 +4594,7 @@ img.login-profile {
 } */
 
 .my-order-wrapper {
-  border: 1px solid #8E8E8E;
+  border: 1px solid #8e8e8e;
 }
 
 .order-content {
@@ -4607,22 +4603,22 @@ img.login-profile {
 }
 
 .id-no h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
 }
 
 .id-no h3 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
 .order-status {
-  background: #F7DDBA;
+  background: #f7ddba;
   padding: 8px 12px;
 }
 
 .order-status h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   margin: 0;
 }
@@ -4636,19 +4632,19 @@ img.login-profile {
 
 .total h5 {
   margin: 0;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
 }
 
 .order-address h6 {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin: 0;
 }
 
 .order-address h6 span {
-  color: #3D3D3F;
+  color: #3d3d3f;
   font-size: 18px;
   display: block;
 }
@@ -4676,12 +4672,13 @@ img.login-profile {
 .summary-order-image .btn-primary {
   font-size: 18px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 14px 15px;
   background-color: #3d3d3f;
   border: none;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   max-width: 230px;
   width: 100%;
 }
@@ -4697,13 +4694,13 @@ img.login-profile {
 }
 
 .summary-order-image h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 40px;
   margin-bottom: 14px;
 }
 
 .summary-order-image h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
   margin-bottom: 14px;
 }
@@ -4715,7 +4712,7 @@ img.login-profile {
 }
 
 .summary-content h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
 }
 
@@ -4729,7 +4726,7 @@ img.login-profile {
 .summary-content .item-wrapper .list-header .item-header {
   display: table-cell;
   width: 65%;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
 }
 
@@ -4742,7 +4739,7 @@ img.login-profile {
 .summary-content .item-wrapper .list-header .qty-header {
   display: table-cell;
   width: 15%;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
   vertical-align: top;
 }
@@ -4751,7 +4748,7 @@ img.login-profile {
 .summary-content .item-wrapper .list-header .price-header {
   display: table-cell;
   width: 20%;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 18px;
   vertical-align: top;
 }
@@ -4780,19 +4777,19 @@ img.login-profile {
 
 .summary-content .item-wrapper span h4 {
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin-bottom: 4px;
 }
 
 .item-wrapper h3 {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin-bottom: 4px;
 }
 
 .summary-content .item-wrapper span h5 {
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .price-header h3 {
@@ -4801,11 +4798,11 @@ img.login-profile {
 
 .summary-content .header-price ul li {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .summary-content .header-price ul li span span {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
   padding: 5px 12px;
 }
 
@@ -4829,17 +4826,16 @@ img.login-profile {
   justify-content: space-between;
   margin-bottom: 4px;
   flex-wrap: wrap;
-
 }
 
 .header-item-img h3 {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .summary-content-right ul li span {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .summary-content-right ul li:last-child {
@@ -4853,12 +4849,12 @@ img.login-profile {
 
 .summary-content-right ul li span:first-child {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .summary-content-right ul li span:nth-child(2) {
   font-size: 14px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .flat-off-image {
@@ -4888,7 +4884,7 @@ img.login-profile {
 }
 
 .flat-off-image .overlay h2 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 28px;
   color: #fff;
   line-height: 1.5;
@@ -4897,7 +4893,7 @@ img.login-profile {
 .flat-off-image .overlay .btn-primary {
   font-size: 18px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 15px;
   background-color: transparent;
@@ -4928,13 +4924,13 @@ img.login-profile {
   text-align: center;
   display: block;
   margin: auto;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 48px;
 }
 
 .modal-inner .modal-header .modal-title span {
   display: block;
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 22px;
 }
 
@@ -4966,22 +4962,23 @@ img.login-profile {
 }
 
 .modal-inner .rate-wrapper ul li {
-  color: #E7701A;
+  color: #e7701a;
   font-size: 26px;
 }
 
 .modal-inner .rate-wrapper ul li:last-child {
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .modal-feedback-btn .btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 15px;
   background-color: #3d3d3f;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none;
   max-width: 230px;
   width: 100%;
@@ -5004,7 +5001,7 @@ img.login-profile {
 }
 
 .track-header-wrapper h1 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 24px;
   margin: 0;
   display: flex;
@@ -5013,12 +5010,12 @@ img.login-profile {
 }
 
 .track-order .p-order {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
 }
 
 .track-header-wrapper h1 span {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   background-color: #eee;
   padding: 5px 12px;
@@ -5034,11 +5031,11 @@ img.login-profile {
 }
 
 .vertical.timeline:before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   height: 100%;
-  border: 1px dotted #C4C4C4;
+  border: 1px dotted #c4c4c4;
 }
 
 .line {
@@ -5056,7 +5053,6 @@ img.login-profile {
   align-items: center;
   height: 100%;
   width: 4px;
-
 }
 
 .steps .step:nth-child(2) div {
@@ -5092,16 +5088,15 @@ img.login-profile {
   top: -8px;
   left: 60px;
   white-space: nowrap;
-  color: #2C2A2B;
-  font-family: 'Muli';
-
+  color: #2c2a2b;
+  font-family: "Muli";
 }
 
 .steps .step div span {
   font-size: 16px;
-  color: #2C2A2B;
-  font-family: 'Muli';
-  background-color: #F7DDBA;
+  color: #2c2a2b;
+  font-family: "Muli";
+  background-color: #f7ddba;
   padding: 5px 12px;
   border-radius: 4px;
 }
@@ -5116,20 +5111,20 @@ span.icon {
 }
 
 .step h1 {
-  color: #2C2A2B;
+  color: #2c2a2b;
   display: flex;
   font-size: 18px;
   align-items: center;
   gap: 15px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin: 0;
 }
 
 .step h3 {
-  color: #2C2A2B;
+  color: #2c2a2b;
   display: flex;
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
   align-items: center;
   gap: 15px;
 }
@@ -5139,27 +5134,27 @@ span.icon {
 }
 
 .track-order-footer {
-  background-color: #F7DDBA;
+  background-color: #f7ddba;
   padding: 20px;
 }
 
 .track-order-footer .track-f-content h3 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 20px;
-  color: #2C2A2B;
+  color: #2c2a2b;
 }
 
 .track-order-footer .track-f-content p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
-  color: #2C2A2B;
+  color: #2c2a2b;
   margin-bottom: 8px;
 }
 
 .track-order-footer .btn-primary {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 15px;
   background-color: #fff;
@@ -5206,14 +5201,14 @@ span.icon {
 }
 
 .support-content h4 {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 48px;
   color: #fff;
   text-align: center;
 }
 
 .support-contact {
-  background: #F7DDBA;
+  background: #f7ddba;
   padding: 10px;
   display: flex;
   left: 0;
@@ -5227,18 +5222,18 @@ span.icon {
 
 .support-contact p {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin: 0;
 }
 
 .faq-wrapper .faq-header {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 48px;
 }
 
 .faq-wrapper .accordion .accordion-header {
   font-size: 18px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .faq-wrapper .accordion .accordion-button {
@@ -5251,7 +5246,7 @@ span.icon {
 }
 
 .support-wrapper .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -5274,13 +5269,13 @@ span.icon {
 
 .vision-header h2 {
   font-size: 48px;
-  font-family: 'Muli';
+  font-family: "Muli";
   position: relative;
   margin-bottom: 40px;
 }
 
 .vision-header h2:before {
-  content: '';
+  content: "";
   height: 8px;
   left: 0;
   width: 140px;
@@ -5291,13 +5286,13 @@ span.icon {
 }
 
 .vision-header p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin-bottom: 5px;
 }
 
 .vision .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -5322,13 +5317,13 @@ span.icon {
 
 .exchange-header h2 {
   font-size: 48px;
-  font-family: 'Muli';
+  font-family: "Muli";
   position: relative;
   margin-bottom: 40px;
 }
 
 .exchange-header h2:before {
-  content: '';
+  content: "";
   height: 8px;
   left: 0;
   width: 140px;
@@ -5339,7 +5334,7 @@ span.icon {
 }
 
 .exchange-header p {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   margin-bottom: 5px;
 }
@@ -5347,7 +5342,7 @@ span.icon {
 .exchange .mobile-checkout-header,
 .about-wrapper .mobile-checkout-header,
 .contact-wrapper .mobile-checkout-header {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
   display: flex;
   gap: 10px;
@@ -5362,13 +5357,13 @@ span.icon {
 /*------ about us page ------*/
 .about-header h2 {
   font-size: 48px;
-  font-family: 'Muli';
+  font-family: "Muli";
   position: relative;
   margin-bottom: 40px;
 }
 
 .about-header h2:before {
-  content: '';
+  content: "";
   height: 8px;
   left: 0;
   width: 140px;
@@ -5379,7 +5374,7 @@ span.icon {
 }
 
 .about-wrapper {
-  background-color: #ECECEC;
+  background-color: #ececec;
   padding: 45px 0 250px 0;
 }
 
@@ -5393,8 +5388,7 @@ span.icon {
 
 .content-paragraph p {
   font-size: 14px;
-  font-family: 'Muli';
-
+  font-family: "Muli";
 }
 
 .content-paragraph {
@@ -5404,7 +5398,7 @@ span.icon {
 .about-mission h3,
 .about-gallery h3 {
   font-size: 36px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .about-mission {
@@ -5413,7 +5407,7 @@ span.icon {
 
 .about-mission p {
   font-size: 16px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .grid-item {
@@ -5422,43 +5416,42 @@ span.icon {
   grid-template-rows: repeat(5, 200px);
   grid-gap: 20px;
   margin-bottom: 70px;
-
 }
 
 .item1 {
   grid-column: 1/2;
   grid-row: 1/3;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 .item2 {
   grid-column: 2/3;
   grid-row: 1/2;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 .item3 {
   grid-column: 1/2;
   grid-row: 3/5;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 .item4 {
   grid-column: 2/3;
   grid-row: 2/4;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 .item5 {
   grid-column: 1/2;
   grid-row: 5/7;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 .item6 {
   grid-column: 2/3;
   grid-row: 4/7;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 /*----- contact page ----*/
@@ -5468,13 +5461,13 @@ span.icon {
 
 .contact-wrapper .contact-info h2 {
   font-size: 48px;
-  font-family: 'Muli';
+  font-family: "Muli";
   position: relative;
   margin-bottom: 40px;
 }
 
 .contact-wrapper .contact-info h2:before {
-  content: '';
+  content: "";
   height: 8px;
   left: 0;
   width: 140px;
@@ -5486,11 +5479,11 @@ span.icon {
 
 .contact-wrapper .contact-info p {
   font-size: 24px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .contact-info ul li {
-  border: 1px solid #A2E0E9;
+  border: 1px solid #a2e0e9;
   border-radius: 6px;
   display: flex;
   gap: 15px;
@@ -5498,7 +5491,7 @@ span.icon {
   margin-bottom: 24px;
   max-width: 468px;
   font-size: 24px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .contact-form .form-control {
@@ -5506,17 +5499,17 @@ span.icon {
 }
 
 .contact-form h2 {
-  color: #2C2A2B;
+  color: #2c2a2b;
   font-size: 36px;
-  font-family: 'Muli';
+  font-family: "Muli";
   line-height: 1.4;
 }
 
 .contact-form h2 span {
   display: block;
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 24px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .social-wrapper {
@@ -5527,7 +5520,7 @@ span.icon {
 
 .f-header h5 {
   margin: 15px 0px 0px 0;
-  font-family: 'Muli';
+  font-family: "Muli";
   color: #fff;
   font-size: 16px;
 }
@@ -5542,7 +5535,7 @@ span.icon {
 }
 
 .ft-header-border:after {
-  content: '';
+  content: "";
   position: absolute;
   height: 100%;
   width: 1px;
@@ -5552,7 +5545,7 @@ span.icon {
 }
 
 .footer form label {
-  color: #C4C4C4 !important;
+  color: #c4c4c4 !important;
   font-family: "Muli";
   font-size: 14px;
   line-height: 1.8;
@@ -5561,7 +5554,7 @@ span.icon {
 
 .footer h3 {
   display: block;
-  color: #C4C4C4 !important;
+  color: #c4c4c4 !important;
   font-family: "Muli";
   font-size: 16px;
   line-height: 1.8;
@@ -5570,7 +5563,7 @@ span.icon {
 
 .footer h6 {
   display: block;
-  color: #C4C4C4 !important;
+  color: #c4c4c4 !important;
   font-family: "Muli";
   font-size: 16px;
   line-height: 1.8;
@@ -5578,7 +5571,7 @@ span.icon {
 }
 
 .footer .input-group-text {
-  background-color: #F05D4D;
+  background-color: #f05d4d;
   font-family: "Muli";
   font-size: 14px;
   color: #fff;
@@ -5618,7 +5611,7 @@ span.icon {
 .page-not-found h1,
 .network-error h1 {
   font-size: 28px;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .page-not-found,
@@ -5631,12 +5624,13 @@ span.icon {
 .network-error .btn-primary {
   font-size: 18px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 16px;
   background-color: #3d3d3f;
   border: none;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   max-width: 230px;
   width: 100%;
 }
@@ -5647,7 +5641,6 @@ span.icon {
   left: 10px;
   z-index: 999; */
   /* animation: blinker 1s linear infinite; */
-
 }
 
 .making-chrg-offer {
@@ -5657,7 +5650,7 @@ span.icon {
 }
 
 .making-chrg-offer h4:before {
-  content: '';
+  content: "";
   position: absolute;
   border: 0;
   border-top: 6px solid #fac6c1;
@@ -5668,7 +5661,7 @@ span.icon {
 }
 
 .making-chrg-offer h4:after {
-  content: '';
+  content: "";
   position: absolute;
   border: 0;
   border-top: 6px solid #fac6c1;
@@ -5701,11 +5694,11 @@ span.icon {
   line-height: 19px;
   line-height: 18px;
   font-weight: 500;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   overflow: visible;
   z-index: 999;
 }
@@ -5714,10 +5707,9 @@ span.icon {
   margin: 0;
   font-size: 14px;
   color: #f15d4c;
-  font-family: 'Muli';
+  font-family: "Muli";
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
 }
-
 
 @keyframes blinker {
   50% {
@@ -5728,7 +5720,6 @@ span.icon {
 .making-chrg-mob {
   display: none;
 }
-
 
 .pac-container {
   z-index: 9999;
@@ -5745,7 +5736,7 @@ span.icon {
 /*----- product not found ----*/
 .no-product h1 {
   font-size: 28px;
-  font-family: 'Muli';
+  font-family: "Muli";
   margin-top: 25px;
 }
 
@@ -5757,12 +5748,13 @@ span.icon {
 .no-product .btn-primary {
   font-size: 18px;
   text-transform: uppercase;
-  font-family: 'Muli';
+  font-family: "Muli";
   border-radius: 0;
   padding: 12px 16px;
   background-color: #3d3d3f;
   border: none;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   max-width: 180px;
   width: 100%;
   height: 48px;
@@ -5771,7 +5763,8 @@ span.icon {
 .no-product .btn-primary:hover {
   background-color: #3d3d3f;
   border: none;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   color: #fff !important;
 }
 
@@ -5779,15 +5772,13 @@ span.icon {
   max-width: 500px;
 }
 
-
-
 /** ----- CALENDAR ----- **/
 .calender-wrapper .react-calendar__navigation button:enabled:hover {
   background-color: transparent !important;
 }
 
 .calender-wrapper .MuiCardHeader-root {
-  background-color: #1E2746;
+  background-color: #1e2746;
 }
 
 .calender-wrapper .MuiCardHeader-content span {
@@ -5810,9 +5801,11 @@ span.icon {
   background-color: transparent;
 }
 
-.calender-wrapper .react-calendar .react-calendar__navigation__label__labelText {
+.calender-wrapper
+  .react-calendar
+  .react-calendar__navigation__label__labelText {
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
@@ -5828,11 +5821,13 @@ span.icon {
   background-color: transparent;
 }
 
-.calender-wrapper .react-calendar .react-calendar__month-view__weekdays__weekday {
+.calender-wrapper
+  .react-calendar
+  .react-calendar__month-view__weekdays__weekday {
   font-size: 14px;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   font-weight: 500;
-  color: #1E2746;
+  color: #1e2746;
 }
 
 .calender-wrapper .react-calendar__navigation button {
@@ -5885,7 +5880,6 @@ span.icon {
 
 .desktop_menu {
   display: block;
-
 }
 
 .mobile_menu {
@@ -5977,7 +5971,7 @@ span.icon {
   height: calc(2.9rem + 2px) !important;
 }
 
-.order-success-right .form-floating>label {
+.order-success-right .form-floating > label {
   padding: 12px 12px;
 }
 
@@ -6014,7 +6008,8 @@ span.icon {
   border-radius: 0 !important;
   padding: 12px 15px !important;
   background-color: #3d3d3f !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   border: none !important;
   width: 100%;
 }
@@ -6025,11 +6020,11 @@ span.icon {
 }
 
 .order-successful-btn .btn-primary {
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 16px;
   border-radius: 0;
-  border: 1px solid #3D3D3F;
-  color: #3D3D3F;
+  border: 1px solid #3d3d3f;
+  color: #3d3d3f;
   background-color: transparent;
   padding: 8px 25px;
   margin: auto;
@@ -6144,8 +6139,8 @@ span.save-offer {
 
 .popup-offers ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, .5);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .promo-code {
@@ -6177,7 +6172,7 @@ span.save-offer {
 
 #counter li:before {
   position: absolute;
-  content: '';
+  content: "";
   left: 12px;
   right: 12px;
   bottom: 12px;
@@ -6200,11 +6195,11 @@ span.save-offer {
   bottom: -6px;
   right: auto;
   position: absolute;
-  content: '';
+  content: "";
 }
 
 span.count.percent span {
-  color: #2C2A2B;
+  color: #2c2a2b;
   font-family: "Muli-semibold";
 }
 
@@ -6223,7 +6218,7 @@ span.count.percent span {
 }
 
 #counter li:nth-child(3) .counter_header h1 {
-  color: #EE436D;
+  color: #ee436d;
 }
 
 #counter li:first-child {
@@ -6265,7 +6260,7 @@ span.count.percent span {
 }
 
 #counter li:nth-child(3) .counter-icon {
-  color: #EE436D;
+  color: #ee436d;
 }
 
 .counter-icon {
@@ -6273,7 +6268,6 @@ span.count.percent span {
   line-height: 35px;
   margin: 0 0 4px;
   transition: all 0.3s ease 0s;
-
 }
 
 #counter li:hover .counter-icon {
@@ -6369,7 +6363,6 @@ span.count.percent span {
 }
 
 @media screen and (max-width: 1440px) {
-
   .p {
     min-height: 68vh;
   }
@@ -6390,7 +6383,6 @@ span.count.percent span {
 }
 
 @media screen and (max-width: 1366px) {
-
   .product-details-wrapper .container,
   .wrapper-checkout .container {
     max-width: 1200px;
@@ -6414,8 +6406,6 @@ span.count.percent span {
   .socialmedia-wrapper .container {
     max-width: 1140px;
   }
-
-
 
   .search-slider .swiper-slide {
     margin-right: 40px !important;
@@ -6562,7 +6552,6 @@ span.count.percent span {
 
   .affordable-earring-inner {
     background-position: right -120px center !important;
-
   }
 
   .affordable-earring-header h2 {
@@ -6612,7 +6601,6 @@ span.count.percent span {
     display: block;
     padding: 4px;
     margin: 0px;
-
   }
 
   .menu-wrapper .navbar {
@@ -6835,13 +6823,12 @@ span.count.percent span {
     border-radius: 0;
     border: none;
     background-color: #fff;
-
   }
 
   .mobile-search-header .input-group .form-control {
     border: none;
     padding: 12px 10px;
-    font-family: "Muli", Arial, sans-serif
+    font-family: "Muli", Arial, sans-serif;
   }
 
   .mobile-cart .cart-image {
@@ -7328,7 +7315,7 @@ span.count.percent span {
   }
 
   .mobile-dropdown-wrapper h5 {
-    font-family: 'Muli';
+    font-family: "Muli";
     font-size: 12px;
     /* margin-left: 16px; */
     margin-bottom: 0;
@@ -7551,8 +7538,6 @@ span.count.percent span {
     font-size: 14px;
   }
 
-
-
   .search-slider .wishlist svg {
     color: #666 !important;
   }
@@ -7573,7 +7558,6 @@ span.count.percent span {
   /*----- promise ----*/
   .promise h2 {
     font-size: 20px;
-
   }
 
   .promise-box img {
@@ -7642,7 +7626,6 @@ span.count.percent span {
     margin-bottom: 5px;
   }
 
-
   .c-content h5 {
     font-size: 14px;
     text-align: left;
@@ -7674,7 +7657,7 @@ span.count.percent span {
   }
 
   .client-area {
-    border-left: 6px solid #2C2A2B;
+    border-left: 6px solid #2c2a2b;
     margin-bottom: 25px;
   }
 
@@ -7889,11 +7872,18 @@ span.count.percent span {
     font-size: 12px;
   }
 
-  .mobile-view .product-details-items .mobile-view .product-details-items-item span {
+  .mobile-view
+    .product-details-items
+    .mobile-view
+    .product-details-items-item
+    span {
     font-size: 12px;
   }
 
-  .mobile-view .product-details-items .product-details-items-item.details-header span {
+  .mobile-view
+    .product-details-items
+    .product-details-items-item.details-header
+    span {
     font-size: 18px;
   }
 
@@ -7920,12 +7910,12 @@ span.count.percent span {
   }
 
   .rating-wrapper ul li {
-    color: #F4DF1C;
+    color: #f4df1c;
     font-size: 20px;
   }
 
   .rating-wrapper .blank-star {
-    color: #C4C4C4;
+    color: #c4c4c4;
   }
 
   .similar-product-slider .s-slider-content h2 {
@@ -7944,14 +7934,14 @@ span.count.percent span {
   }
 
   .similar-slider-inner .p-headder-offer-price .disc {
-    background-color: #F7DDBA;
+    background-color: #f7ddba;
     font-size: 12px;
     padding: 6px;
   }
 
   .similar-slider-inner {
     padding: 8px;
-    border: 1px solid #C4C4C4;
+    border: 1px solid #c4c4c4;
   }
 
   .similar-slider-inner .s-slider-image img {
@@ -7977,7 +7967,7 @@ span.count.percent span {
   }
 
   .similar-product-slider h4 {
-    font-family: 'Muli';
+    font-family: "Muli";
     font-size: 20px;
     margin: 20px 0 15px 0;
   }
@@ -8001,7 +7991,7 @@ span.count.percent span {
   .product-float-buttons .btn-secondary {
     font-size: 16px;
     text-transform: uppercase;
-    font-family: 'Muli';
+    font-family: "Muli";
     border-radius: 0;
     padding: 10px 16px;
   }
@@ -8009,18 +7999,18 @@ span.count.percent span {
   .product-float-buttons .btn-success {
     font-size: 16px;
     text-transform: uppercase;
-    font-family: 'Muli';
+    font-family: "Muli";
     border-radius: 0;
     padding: 10px 16px;
     background-color: transparent;
-    border: 1px solid #3D3D3F;
-    color: #3D3D3F;
+    border: 1px solid #3d3d3f;
+    color: #3d3d3f;
   }
 
   .product-float-buttons .btn-success:hover {
     background-color: transparent !important;
-    border: 1px solid #3D3D3F;
-    color: #3D3D3F !important;
+    border: 1px solid #3d3d3f;
+    color: #3d3d3f !important;
   }
 
   .product-float-buttons svg {
@@ -8038,13 +8028,10 @@ span.count.percent span {
     width: 100%;
     padding: 4px 12px;
     background: #fff;
-
   }
 
-
-
   .mobile-search .input-group {
-    border: 1px solid #A2E0E9;
+    border: 1px solid #a2e0e9;
     padding: 3px;
     border-radius: 6px;
   }
@@ -8055,7 +8042,7 @@ span.count.percent span {
   }
 
   .mobile-search .input-group .input-group-text {
-    background-color: #2C2A2B;
+    background-color: #2c2a2b;
     color: #fff;
     border-radius: 6px !important;
   }
@@ -8116,7 +8103,6 @@ span.count.percent span {
     line-height: 19px;
     top: 12px;
     left: 4px;
-
   }
 
   .search-slider .wishlist svg {
@@ -8153,10 +8139,8 @@ span.count.percent span {
     color: #3d3d3f;
     border: none;
     padding: 0;
-    font-family: 'Muli';
+    font-family: "Muli";
   }
-
-
 
   .dropdown-toggle::after {
     display: none !important;
@@ -8180,7 +8164,8 @@ span.count.percent span {
     font-size: 12px;
   }
 
-  .breadcrumb-wrapper {}
+  .breadcrumb-wrapper {
+  }
 
   .mobile-cart .cart-inner {
     display: grid;
@@ -8188,7 +8173,8 @@ span.count.percent span {
     grid-gap: 8px;
   }
 
-  .cart-inner-wrapper {}
+  .cart-inner-wrapper {
+  }
 
   .mobile-cart .cart-image-title h2 {
     font-size: 16px;
@@ -8221,8 +8207,8 @@ span.count.percent span {
   }
 
   .mobile-cart .cart-discount-price .price {
-    color: #2C2A2B;
-    font-family: 'Muli-semibold';
+    color: #2c2a2b;
+    font-family: "Muli-semibold";
     font-size: 16px;
   }
 
@@ -8256,8 +8242,8 @@ span.count.percent span {
   }
 
   .mobile-cart .summary-save .input-group-text {
-    background: #F7DDBA;
-    font-family: 'Muli';
+    background: #f7ddba;
+    font-family: "Muli";
     font-size: 12px;
     border-radius: 0;
     border: none;
@@ -8282,14 +8268,14 @@ span.count.percent span {
   }
 
   .mobile-cart .place-order-button div h3 {
-    font-family: 'Muli';
+    font-family: "Muli";
     font-weight: 700;
     font-size: 24px;
     margin: 0;
   }
 
   .mobile-cart .mobile-cart-header {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
     display: flex;
     gap: 10px;
@@ -8304,7 +8290,7 @@ span.count.percent span {
   .mobile-cart .mobile-cart-header h3 {
     font-size: 20px;
     margin: 0;
-    font-family: 'Muli';
+    font-family: "Muli";
   }
 
   .mobile-cart {
@@ -8351,11 +8337,11 @@ span.count.percent span {
 
   .checkout-s-header h3 {
     font-size: 10px;
-    font-family: 'Muli';
+    font-family: "Muli";
   }
 
   .add-address-mobile .checkout-summary-area {
-    background-color: #ECECEC;
+    background-color: #ececec;
     padding: 10px;
   }
 
@@ -8403,7 +8389,7 @@ span.count.percent span {
   }
 
   .order-successful-mobile .mobile-checkout-header {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
     display: flex;
     gap: 10px;
@@ -8433,8 +8419,6 @@ span.count.percent span {
     font-size: 14px;
   }
 
-
-
   .order-successful {
     display: none;
   }
@@ -8456,7 +8440,6 @@ span.count.percent span {
 
   .login-button-mob {
     display: block;
-
   }
 
   .login-button-mob .btn-primary {
@@ -8464,7 +8447,7 @@ span.count.percent span {
     font-size: 16px;
     border: 2px solid #000;
     border-radius: 0px;
-    color: #2C2A2B;
+    color: #2c2a2b;
     padding: 7px 15px;
     max-width: 100%;
     width: 100%;
@@ -8485,7 +8468,7 @@ span.count.percent span {
 
   .email-mobile .mobile-checkout-header,
   .forgot-password-mobile .mobile-checkout-header {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
     display: flex;
     gap: 10px;
@@ -8525,9 +8508,9 @@ span.count.percent span {
   }
 
   .forgot-wrapper-mobile span {
-    font-family: 'Muli';
+    font-family: "Muli";
     font-size: 24px;
-    color: #8E8E8E;
+    color: #8e8e8e;
   }
 
   .forgot-wrapper-mobile .form-control {
@@ -8547,11 +8530,12 @@ span.count.percent span {
   .forget-pass-mob-footer .btn-primary {
     font-size: 16px;
     text-transform: uppercase;
-    font-family: 'Muli';
+    font-family: "Muli";
     border-radius: 0;
     padding: 12px 15px;
     background-color: #3d3d3f;
-    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+      rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
     border: none;
     width: 100%;
   }
@@ -8561,7 +8545,7 @@ span.count.percent span {
   }
 
   .order-mobile .mobile-checkout-header {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
     display: flex;
     gap: 10px;
@@ -8584,8 +8568,6 @@ span.count.percent span {
   .order-mobile .tracker .total h5 {
     font-size: 18px;
   }
-
-
 
   .order-mobile .tracker {
     width: 100%;
@@ -8612,7 +8594,7 @@ span.count.percent span {
   }
 
   .mobile-summary-wrapper .mobile-checkout-header {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
     display: flex;
     gap: 10px;
@@ -8632,7 +8614,7 @@ span.count.percent span {
   }
 
   .mobile-summary-wrapper .summary-content .s-sub-content {
-    font-family: 'Muli';
+    font-family: "Muli";
     font-size: 14px;
   }
 
@@ -8661,7 +8643,7 @@ span.count.percent span {
   }
 
   .mobile-summary-wrapper .summary-content .order-summary-statue {
-    background-color: #F7DDBA;
+    background-color: #f7ddba;
     max-width: 190px;
     padding: 5px 12px;
     text-align: center;
@@ -8751,7 +8733,7 @@ span.count.percent span {
   }
 
   .mobile-track-order .mobile-checkout-header {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgb(0 0 0 / 6%);
     display: flex;
     gap: 10px;
@@ -8796,8 +8778,6 @@ span.count.percent span {
   .steps .step div span {
     font-size: 14px;
   }
-
-
 
   .track-order-footer .track-f-content h3 {
     font-size: 18px;
@@ -8943,14 +8923,15 @@ span.count.percent span {
   .ratn-wishlist .btn-default {
     font-size: 14px !important;
     text-transform: uppercase;
-    font-family: 'Muli';
+    font-family: "Muli";
     border-radius: 0;
     padding: 12px 12px;
     height: 48px;
     width: 100%;
     background-color: #fff;
     border: 2px solid #3d3d3f;
-    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+      rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
   }
 
   .ratn-wishlist .btn-default:hover {
@@ -8962,7 +8943,6 @@ span.count.percent span {
   .cart-icons.wishlist-buttons .btn {
     border: 1px solid #e9e1e1;
   }
-
 }
 
 h6.rate_review {
@@ -9080,7 +9060,7 @@ h6.rate_review {
   height: 88px;
   border-radius: 3px;
   object-fit: cover;
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .reviews-members .media .mr-3 {
@@ -9096,7 +9076,7 @@ h6.rate_review {
 .total-like-user {
   border: 2px solid #fff;
   height: 34px;
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   width: 34px;
 }
 
@@ -9142,7 +9122,6 @@ h6.rate_review {
   -ms-flex-align: start;
   align-items: flex-start;
 }
-
 
 span.add_new_rtlr {
   float: right;
@@ -9193,8 +9172,8 @@ span.add_new_rtlr {
 span.share-icon {
   background: #fff;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 3px 0 rgba(25, 25, 25, .15);
-  box-shadow: 0 0 3px 0 rgba(25, 25, 25, .15);
+  -webkit-box-shadow: 0 0 3px 0 rgba(25, 25, 25, 0.15);
+  box-shadow: 0 0 3px 0 rgba(25, 25, 25, 0.15);
   height: 30px;
   width: 30px;
   line-height: 30px;
@@ -9208,8 +9187,8 @@ span.share-icon {
 span.wish-icon {
   background: #fff;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 3px 0 rgba(25, 25, 25, .15);
-  box-shadow: 0 0 3px 0 rgba(25, 25, 25, .15);
+  -webkit-box-shadow: 0 0 3px 0 rgba(25, 25, 25, 0.15);
+  box-shadow: 0 0 3px 0 rgba(25, 25, 25, 0.15);
   height: 30px;
   width: 30px;
   line-height: 30px;
@@ -9226,7 +9205,7 @@ span.wish-icon {
 }
 
 .ratn-shop-now {
-  background-color: #3d3d3f;
+  background-color: #001e38;
   text-transform: uppercase;
   font-size: 16px;
   max-width: 175px;
@@ -9242,7 +9221,6 @@ span.wish-icon {
 section.selling-product {
   margin-top: 25px;
 }
-
 
 /** Rating CSS **/
 
@@ -9333,8 +9311,6 @@ section.selling-product {
     margin-right: 5px !important;
   }
 
-
-
   .ornament-image .btn-success {
     padding: 0;
   }
@@ -9364,7 +9340,6 @@ section.selling-product {
     padding: 12px 10px !important;
   }
 
-
   .browse-rings-banner img {
     width: 150px;
     height: 150px;
@@ -9380,7 +9355,10 @@ section.selling-product {
     font-size: 16px;
   }
 
-  .mobile-view .product-details-items .product-details-items-item.details-header span {
+  .mobile-view
+    .product-details-items
+    .product-details-items-item.details-header
+    span {
     font-size: 14px;
   }
 
@@ -9395,7 +9373,7 @@ section.selling-product {
 
   .mobile-view .product-details-items h2,
   .mobile-view .price-breakup h2 {
-    color: #2C2A2B;
+    color: #2c2a2b;
     margin-bottom: 5px;
   }
 
@@ -9416,17 +9394,41 @@ section.selling-product {
 
 .text_link {
   color: #f05d4d !important;
-  text-decoration: underline !IMPORTANT;
+  text-decoration: underline !important;
 }
 
 .dark_button {
   background-color: #3d3d3f !important;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px;
 }
 
 .dark_button:hover,
 .dark_button:first-child:hover,
-:not(.btn-check)+.dark_button:hover {
+:not(.btn-check) + .dark_button:hover {
   background-color: #3d3d3f !important;
   color: #fff !important;
+}
+
+/* card hover Animation  */
+
+.Scale_on_hover:hover {
+  transition: all 0.8s cubic-bezier(0.66, 0.37, 0.47, 0.72);
+  transform: scale(1.03);
+  overflow: hidden;
+}
+
+.carousel-inner {
+  border-radius: 10px !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.carousel-indicators [data-bs-target] {
+  box-sizing: content-box !important;
 }

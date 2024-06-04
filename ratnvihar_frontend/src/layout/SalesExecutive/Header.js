@@ -129,7 +129,7 @@ const Header = (props) => {
                                 <li>
                                     <div className='c-content'>
                                         <span>Cart</span>
-                                        <span className='c-price' onClick={onCart}>{cartLength}</span>
+                                        <span className='c-price ' onClick={onCart}>{cartLength}</span>
                                     </div>
                                     <div className='c-icon' onClick={onCart}>
 
