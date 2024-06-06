@@ -3446,6 +3446,7 @@ button.close-btn.btn.btn-secondary {
   box-shadow: 0px 24px 144px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   padding: 16px;
+  height: 100%;
 }
 .login-form-wrapper .form-control {
   height: 36px;

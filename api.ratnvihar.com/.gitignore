@@ -8,7 +8,7 @@ node_modules
 # public/salaries
 
 # env file
-.env
+# .env
 
 # config file
 # config/config.json

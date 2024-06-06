@@ -533,16 +533,16 @@ class ProductsPage extends React.Component {
               ) : (
                 <div className="search-slider mt-3">
                   {productList.map((product, index) => (
-                    <div className="search-inner" key={index}>
+                    <div className="search-inner rounded" key={index}>
                       <div className="s-slider-image">
                         <img
-                          className="swap-on-hover__front-image"
+                          className="swap-on-hover__front-image rounded-top"
                           src={product.default_image}
                           alt="feature product"
                           onClick={() => this.handleProductDetails(product)}
                         />
                         <div className="swap-on-hover__back-image">
-                          <img src={product.default_image} />
+                          <img src={product.default_image} className="rounded-top"/>
                           <div className="wishlist">
                             {product.has_wishlist ? (
                               <BsHeartFill
