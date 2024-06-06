@@ -1,15 +1,15 @@
 node_modules
-logs/*
-.DS_Store
-public/uploads
-public/goods_order_pdf
-public/bills
-public/invoices
-public/salaries
+# logs/*
+# .DS_Store
+# public/uploads
+# public/goods_order_pdf
+# public/bills
+# public/invoices
+# public/salaries
 
 # env file
 .env
 
 # config file
-config/config.json
+# config/config.json
 

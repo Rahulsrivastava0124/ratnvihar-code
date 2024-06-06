@@ -644,8 +644,8 @@ class CartPage extends React.Component {
                                     </Col>
                                     {/* {cartItem?.length > 0 &&
                             checkout?.map((item,index)=>( */}
-                                    <Col xs={12} md={5} lg={4}>
-                                        <div className='cart-right-sidebar'>
+                                    <Col xs={12} md={5} lg={4} className='rounded'>
+                                        <div className='cart-right-sidebar rounded bg-light'>
                                             <div className='order-summary-header'>
                                                 <h4>ORDER SUMMARY</h4>
                                             </div>

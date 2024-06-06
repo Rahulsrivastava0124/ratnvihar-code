@@ -1362,7 +1362,7 @@ section.ornament-slider .swiper {
 }
 .product-details-wrapper .breadcrumb,
 .checkout-wrapper .breadcrumb {
-  padding: 8px 0;
+  padding: 0px 0;
   margin: 0px !important;
 }
 .breadcrumb-wrapper .breadcrumb .breadcrumb-item,
@@ -1712,7 +1712,7 @@ section.ornament-slider .swiper {
   justify-content: space-between;
   align-items: center;
   font-family: "Muli";
-  font-size: 18px;
+  font-size: 15px;
 }
 .p-purity span,
 .p-variant span {
@@ -1830,7 +1830,7 @@ section.ornament-slider .swiper {
 }
 .p_details_slider_wrapper {
   position: relative;
-  padding-bottom: 100%;
+  padding-bottom: 74%;
   overflow: hidden;
 }
 img.p_details_slider {
@@ -1902,7 +1902,7 @@ img.p_details_slider {
   position: relative;
   margin: 0;
   font-family: "Muli";
-  font-size: 28px;
+  font-size: 20px;
 }
 sup.discount {
   font-size: 14px;
@@ -2016,8 +2016,8 @@ ul.authenticity_list li img {
   padding: 8px;
 }
 .p-details-authenticity .authenticity_list li img {
-  width: 150px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   padding: 8px;
 }
 .p-authenticity h4 {
@@ -3448,7 +3448,7 @@ button.close-btn.btn.btn-secondary {
   padding: 16px;
 }
 .login-form-wrapper .form-control {
-  height: 48px;
+  height: 36px;
   border-radius: 0;
   border-radius: 0px;
   position: relative;
@@ -3540,7 +3540,7 @@ button.close-btn.btn.btn-secondary {
   background-color: #ececec;
   max-width: 480px;
   margin: auto;
-  padding: 12px;
+  padding: 16px;
   border-radius: 6px;
 }
 .login-pro-inner {
@@ -5355,8 +5355,8 @@ span.count.percent span {
 }
 @media screen and (max-width: 767px) {
   .p-details-authenticity .authenticity_list li img {
-    width: 150px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     padding: 8px;
   }
   .p-details-authenticity .cart-authenticity img {

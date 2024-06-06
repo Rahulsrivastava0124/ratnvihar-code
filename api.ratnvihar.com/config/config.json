@@ -1,0 +1,32 @@
+{
+  "development": {
+    "username": "root",
+    "password": "RatnJai@MS!",
+    "database": "ratnvihar",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+05:30",
+    "logging": false,
+    "pool": {
+      "max": 20,
+      "min": 0,
+      "acquire": 60000,
+      "idle": 10000
+    }  
+ },
+ "production": {
+    "username": "root",
+    "password": "RatnJai@MS!",
+    "database": "ratnvihar",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+05:30",
+    "logging": false,
+    "pool": {
+      "max": 20,
+      "min": 0,
+      "acquire": 60000,
+      "idle": 10000
+    }
+  }  
+}

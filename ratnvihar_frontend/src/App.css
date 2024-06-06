@@ -2178,7 +2178,7 @@ section.ornament-slider .swiper {
   justify-content: space-between;
   align-items: center;
   font-family: "Muli";
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .p-purity span,
@@ -2309,6 +2309,7 @@ section.ornament-slider .swiper {
   padding: 0px;
   margin-bottom: 15px;
   background-color: #fff;
+  border-radius: 5px;
 }
 
 .p-purity {
@@ -2317,7 +2318,7 @@ section.ornament-slider .swiper {
 
 .p_details_slider_wrapper {
   position: relative;
-  padding-bottom: 100%;
+  padding-bottom: 73%;
   overflow: hidden;
 }
 
@@ -2399,7 +2400,7 @@ img.p_details_slider {
   position: relative;
   margin: 0;
   font-family: "Muli";
-  font-size: 28px;
+  font-size: 20px;
 }
 
 sup.discount {
@@ -2529,14 +2530,14 @@ ul.authenticity_list li {
 }
 
 ul.authenticity_list li img {
-  width: 150px;
-  height: 54px;
+  width: 100px;
+  height: 100px;
   padding: 8px;
 }
 
 .p-details-authenticity .authenticity_list li img {
-  width: 150px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   padding: 8px;
 }
 
@@ -3890,6 +3891,9 @@ button.close-btn.btn.btn-secondary {
   padding: 2px;
   position: relative;
   margin-bottom: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .products_header_title ul {
@@ -4291,7 +4295,7 @@ button.close-btn.btn.btn-secondary {
 }
 
 .login-form-wrapper .form-control {
-  height: 48px;
+  height: 36px;
   border-radius: 0;
   border-radius: 0px;
   position: relative;
@@ -4397,7 +4401,7 @@ button.close-btn.btn.btn-secondary {
   background-color: #ececec;
   max-width: 480px;
   margin: auto;
-  padding: 12px;
+  padding: 16px;
   border-radius: 6px;
 }
 

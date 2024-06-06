@@ -756,13 +756,13 @@ class HomePage extends Component {
             </Row>
           </Container>
         </section>
-        <section className="promise promise-desktop">
+        <section className="promise promise-desktop bg-light">
           <Container>
             <h2 className="text-center ">Our Promise</h2>
 
             <Row>
               <Col xs={6} md={4}>
-                <div className="promise-box">
+                <div className="promise-box rounded-4">
                   <img src={certificate} alt="" />
                   <div className="promise-content">
                     <h4 className="text-center">
@@ -806,7 +806,7 @@ class HomePage extends Component {
                 </div>
               </Col>
               <Col xs={6} md={4}>
-                <div className="promise-box">
+                <div className="promise-box rounded-4">
                   <img src={refund} alt="" />
                   <div className="promise-content">
                     <h4 className="text-center">
@@ -841,7 +841,7 @@ class HomePage extends Component {
                 </div>
               </Col>
               <Col xs={6} md={4}>
-                <div className="promise-box">
+                <div className="promise-box rounded-4">
                   <img src={exchange} alt="" />
                   <div className="promise-content">
                     <h4 className="text-center">Free Trial</h4>
@@ -860,7 +860,7 @@ class HomePage extends Component {
                 </div>
               </Col>
               <Col xs={6} md={4}>
-                <div className="promise-box">
+                <div className="promise-box rounded-4">
                   <img src={shipping} alt="" />
                   <div className="promise-content">
                     <h4 className="text-center">
@@ -879,7 +879,7 @@ class HomePage extends Component {
                 </div>
               </Col>
               <Col xs={6} md={4}>
-                <div className="promise-box">
+                <div className="promise-box rounded-4">
                   <img src={jewelleryHome} alt="" />
                   <div className="promise-content">
                     <h4 className="text-center">
@@ -899,7 +899,7 @@ class HomePage extends Component {
                 </div>
               </Col>
               <Col xs={6} md={4}>
-                <div className="promise-box">
+                <div className="promise-box rounded-4">
                   <img src={physicalStore} alt="" />
                   <div className="promise-content">
                     <h4 className="text-center">
