@@ -65,6 +65,8 @@ const Orders = (props) => {
                                         <h2 className='mb-0'>Order ID :<span>{item?.order_no}</span></h2>
                                         {/*<h3>Gold Plated Ring + 1 Item</h3>*/}
                                     </div>
+                                    <br>
+                                    </br>
                                     <div className='tracker'>
                                         
                                         <div className='order-status'>

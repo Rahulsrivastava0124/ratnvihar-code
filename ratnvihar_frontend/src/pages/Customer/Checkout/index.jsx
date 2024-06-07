@@ -666,10 +666,10 @@ class CheckoutPage extends React.Component {
         </div>*/}
                         </div>
                         <Row>
-                            <Col xs={12} md={7} className="order">
-                                <div className='checkout-single-wrapper bg-white border-right'>
+                            <Col xs={12} md={7} className="order ">
+                                <div className='checkout-single-wrapper bg-white border-right rounded'>
                                     <hr />
-                                    <div className='c-address-area'>
+                                    <div className='c-address-area '>
                                         <div className='header'>
                                             {/* <h4>Delivery Details</h4> */}
                                             {
@@ -1232,7 +1232,7 @@ class CheckoutPage extends React.Component {
                             </Col>
                             <Col xs={12} md={5} className="">
                                 <div className='checkout-single-wrapper padding-left'>
-                                    <div className='checkout-summary-area'>
+                                    <div className='checkout-summary-area rounded'>
                                         <div className='checkout-s-header'>
                                             <h3>Order Summary</h3>
                                         </div>
@@ -1242,8 +1242,8 @@ class CheckoutPage extends React.Component {
                                         {cartList.map((item, index) =>
                                             <div key={index}>
                                                 <div className='checkout-single-item'>
-                                                    <div className='checkout-item-image'>
-                                                        <img src={item.product_image} alt='' />
+                                                    <div className='checkout-item-image '>
+                                                        <img src={item.product_image} alt='' className='rounded' />
                                                     </div>
                                                     <div className='checkout-item-content justify-content-between '>
                                                         <div>
@@ -1330,7 +1330,7 @@ class CheckoutPage extends React.Component {
                                         }*/}
 
                                         <div className='payment-method'>
-                                            <h5 className='mb-2'>Payments</h5>
+                                            {this.isSalesExecutive?<h5 className='mb-2'>Payments</h5>:null}
                                             {/*<span className='online-payment d-flex gap-2 mb-2'>
                                             <Form.Check
                                                 // name={'payment_mode'} value={'online'} onChange={(e)=>handleGetData(e)}
@@ -1338,7 +1338,7 @@ class CheckoutPage extends React.Component {
                                         <span >  Online Payment  </span> 
                                         </span>*/}
                                             {
-                                                !this.isSalesExecutive ?
+                                                this.isSalesExecutive ?
                                                     <span className='place-order d-flex gap-2 mb-2'>
                                                         <Form.Check type="radio" aria-label="radio 1" name={'payment_mode'} defaultChecked={true} value={'cash'} label={'Cash on Delivery'} />
                                                         {/*Cash on Delivery*/}
@@ -1346,7 +1346,9 @@ class CheckoutPage extends React.Component {
                                                     : null
                                             }
 
-                                            <span className='place-order gap-2 mb-2'>
+                                            {
+                                                this.isSalesExecutive?
+                                                <span className='place-order gap-2 mb-2'>
                                                 <Row>
                                                     {
                                                         this.isSalesExecutive ?
@@ -1417,8 +1419,10 @@ class CheckoutPage extends React.Component {
                                                     </Col>
                                                 </Row>
                                             </span>
+                                        :null    
+                                        }
 
-                                            <Button variant="primary" onClick={this.handlePlaceOrder} disabled={this.state.processing || !this.state.isLoggedIn}>
+                                            <Button variant="primary" className='col-12 rounded mt-4' onClick={this.handlePlaceOrder} disabled={this.state.processing || !this.state.isLoggedIn}>
                                                 {
                                                     this.state.processing ?
                                                         "PROCESSING..."

@@ -2012,7 +2012,7 @@ ul.authenticity_list li {
 }
 ul.authenticity_list li img {
   width: 150px;
-  height: 54px;
+  height: 65px;
   padding: 8px;
 }
 .p-details-authenticity .authenticity_list li img {
@@ -2230,7 +2230,7 @@ ul.authenticity_list li img {
   z-index: 999;
   bottom: 0;
   display: flex;
-  background: #c4c4c4;
+  /* background: #c4c4c4; */
   gap: 2px;
   justify-content: space-between;
   width: 100%;
@@ -4575,7 +4575,7 @@ span.icon {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.making-chrg-offer h4:before {
+/* .making-chrg-offer h4:before {
   content: "";
   position: absolute;
   border: 0;
@@ -4595,13 +4595,13 @@ span.icon {
   left: auto;
   right: 0;
   bottom: -7px;
-}
+} */
 .offers-wrapper {
   position: absolute;
-  left: 0;
-  top: -8px;
+  left: 280px;
+  top: 25px;
   margin: 0 0 0 -6px;
-  width: 100%;
+  /* width: 100%; */
   display: block;
 }
 .offer {

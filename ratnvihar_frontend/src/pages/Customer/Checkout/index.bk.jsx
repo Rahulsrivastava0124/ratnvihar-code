@@ -420,13 +420,11 @@ const Checkout = (props) => {
                                 </div>
                         </div>
                         <div className='checkout-single-wrapper'>
-                            <div className='checkout-summary-area'>
+                            <div className='checkout-summary-area rounded'>
                                 <div className='checkout-s-header'>
                                     <h3>Order Summary</h3>
                                 </div>
                                 <hr />
-
-
                                 {checkout.map((list,index)=>
                             <div key={index}>
                                 <div className='checkout-single-item'  key={list.id}>

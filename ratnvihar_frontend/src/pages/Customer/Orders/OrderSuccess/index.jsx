@@ -252,8 +252,8 @@ class OrderSuccessful extends React.Component {
 
                                                 </div>
                                                 <p className='order-success-para'>Your order for the following has been successfully placed with us. <Link to={`/orders`} className="text_link">Track Order</Link></p>
-                                                <Table striped bordered hover className='order_success_table'>
-                                                    <thead>
+                                                <Table striped bordered hover className='order_success_table rounded'>
+                                                    <thead className='rounded-top'>
                                                         <tr>
                                                             <th>Order Number : {order.order_no}</th>
                                                             <th>Order Date: {order.order_date}</th>

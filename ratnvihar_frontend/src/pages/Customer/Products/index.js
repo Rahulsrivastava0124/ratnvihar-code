@@ -566,12 +566,11 @@ class ProductsPage extends React.Component {
                         {product.making_charge_dis_percent > 0 ||
                         product.discount_percent > 0 ? (
                           <div className="offers-wrapper">
-                            <div className="offer">
+                            <div className="offer rounded p-2">
                               <div className="making-chrg-offer">
                                 {product.making_charge_dis_percent > 0 ? (
                                   <h4>
-                                    {product.making_charge_dis_percent}% Off on
-                                    Making Charges
+                                    {product.making_charge_dis_percent}% Off
                                   </h4>
                                 ) : (
                                   <>
@@ -587,15 +586,17 @@ class ProductsPage extends React.Component {
                         <div className="search-button">
                           <Button
                             variant="primary"
+                            className="rounded "
                             onClick={() => this.handleProductDetails(product)}
                           >
-                            ADD TO CART
+                          <i class="bi bi-cart-plus-fill me-2 h6"></i>  ADD TO CART
                           </Button>{" "}
                           <Button
                             variant="secondary"
+                            className="rounded "
                             onClick={() => this.handleProductDetails(product)}
                           >
-                            VIEW DETAILS
+                          <i class="bi bi-eye me-2 h6"></i>  VIEW DETAILS
                           </Button>{" "}
                         </div>
                       </div>
