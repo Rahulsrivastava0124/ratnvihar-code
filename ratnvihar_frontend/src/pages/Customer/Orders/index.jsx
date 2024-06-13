@@ -103,7 +103,10 @@ class OrdersPage extends React.Component {
                             </Button>
                             {item.status != "cancelled" &&
                             item.status != "declined" ? (
-                              <Button variant="primary" className="mb-0 rounded">
+                              <Button
+                                variant="primary"
+                                className="mb-0 rounded"
+                              >
                                 {" "}
                                 <Link to={"/track-order/" + item.id}>
                                   TRACK ORDER{" "}
@@ -128,23 +131,29 @@ class OrdersPage extends React.Component {
                               </h5>
                               <h6 className="my-2">{item.total_amount}</h6>
                               <h6>
-                                Quantity : <span>{item.orderProducts[0].quantity}</span>
+                                Quantity :{" "}
+                                <span>{item.orderProducts[0].quantity}</span>
                               </h6>
                             </div>
                           </div>
                           <div className="tracker">
-                              <div className="order-status rounded ">
-                                <h4 className="text-warning-emphasis">
-                                  Status: <span> {item.status_display}</span>
-                                </h4>
-                              </div>
+                            <div className="order-status rounded ">
+                              <h4 className="text-warning-emphasis">
+                                Status: <span> {item.status_display}</span>
+                              </h4>
                             </div>
+                          </div>
                         </div>
                       </div>
-                      <hr/>
+                      <hr />
                       <div className="my-order-footer">
                         <div className="order-address">
-<span className="h6">Expected Delivery:<span className="text-success">{item.expected_delivery_date}</span></span>
+                          <span className="h6">
+                            Expected Delivery:
+                            <span className="text-success">
+                              {item.expected_delivery_date}
+                            </span>
+                          </span>
                           {/* <div className="order-content">
                             <h6>
                               Expected Delivery Date :

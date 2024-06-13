@@ -1,5 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap'); */
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 body {
   background-color: #fff !important;
 }
@@ -8,8 +10,12 @@ body {
   box-sizing: border-box !important;
   padding: 0;
   margin: 0;
-  font-family: "Reddit Mono", monospace;
+  /* font-family: "Reddit Mono", monospace; */
   font-optical-sizing: auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   /* font-weight: <weight>;
   font-style: normal; */
 }
@@ -57,7 +63,7 @@ span.c-price {
   top: -8px;
   right: -3px;
   /* border: 1px solid #636161; */
-  background-color:#f05d4d;
+  background-color: #f05d4d;
   width: 19px;
   height: 19px;
   line-height: 19px;
@@ -2530,7 +2536,7 @@ ul.authenticity_list li {
 }
 
 ul.authenticity_list li img {
-  width: 100px;
+  width: 65px;
   height: 65px;
   padding: 8px;
 }
@@ -3200,7 +3206,7 @@ button.close-btn.btn.btn-secondary {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
 }
@@ -5686,6 +5692,18 @@ span.icon {
   display: block;
 }
 
+@media only screen and (max-width: 600px) {
+  .offers-wrapper {
+    position: absolute;
+    left: 125px;
+    top: 10px;
+    margin: 0 0 0 -6px;
+    /* width: 100%; */
+    display: block;
+  }
+}
+
+
 .offer {
   background: white;
   border: 1px solid #fac6c1;
@@ -6627,8 +6645,8 @@ span.count.percent span {
 
 @media screen and (max-width: 767px) {
   .p-details-authenticity .authenticity_list li img {
-    width: 150px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     padding: 8px;
   }
 
@@ -9184,7 +9202,7 @@ span.share-icon {
   line-height: 30px;
   position: absolute;
   right: 5px;
-  bottom: 21%;
+  bottom: 28%;
   text-align: center;
   z-index: 9;
 }
@@ -9199,7 +9217,7 @@ span.wish-icon {
   line-height: 30px;
   position: absolute;
   left: 5px;
-  bottom: 21%;
+  bottom: 28%;
   text-align: center;
   z-index: 9;
 }

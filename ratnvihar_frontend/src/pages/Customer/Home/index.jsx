@@ -463,7 +463,7 @@ class HomePage extends Component {
               >
                 {best_selling_products.map((product, key) => (
                   <SwiperSlide key={key}>
-                    <div className="slide-swipe-inner rounded">
+                    <div className="slide-swipe-inner rounded overflow-hidden">
                       <div className="s-slider-image rounded-top">
                         <Link to={"products/" + product.slug}>
                           <img
@@ -606,7 +606,7 @@ class HomePage extends Component {
               >
                 {featured_products.map((product, key) => (
                   <SwiperSlide className=" rounded" key={key}>
-                    <div className="slide-swipe-inner rounded">
+                    <div className="slide-swipe-inner rounded overflow-hidden">
                       <div className="s-slider-image rounded-top">
                         <Link to={"products/" + product.slug}>
                           <img
@@ -1230,7 +1230,7 @@ class HomePage extends Component {
               >
                 {bestRetailers.map((item, key) => (
                   <SwiperSlide key={key}>
-                    <div className="slide-swipe-inner rounded">
+                    <div className="slide-swipe-inner rounded overflow-hidden">
                       <div className="b-slider-image">
                         <img
                           src={item.image}

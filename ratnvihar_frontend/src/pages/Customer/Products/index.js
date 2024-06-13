@@ -531,7 +531,7 @@ class ProductsPage extends React.Component {
                   <h1 className="mb-0">Products Not Found</h1>
                 </div>
               ) : (
-                <div className="search-slider mt-3">
+                <div className="search-slider my-3">
                   {productList.map((product, index) => (
                     <div className="search-inner rounded" key={index}>
                       <div className="s-slider-image">
@@ -566,7 +566,7 @@ class ProductsPage extends React.Component {
                         {product.making_charge_dis_percent > 0 ||
                         product.discount_percent > 0 ? (
                           <div className="offers-wrapper">
-                            <div className="offer rounded p-2">
+                            <div className="offer rounded p-1">
                               <div className="making-chrg-offer">
                                 {product.making_charge_dis_percent > 0 ? (
                                   <h4>

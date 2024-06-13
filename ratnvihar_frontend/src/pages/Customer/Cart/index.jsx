@@ -490,7 +490,7 @@ class CartPage extends React.Component {
                         <React.Fragment key={index}>
                           <div>
                             <div
-                              className="cart-inner-wrapper rounded shadow bg-light"
+                              className="cart-inner-wrapper border mb-3 rounded shadow bg-light"
                               key={index}
                             >
                               <div className="cart-inner">
@@ -544,16 +544,14 @@ class CartPage extends React.Component {
                                           val
                                         ).materials.map((item, key) => (
                                           <Row key={key}>
-                                            <Col md={6}>
-                                              <Form.Label>
+                                            <Col>
+                                            <Form.Label>
                                                 {this.getSizeMaterial(val)
                                                   .materials.length > 1
                                                   ? item.material_name
                                                   : "Purity"}
                                                 :
                                               </Form.Label>
-                                            </Col>
-                                            <Col md={6}>
                                               <Form.Select
                                                 value={this.getSelectedPurity(
                                                   val,
@@ -589,22 +587,84 @@ class CartPage extends React.Component {
                                                 ))}
                                               </Form.Select>
                                             </Col>
+                                            <Col>
+                                              <Form.Group>
+                                                <Form.Label>
+                                                  Quantity:
+                                                </Form.Label>
+                                                <Form.Select
+                                                  className="rounded"
+                                                  value={val.quantity}
+                                                  onChange={(e) =>
+                                                    this.handleQtyChange(
+                                                      val.id,
+                                                      e.target.value
+                                                    )
+                                                  }
+                                                >
+                                                  {[...Array(10).keys()].map(
+                                                    (i, k) => (
+                                                      <option
+                                                        value={i + 1}
+                                                        key={k}
+                                                      >
+                                                        {i + 1}
+                                                      </option>
+                                                    )
+                                                  )}
+                                                </Form.Select>
+                                                {/*{val.quantity}*/}
+                                              </Form.Group>
+                                            </Col>
+                                            <Col>
+                                              {val.product_type !=
+                                              "material" ? (
+                                                <Form.Group>
+                                                  <Form.Label>Size:</Form.Label>
+                                                  <Form.Select
+                                                    value={val.size_id}
+                                                    className="rounded"
+                                                    onChange={(e) =>
+                                                      this.handleSizeChange(
+                                                        val,
+                                                        e.target.value
+                                                      )
+                                                    }
+                                                  >
+                                                    {val.size_materials.map(
+                                                      (i, k) => (
+                                                        <option
+                                                          value={i.size_id}
+                                                          key={k}
+                                                        >
+                                                          {i.size_name}
+                                                        </option>
+                                                      )
+                                                    )}
+                                                  </Form.Select>
+                                                </Form.Group>
+                                              ) : null}
+                                            </Col>
                                           </Row>
                                         ))}
                                       </Form.Group>
                                     </div>
                                     {!val.is_manual ? (
-                                      <Row style={{ alignItems: "center" }}>
+                                      <Row
+                                        style={{ alignItems: "center" }}
+                                        className="justify-content-end mt-3"
+                                      >
                                         <Col xs={6}>
-                                          <div className="cart-icons">
+                                          <div className="cart-icons justify-content-end">
                                             <Button
                                               variant="primary"
-                                              className="rounded"
+                                              className="rounded text-bg-danger"
                                               onClick={() =>
                                                 this.removeConfirm(val)
                                               }
                                             >
                                               {" "}
+                                              <i class="bi bi-trash3 me-2"></i>{" "}
                                               Remove
                                             </Button>
                                             <Button
@@ -622,62 +682,6 @@ class CartPage extends React.Component {
                                                                             <h4 onClick={() => this.removeConfirm(val)}> Remove</h4>
                                                                             <h4 onClick={() => this.handleMoveToWishlist(val)} role="button">Move To Wishlist</h4>
                                                                         </div>*/}
-                                        </Col>
-                                        <Col xs={6}>
-                                          <div className="cart-select">
-                                            {val.product_type != "material" ? (
-                                              <Form.Group>
-                                                <Form.Label>Size:</Form.Label>
-                                                <Form.Select
-                                                  value={val.size_id}
-                                                  className="rounded"
-                                                  onChange={(e) =>
-                                                    this.handleSizeChange(
-                                                      val,
-                                                      e.target.value
-                                                    )
-                                                  }
-                                                >
-                                                  {val.size_materials.map(
-                                                    (i, k) => (
-                                                      <option
-                                                        value={i.size_id}
-                                                        key={k}
-                                                      >
-                                                        {i.size_name}
-                                                      </option>
-                                                    )
-                                                  )}
-                                                </Form.Select>
-                                              </Form.Group>
-                                            ) : null}
-
-                                            <Form.Group>
-                                              <Form.Label>Quantity:</Form.Label>
-                                              <Form.Select
-                                                className="rounded"
-                                                value={val.quantity}
-                                                onChange={(e) =>
-                                                  this.handleQtyChange(
-                                                    val.id,
-                                                    e.target.value
-                                                  )
-                                                }
-                                              >
-                                                {[...Array(10).keys()].map(
-                                                  (i, k) => (
-                                                    <option
-                                                      value={i + 1}
-                                                      key={k}
-                                                    >
-                                                      {i + 1}
-                                                    </option>
-                                                  )
-                                                )}
-                                              </Form.Select>
-                                              {/*{val.quantity}*/}
-                                            </Form.Group>
-                                          </div>
                                         </Col>
                                       </Row>
                                     ) : null}
@@ -700,7 +704,7 @@ class CartPage extends React.Component {
                                               >
                                                 <Form.Control
                                                   type="text"
-                                                  placeholder="Enter weight"
+                                                  placeholder="Enter weight rounded-start"
                                                   value={val.manual_weight}
                                                   onChange={(e) =>
                                                     this.handleWeight(e, index)
@@ -730,12 +734,13 @@ class CartPage extends React.Component {
                                                   placeholder="Enter quantity"
                                                   value={val.manual_qty}
                                                   onChange={(e) =>
+                                            
                                                     this.handleQty(e, index)
                                                   }
                                                   className={
                                                     this.getManualErr(
                                                       index,
-                                                      "qty"
+                                                      "qty rounded-end"
                                                     )
                                                       ? "is-invalid error_input"
                                                       : ""
@@ -762,10 +767,11 @@ class CartPage extends React.Component {
                                               </span>
                                             </Form.Group>
                                           </Col>
-                                          <Col xs={6}>
-                                            <div className="cart-icons">
+                                          <Col  >
+                                            <div className="cart-icons justify-content-end ">
                                               <Button
                                                 variant="primary"
+                                                className="rounded text-bg-danger"
                                                 onClick={() =>
                                                   this.removeConfirm(val)
                                                 }
@@ -774,7 +780,8 @@ class CartPage extends React.Component {
                                                 Remove
                                               </Button>
                                               <Button
-                                                variant="primary"
+                                                variant="primary "
+                                                className="rounded"
                                                 onClick={() =>
                                                   this.handleMoveToWishlist(val)
                                                 }
@@ -944,7 +951,7 @@ class CartPage extends React.Component {
                             <h4 className="text-center">
                               CERTIFICATE OF AUTHENTICITY
                             </h4>
-                            <ul className="authenticity_list">
+                            <ul className="authenticity_list m-3 justify-content-between">
                               <li className="rounded">
                                 <img src={au1} alt="" />
                               </li>
@@ -957,11 +964,11 @@ class CartPage extends React.Component {
                               <li className="rounded">
                                 <img src={au4} alt="" />
                               </li>
-                              <li className="rounded">
+                              {/* <li className="rounded">
                                 <img src={au5} alt="" />
-                              </li>
+                              </li> */}
                             </ul>
-                            <ul className="cart-authenticity">
+                            <ul className="cart-authenticity justify-content-center">
                               <li>
                                 {" "}
                                 <img src={shipping} alt="" /> Free Delivery{" "}
@@ -986,9 +993,16 @@ class CartPage extends React.Component {
                                                                 </ul>
                                                 </div>*/}
                           </div>
-                          <p className="queries">
-                            <span>Any Questions?</span> Please call us at +91
-                            98744 45878 or Chat with us
+                          <p className="queries h7  px-4">
+                            <span className="text-primary d-inline">
+                              Any Questions?
+                            </span>{" "}
+                            Please call us at
+                            <span className="text-primary d-inline">
+                              {" "}
+                              +91 98744 45878
+                            </span>{" "}
+                            or Chat with us
                           </p>
                         </>
                       ) : null}
@@ -1005,7 +1019,7 @@ class CartPage extends React.Component {
                 <Row>
                   {cartList.map((val, index) => (
                     <Col xs={12} md={9} key={index}>
-                      <div className="cart-inner-wrapper">
+                      <div className="cart-inner-wrapper border mb-3">
                         <div className="cart-inner">
                           <div className="cart-image">
                             <Link to={"/products/" + val.product_slug}>
@@ -1084,7 +1098,7 @@ class CartPage extends React.Component {
                             {this.getSizeMaterial(val).materials.map(
                               (item, key) => (
                                 <Row key={key}>
-                                  <Col xs={6} md={6}>
+                                  <Col xs={4} md={4}>
                                     <Form.Label>
                                       {this.getSizeMaterial(val).materials
                                         .length > 1
@@ -1093,7 +1107,7 @@ class CartPage extends React.Component {
                                       :
                                     </Form.Label>
                                   </Col>
-                                  <Col xs={6} md={6}>
+                                  <Col xs={4} md={4}>
                                     <Form.Select
                                       value={this.getSelectedPurity(
                                         val,
@@ -1144,13 +1158,14 @@ class CartPage extends React.Component {
                                     className={
                                       this.getManualErr(index, "weight")
                                         ? "is-invalid error_input"
-                                        : ""
+                                        : ""+" rounded-start "
                                     }
                                   >
                                     <Form.Control
                                       type="text"
                                       placeholder="Enter weight"
                                       value={val.manual_weight}
+                                      className="rounded"
                                       onChange={(e) =>
                                         this.handleWeight(e, index)
                                       }
@@ -1198,9 +1213,11 @@ class CartPage extends React.Component {
                             </Row>
                           </div>
                         ) : null}
-                        <div className="cart-icons">
+
+                        <div className="cart-icons ">
                           <Button
                             variant="primary"
+                            className="rounded text-bg-danger"
                             onClick={() => this.removeConfirm(val)}
                           >
                             {" "}
@@ -1208,6 +1225,7 @@ class CartPage extends React.Component {
                           </Button>
                           <Button
                             variant="primary"
+                            className="rounded"
                             onClick={() => this.handleMoveToWishlist(val)}
                           >
                             {" "}

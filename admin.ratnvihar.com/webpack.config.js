@@ -92,6 +92,11 @@ module.exports = {
             helpers: path.resolve(__dirname, 'src/helpers'),
         },
     },
+performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
     devServer: {
       port: 8888,
       historyApiFallback: true,
