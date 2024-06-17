@@ -276,7 +276,11 @@ class Signup extends React.Component {
                     </Form.Group>
                   </div>
                   <div className="login-button mb-3 mt-3">
-                    <Button variant="primary" type="submit" className="rounded ">
+                    <Button
+                      variant="primary"
+                      type="submit"
+                      className="rounded "
+                    >
                       SIGNUP
                     </Button>
                   </div>

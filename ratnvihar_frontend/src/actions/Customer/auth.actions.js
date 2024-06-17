@@ -81,7 +81,7 @@ export const logout = () => {
             .then(response => {
                 if (response.data.success) {
                     setTimeout(() => {
-                        window.location.href = `http://localhost:8080/`;
+                        window.location.href = `https://prakriti.one/`;
                     }, 500);
                 } else {
                     dispatch({

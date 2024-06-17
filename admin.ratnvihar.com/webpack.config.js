@@ -18,12 +18,10 @@ module.exports = {
     mode: 'production',
     entry: './index.js',
     output: {
-        path: path.join(`${__dirname}/public`),
-        filename: './js/main.js',
-        publicPath: '/',
-        chunkFilename: './js/[name].js',
+      publicPath: "/",
+      path: path.resolve(__dirname, "build"),
+      filename: "bundled.js",
     },
-  
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,

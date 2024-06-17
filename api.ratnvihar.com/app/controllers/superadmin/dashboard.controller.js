@@ -1,8 +1,38 @@
-const { formatResponse, formatErrorResponse, errorCodes } = require("@utils/response.config");
+const {
+  formatResponse,
+  formatErrorResponse,
+  errorCodes,
+} = require("@utils/response.config");
 const { UserCollection } = require("@resources/superadmin/UserCollection");
-const { getRoleId, getTotalStockPriceByUser, getWalletBalance, getWorkingUserID, getNextUserName, isSuperAdmin, getUserColumnValue, isDistributor, isAdmin, getAdminSEWhereCondition, isSalesExecutive, getTotalStockByUser, getMyRetailerIds, isManager, getPurchaseProducts, avlStockUserIds, getOwnUserSaleProducts, getAdminDistributorIds } = require("@library/common");
-const { displayAmount, addLog, getDateFromToWhere, arrayColumn, priceFormat, getMonthDateRange } = require("@helpers/helper");
-const moment = require('moment');
+const {
+  getRoleId,
+  getTotalStockPriceByUser,
+  getWalletBalance,
+  getWorkingUserID,
+  getNextUserName,
+  isSuperAdmin,
+  getUserColumnValue,
+  isDistributor,
+  isAdmin,
+  getAdminSEWhereCondition,
+  isSalesExecutive,
+  getTotalStockByUser,
+  getMyRetailerIds,
+  isManager,
+  getPurchaseProducts,
+  avlStockUserIds,
+  getOwnUserSaleProducts,
+  getAdminDistributorIds,
+} = require("@library/common");
+const {
+  displayAmount,
+  addLog,
+  getDateFromToWhere,
+  arrayColumn,
+  priceFormat,
+  getMonthDateRange,
+} = require("@helpers/helper");
+const moment = require("moment");
 const db = require("@models");
 const dbSequelize = db.sequelize;
 const { Op, QueryTypes } = require("sequelize");
@@ -16,7 +46,9 @@ const saleModel = db.sales;
 const NoticationModel = db.notifiactions;
 const UserToUserModel = db.user_to_users;
 const RetailerVisitModel = db.retailer_visits;
-const { NotificationCollection } = require("@resources/superadmin/NotificationCollection");
+const {
+  NotificationCollection,
+} = require("@resources/superadmin/NotificationCollection");
 
 /**
  * Super Admin Dashboard
@@ -26,70 +58,151 @@ const { NotificationCollection } = require("@resources/superadmin/NotificationCo
  */
 exports.index = async (req, res) => {
   try {
-
     let user = await UserModel.findByPk(req.userId);
-    let adminRoleId = getRoleId('admin');
-    let distributorRoleId = getRoleId('distributor');
-    let retailerRoleId = getRoleId('retailer');
-    let supplierRoleId = getRoleId('supplier');
-    let customerRoleId = getRoleId('customer');
-    let sales_executiveRoleId = getRoleId('sales_executive');
+    let adminRoleId = getRoleId("admin");
+    let distributorRoleId = getRoleId("distributor");
+    let retailerRoleId = getRoleId("retailer");
+    let supplierRoleId = getRoleId("supplier");
+    let customerRoleId = getRoleId("customer");
+    let sales_executiveRoleId = getRoleId("sales_executive");
     let userID = isManager(req) ? req.userId : await getWorkingUserID(req);
-    let totalAdmin = 0, totalOtherAdmin = 0, totalDistributor = 0, totalOtherDistributor = 0, totalRetailer = 0, totalSupplier = 0, totalCustomer = 0, totalsales_executive = 0, totalStock = 0, purchaseDueAmount = 0, saleDueAmount = 0, totalStockPrice = 0, walletBalance = 0, myRetailer = 0, myRetailerDueAmunt = 0, totalSeStock = 0, totalSeStockPrice = 0, materialTotalStock = 0, materialTotalStockPrice = 0, returnStock = 0, returnStockPrice = 0, totalAdminStock = 0, totalAdminStockPrice = 0, totalDistributorStock = 0, totalDistributorStockPrice = 0, totalOwnUsersSale = 0, totalOwnUsersSaleProducts = 0, totalOtherAdminStock = 0, totalOtherAdminStockPrice = 0, totalOtherDistributorStock = 0, totalOtherDistributorStockPrice = 0, totalPurchase = 0, totalAvlStock = 0, totalAvlStockPrice = 0, total_retailer_due = 0, totalManagerStock = 0, totalManagerStockPrice = 0, totalPurchaseProduct = 0;
+    let totalAdmin = 0,
+      totalOtherAdmin = 0,
+      totalDistributor = 0,
+      totalOtherDistributor = 0,
+      totalRetailer = 0,
+      totalSupplier = 0,
+      totalCustomer = 0,
+      totalsales_executive = 0,
+      totalStock = 0,
+      purchaseDueAmount = 0,
+      saleDueAmount = 0,
+      totalStockPrice = 0,
+      walletBalance = 0,
+      myRetailer = 0,
+      myRetailerDueAmunt = 0,
+      totalSeStock = 0,
+      totalSeStockPrice = 0,
+      materialTotalStock = 0,
+      materialTotalStockPrice = 0,
+      returnStock = 0,
+      returnStockPrice = 0,
+      totalAdminStock = 0,
+      totalAdminStockPrice = 0,
+      totalDistributorStock = 0,
+      totalDistributorStockPrice = 0,
+      totalOwnUsersSale = 0,
+      totalOwnUsersSaleProducts = 0,
+      totalOtherAdminStock = 0,
+      totalOtherAdminStockPrice = 0,
+      totalOtherDistributorStock = 0,
+      totalOtherDistributorStockPrice = 0,
+      totalPurchase = 0,
+      totalAvlStock = 0,
+      totalAvlStockPrice = 0,
+      total_retailer_due = 0,
+      totalManagerStock = 0,
+      totalManagerStockPrice = 0,
+      totalPurchaseProduct = 0;
     let state_id = user.state_id; // await getUserColumnValue(req.userId, 'state_id');
     let avl_stockUser_ids = [];
     if (isSuperAdmin(req)) {
-
       //totalAdmin = await UserModel.count({where: {role_id: adminRoleId}});
       //totalDistributor = await UserModel.count({where: {role_id: distributorRoleId}});
-      totalRetailer = await UserModel.count({ where: { role_id: retailerRoleId } });
-      totalCustomer = await UserModel.count({ where: { role_id: customerRoleId } });
+      totalRetailer = await UserModel.count({
+        where: { role_id: retailerRoleId },
+      });
+      totalCustomer = await UserModel.count({
+        where: { role_id: customerRoleId },
+      });
       //totalsales_executive = await UserModel.count({where: {role_id: sales_executiveRoleId}});
       totalStock = await getTotalStockByUser(userID);
       totalStockPrice = await getTotalStockPriceByUser(null, userID);
-      materialTotalStock = await getTotalStockByUser(userID, 'material');
-      materialTotalStockPrice = await getTotalStockPriceByUser(null, userID, 'material');
-      totalSupplier = await UserModel.count({ where: { role_id: supplierRoleId, parent_id: userID } });
-      saleDueAmount = await saleModel.sum('due_amount', { where: { sale_by: userID, is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false } });
+      materialTotalStock = await getTotalStockByUser(userID, "material");
+      materialTotalStockPrice = await getTotalStockPriceByUser(
+        null,
+        userID,
+        "material"
+      );
+      totalSupplier = await UserModel.count({
+        where: { role_id: supplierRoleId, parent_id: userID },
+      });
+      saleDueAmount = await saleModel.sum("due_amount", {
+        where: {
+          sale_by: userID,
+          is_approved: { [Op.ne]: 2 },
+          is_assigned: false,
+          is_approval: false,
+        },
+      });
 
       //total distributor stocks
-      let distributors = await UserModel.findAll({ attributes: ['id'], where: { role_id: distributorRoleId, own: true } });
-      let distributorIds = arrayColumn(distributors, 'id');
+      let distributors = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: distributorRoleId, own: true },
+      });
+      let distributorIds = arrayColumn(distributors, "id");
       totalDistributor = distributors.length;
       totalDistributorStock = await getTotalStockByUser(distributorIds);
-      totalDistributorStockPrice = await getTotalStockPriceByUser(null, distributorIds);
+      totalDistributorStockPrice = await getTotalStockPriceByUser(
+        null,
+        distributorIds
+      );
 
       //total other distributor stocks
-      let otherdistributors = await UserModel.findAll({ attributes: ['id'], where: { role_id: distributorRoleId, own: false } });
-      let otherdistributorIds = arrayColumn(otherdistributors, 'id');
+      let otherdistributors = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: distributorRoleId, own: false },
+      });
+      let otherdistributorIds = arrayColumn(otherdistributors, "id");
       totalOtherDistributor = otherdistributorIds.length;
-      totalOtherDistributorStock = await getTotalStockByUser(otherdistributorIds);
-      totalOtherDistributorStockPrice = await getTotalStockPriceByUser(null, otherdistributorIds);
+      totalOtherDistributorStock = await getTotalStockByUser(
+        otherdistributorIds
+      );
+      totalOtherDistributorStockPrice = await getTotalStockPriceByUser(
+        null,
+        otherdistributorIds
+      );
 
       //total admin stocks
-      let admins = await UserModel.findAll({ attributes: ['id'], where: { role_id: adminRoleId, own: true } });
-      let adminIds = arrayColumn(admins, 'id');
+      let admins = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: adminRoleId, own: true },
+      });
+      let adminIds = arrayColumn(admins, "id");
       totalAdmin = admins.length;
       totalAdminStock = await getTotalStockByUser(adminIds);
       totalAdminStockPrice = await getTotalStockPriceByUser(null, adminIds);
 
       //total other admin stocks
-      let otheradmins = await UserModel.findAll({ attributes: ['id'], where: { role_id: adminRoleId, own: false } });
-      let otheradminIds = arrayColumn(otheradmins, 'id');
+      let otheradmins = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: adminRoleId, own: false },
+      });
+      let otheradminIds = arrayColumn(otheradmins, "id");
       totalOtherAdmin = otheradmins.length;
       totalOtherAdminStock = await getTotalStockByUser(otheradminIds);
-      totalOtherAdminStockPrice = await getTotalStockPriceByUser(null, otheradminIds);
+      totalOtherAdminStockPrice = await getTotalStockPriceByUser(
+        null,
+        otheradminIds
+      );
 
       //total se stocks
-      let se = await UserModel.findAll({ attributes: ['id'], where: { role_id: sales_executiveRoleId } });
-      let seIds = arrayColumn(se, 'id');
+      let se = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: sales_executiveRoleId },
+      });
+      let seIds = arrayColumn(se, "id");
       totalsales_executive = se.length;
       totalSeStock = await getTotalStockByUser(seIds);
       totalSeStockPrice = await getTotalStockPriceByUser(null, seIds);
 
       //total sales based on own users
-      let ownUsers = await UserModel.findAll({ attributes: ['id'], where: { own: true } });
-      let ownUserIds = arrayColumn(ownUsers, 'id');
+      let ownUsers = await UserModel.findAll({
+        attributes: ["id"],
+        where: { own: true },
+      });
+      let ownUserIds = arrayColumn(ownUsers, "id");
       ownUserIds.push(userID);
       let ownSaleResult = await getOwnUserSaleProducts(req);
       //totalOwnUsersSale = await saleModel.sum('bill_amount', { where: { sale_by: {[Op.in]: ownUserIds}, is_approved: {[Op.ne]: 2 }, is_assigned: false, is_approval: false } });
@@ -111,56 +224,93 @@ exports.index = async (req, res) => {
       totalAvlStockPrice = await getTotalStockPriceByUser(null, stockUserIds);
 
       //retailer due
-      total_retailer_due = await saleModel.sum('sales.due_amount', {
-        where: { is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false }, include: [
+      total_retailer_due = await saleModel.sum("sales.due_amount", {
+        where: {
+          is_approved: { [Op.ne]: 2 },
+          is_assigned: false,
+          is_approval: false,
+        },
+        include: [
           {
             model: UserModel,
-            as: 'user',
+            as: "user",
             where: { role_id: retailerRoleId },
             required: true,
-            attributes: ['id']
-          }
-        ]
+            attributes: ["id"],
+          },
+        ],
       });
 
-      returnStock = await getTotalStockByUser(userID, 'return');
-      returnStockPrice = await getTotalStockPriceByUser(null, userID, 'return');
+      returnStock = await getTotalStockByUser(userID, "return");
+      returnStockPrice = await getTotalStockPriceByUser(null, userID, "return");
 
       //manager stock
-      let managerUsers = await UserModel.findAll({ attributes: ['id'], where: { role_id: getRoleId('manager') } });
-      let managerUsersIds = arrayColumn(managerUsers, 'id');
+      let managerUsers = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: getRoleId("manager") },
+      });
+      let managerUsersIds = arrayColumn(managerUsers, "id");
       totalManagerStock = await getTotalStockByUser(managerUsersIds);
-      totalManagerStockPrice = await getTotalStockPriceByUser(null, managerUsersIds);
-
+      totalManagerStockPrice = await getTotalStockPriceByUser(
+        null,
+        managerUsersIds
+      );
     } else if (isAdmin(req)) {
       totalStockPrice = await getTotalStockPriceByUser(null, userID);
       totalStock = await getTotalStockByUser(userID);
 
       //customers
-      totalCustomer = await UserModel.count({ where: { role_id: customerRoleId, state_id: user.state_id } });
+      totalCustomer = await UserModel.count({
+        where: { role_id: customerRoleId, state_id: user.state_id },
+      });
 
       //total distributor stocks
-      let distributors = await UserModel.findAll({ attributes: ['id'], where: { role_id: distributorRoleId, own: true, state_id: state_id } });
-      let distributorIds = arrayColumn(distributors, 'id');
+      let distributors = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: distributorRoleId, own: true, state_id: state_id },
+      });
+      let distributorIds = arrayColumn(distributors, "id");
       totalDistributor = distributors.length;
       totalDistributorStock = await getTotalStockByUser(distributorIds);
-      totalDistributorStockPrice = await getTotalStockPriceByUser(null, distributorIds);
+      totalDistributorStockPrice = await getTotalStockPriceByUser(
+        null,
+        distributorIds
+      );
 
       //total other distributor stocks
-      let otherdistributors = await UserModel.findAll({ attributes: ['id'], where: { role_id: distributorRoleId, own: false, state_id: state_id } });
-      let otherdistributorIds = arrayColumn(otherdistributors, 'id');
+      let otherdistributors = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: distributorRoleId, own: false, state_id: state_id },
+      });
+      let otherdistributorIds = arrayColumn(otherdistributors, "id");
       totalOtherDistributor = otherdistributorIds.length;
-      totalOtherDistributorStock = await getTotalStockByUser(otherdistributorIds);
-      totalOtherDistributorStockPrice = await getTotalStockPriceByUser(null, otherdistributorIds);
+      totalOtherDistributorStock = await getTotalStockByUser(
+        otherdistributorIds
+      );
+      totalOtherDistributorStockPrice = await getTotalStockPriceByUser(
+        null,
+        otherdistributorIds
+      );
 
       let allDistributors = distributors.concat(otherdistributors);
 
-      totalRetailer = await UserModel.count({ where: { role_id: retailerRoleId, state_id: state_id } });
+      totalRetailer = await UserModel.count({
+        where: { role_id: retailerRoleId, state_id: state_id },
+      });
       let _cond = await getAdminSEWhereCondition(allDistributors);
       totalsales_executive = await UserModel.count({ where: _cond });
-      totalSupplier = await UserModel.count({ where: { role_id: supplierRoleId, parent_id: userID } });
+      totalSupplier = await UserModel.count({
+        where: { role_id: supplierRoleId, parent_id: userID },
+      });
       totalSupplier += 1; //bnecause superadmin is also a supplier
-      saleDueAmount = await saleModel.sum('due_amount', { where: { sale_by: userID, is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false } });
+      saleDueAmount = await saleModel.sum("due_amount", {
+        where: {
+          sale_by: userID,
+          is_approved: { [Op.ne]: 2 },
+          is_assigned: false,
+          is_approval: false,
+        },
+      });
 
       avl_stockUser_ids = await avlStockUserIds(req);
       let stockUserIds = avl_stockUser_ids;
@@ -169,24 +319,33 @@ exports.index = async (req, res) => {
       totalAvlStockPrice = await getTotalStockPriceByUser(null, stockUserIds);
 
       //retailer due
-      total_retailer_due = await saleModel.sum('sales.due_amount', {
-        where: { is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false }, include: [
+      total_retailer_due = await saleModel.sum("sales.due_amount", {
+        where: {
+          is_approved: { [Op.ne]: 2 },
+          is_assigned: false,
+          is_approval: false,
+        },
+        include: [
           {
             model: UserModel,
-            as: 'user',
+            as: "user",
             where: { role_id: retailerRoleId, state_id: state_id },
             required: true,
-            attributes: ['id']
-          }
-        ]
+            attributes: ["id"],
+          },
+        ],
       });
-
+      
     } else if (isDistributor(req)) {
-      let district_id = await getUserColumnValue(req.userId, 'district_id');
+      let district_id = await getUserColumnValue(req.userId, "district_id");
       totalStockPrice = await getTotalStockPriceByUser(null, userID);
       totalStock = await getTotalStockByUser(userID);
-      totalRetailer = await UserModel.count({ where: { role_id: retailerRoleId, district_id: district_id } });
-      let totalsales_executiveArr = await UserModel.findAll({ where: { role_id: sales_executiveRoleId, parent_id: req.userId } });
+      totalRetailer = await UserModel.count({
+        where: { role_id: retailerRoleId, district_id: district_id },
+      });
+      let totalsales_executiveArr = await UserModel.findAll({
+        where: { role_id: sales_executiveRoleId, parent_id: req.userId },
+      });
       let seIds = [];
       for (let item of totalsales_executiveArr) {
         seIds.push(item.id);
@@ -194,7 +353,14 @@ exports.index = async (req, res) => {
       totalsales_executive = seIds.length;
       totalSupplier = 1;
       let saleByArr = seIds.concat(userID);
-      saleDueAmount = await saleModel.sum('due_amount', { where: { sale_by: { [Op.in]: saleByArr }, is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false } });
+      saleDueAmount = await saleModel.sum("due_amount", {
+        where: {
+          sale_by: { [Op.in]: saleByArr },
+          is_approved: { [Op.ne]: 2 },
+          is_assigned: false,
+          is_approval: false,
+        },
+      });
       // totalSeStock = await StockModel.sum('quantity', {
       //   include: [{
       //     model: UserModel,
@@ -211,37 +377,47 @@ exports.index = async (req, res) => {
       //stockUserIds.push(userID);
       totalAvlStock = await getTotalStockByUser(stockUserIds);
       totalAvlStockPrice = await getTotalStockPriceByUser(null, stockUserIds);
-
     } else if (isSalesExecutive(req)) {
-      let state_id = await getUserColumnValue(req.userId, 'state_id');
-      totalRetailer = await UserModel.count({ where: { role_id: retailerRoleId, state_id: state_id } });
+      let state_id = await getUserColumnValue(req.userId, "state_id");
+      totalRetailer = await UserModel.count({
+        where: { role_id: retailerRoleId, state_id: state_id },
+      });
       totalStock = await getTotalStockByUser(userID);
       totalStockPrice = await getTotalStockPriceByUser(null, userID);
       let myRetailerIds = await getMyRetailerIds(req.userId);
-      myRetailer = await UserModel.count({ where: { role_id: retailerRoleId, id: { [Op.in]: myRetailerIds } } });
+      myRetailer = await UserModel.count({
+        where: { role_id: retailerRoleId, id: { [Op.in]: myRetailerIds } },
+      });
 
       //total retailer due
-      let whereObj = { where: { sale_by: userID, is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false } };
+      let whereObj = {
+        where: {
+          sale_by: userID,
+          is_approved: { [Op.ne]: 2 },
+          is_assigned: false,
+          is_approval: false,
+        },
+      };
       whereObj.include = includes = [
         {
           model: UserModel,
-          as: 'user',
-          where: { role_id: retailerRoleId }
-        }
+          as: "user",
+          where: { role_id: retailerRoleId },
+        },
       ];
-      saleDueAmount = await saleModel.sum('sales.due_amount', whereObj);
+      saleDueAmount = await saleModel.sum("sales.due_amount", whereObj);
 
       //my retailer due
       whereObj.include = includes = [
         {
           model: UserModel,
-          as: 'user',
-          where: { id: { [Op.in]: myRetailerIds } }
-        }
+          as: "user",
+          where: { id: { [Op.in]: myRetailerIds } },
+        },
       ];
-      myRetailerDueAmunt = await saleModel.sum('sales.due_amount', whereObj);
-      returnStock = await getTotalStockByUser(userID, 'return');
-      returnStockPrice = await getTotalStockPriceByUser(null, userID, 'return');
+      myRetailerDueAmunt = await saleModel.sum("sales.due_amount", whereObj);
+      returnStock = await getTotalStockByUser(userID, "return");
+      returnStockPrice = await getTotalStockPriceByUser(null, userID, "return");
 
       avl_stockUser_ids = await avlStockUserIds(req);
       let stockUserIds = avl_stockUser_ids;
@@ -251,11 +427,31 @@ exports.index = async (req, res) => {
     }
 
     //common
-    purchaseDueAmount = await PurchaseModel.sum('due_amount', { where: { user_id: userID, is_approved: { [Op.ne]: 2 }, is_assigned: false, is_approval: false } });
+    purchaseDueAmount = await PurchaseModel.sum("due_amount", {
+      where: {
+        user_id: userID,
+        is_approved: { [Op.ne]: 2 },
+        is_assigned: false,
+        is_approval: false,
+      },
+    });
     walletBalance = await getWalletBalance(userID);
 
     //chart
-    let months_name = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novenber", "December"];
+    let months_name = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "Novenber",
+      "December",
+    ];
     let customerMonthwise = [];
     let retailerMonthwise = [];
     let orderMonthwise = [];
@@ -263,21 +459,26 @@ exports.index = async (req, res) => {
     let BestAdmins = [];
     let PoorAdmins = [];
 
-    let adminDisIds = [], adminSaleByIds = [], distrSaleByUserIds = [];
+    let adminDisIds = [],
+      adminSaleByIds = [],
+      distrSaleByUserIds = [];
     if (isAdmin(req)) {
-      let distributors = await UserModel.findAll({ attributes: ['id'], where: { role_id: distributorRoleId, state_id: state_id } });
-      adminDisIds = arrayColumn(distributors, 'id');
+      let distributors = await UserModel.findAll({
+        attributes: ["id"],
+        where: { role_id: distributorRoleId, state_id: state_id },
+      });
+      adminDisIds = arrayColumn(distributors, "id");
 
-      let allDstIds = await getAdminDistributorIds(req.userId)
+      let allDstIds = await getAdminDistributorIds(req.userId);
       let _cond = await getAdminSEWhereCondition(allDstIds, null, true);
-      let se = await UserModel.findAll({ attributes: ['id'], where: _cond });
-      let seIds = arrayColumn(se, 'id');
+      let se = await UserModel.findAll({ attributes: ["id"], where: _cond });
+      let seIds = arrayColumn(se, "id");
       adminSaleByIds = seIds.concat(allDstIds);
       adminSaleByIds.push(req.userId);
-    }else if(isDistributor(req)){
+    } else if (isDistributor(req)) {
       let _cond = await getAdminSEWhereCondition([req.userId], null, true);
-      let se = await UserModel.findAll({ attributes: ['id'], where: _cond });
-      let seIds = arrayColumn(se, 'id');
+      let se = await UserModel.findAll({ attributes: ["id"], where: _cond });
+      let seIds = arrayColumn(se, "id");
       distrSaleByUserIds = seIds;
       distrSaleByUserIds.push(req.userId);
     }
@@ -285,12 +486,14 @@ exports.index = async (req, res) => {
     let month = 1;
     avl_stockUser_ids.push(userID);
     while (month < 13) {
+      let month_range = getMonthDateRange(moment().format("YYYY"), month);
+      month_range.start = month_range.start.format("YYYY-MM-DD 00:00:00");
+      month_range.end = month_range.end.format("YYYY-MM-DD 23:59:59");
 
-      let month_range = getMonthDateRange(moment().format('YYYY'), month);
-      month_range.start = month_range.start.format('YYYY-MM-DD 00:00:00');
-      month_range.end = month_range.end.format('YYYY-MM-DD 23:59:59');
-
-      let currMonthCustomer = 0, currMonthOrder = 0, currMonthSales = 0, currMonthRetailer = 0;
+      let currMonthCustomer = 0,
+        currMonthOrder = 0,
+        currMonthSales = 0,
+        currMonthRetailer = 0;
       //customer
       if (isSuperAdmin(req)) {
         currMonthCustomer = await UserModel.count({
@@ -299,19 +502,19 @@ exports.index = async (req, res) => {
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthOrder = await OrderModel.sum('total_amount', {
+        currMonthOrder = await OrderModel.sum("total_amount", {
           where: {
-            order_from: 'front_website',
+            order_from: "front_website",
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthSales = await saleModel.sum('total_payable', {
+        currMonthSales = await saleModel.sum("total_payable", {
           where: {
             sale_by: { [Op.in]: avl_stockUser_ids },
             is_approved: { [Op.ne]: 2 },
@@ -320,8 +523,8 @@ exports.index = async (req, res) => {
             invoice_date: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
       } else if (isAdmin(req)) {
         currMonthCustomer = await UserModel.count({
@@ -331,20 +534,20 @@ exports.index = async (req, res) => {
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthOrder = await OrderModel.sum('total_amount', {
+        currMonthOrder = await OrderModel.sum("total_amount", {
           where: {
-            order_from: 'front_website',
+            order_from: "front_website",
             to_user_id: { [Op.in]: adminDisIds },
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthSales = await saleModel.sum('total_payable', {
+        currMonthSales = await saleModel.sum("total_payable", {
           where: {
             sale_by: { [Op.in]: adminSaleByIds },
             is_approved: { [Op.ne]: 2 },
@@ -353,10 +556,10 @@ exports.index = async (req, res) => {
             invoice_date: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-      }else if(isDistributor(req)){
+      } else if (isDistributor(req)) {
         currMonthCustomer = await UserModel.count({
           where: {
             role_id: customerRoleId,
@@ -364,20 +567,20 @@ exports.index = async (req, res) => {
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthOrder = await OrderModel.sum('total_amount', {
+        currMonthOrder = await OrderModel.sum("total_amount", {
           where: {
-            order_from: 'front_website',
+            order_from: "front_website",
             to_user_id: req.userId,
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthSales = await saleModel.sum('total_payable', {
+        currMonthSales = await saleModel.sum("total_payable", {
           where: {
             sale_by: { [Op.in]: distrSaleByUserIds },
             is_approved: { [Op.ne]: 2 },
@@ -386,31 +589,31 @@ exports.index = async (req, res) => {
             invoice_date: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-      }else if(isSalesExecutive(req)){
-        currMonthRetailer = await UserToUserModel.count({ 
-          where: { 
-            to_role_id: retailerRoleId, 
+      } else if (isSalesExecutive(req)) {
+        currMonthRetailer = await UserToUserModel.count({
+          where: {
+            to_role_id: retailerRoleId,
             user_id: req.userId,
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          } 
+            },
+          },
         });
-        currMonthOrder = await OrderModel.sum('total_amount', {
+        currMonthOrder = await OrderModel.sum("total_amount", {
           where: {
-            order_from: 'front_website',
+            order_from: "front_website",
             sales_executive_id: req.userId,
             createdAt: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
-        currMonthSales = await saleModel.sum('total_payable', {
+        currMonthSales = await saleModel.sum("total_payable", {
           where: {
             sale_by: req.userId,
             is_approved: { [Op.ne]: 2 },
@@ -419,8 +622,8 @@ exports.index = async (req, res) => {
             invoice_date: {
               [Op.gte]: month_range.start,
               [Op.lte]: month_range.end,
-            }
-          }
+            },
+          },
         });
       }
 
@@ -480,7 +683,9 @@ exports.index = async (req, res) => {
       total_distributor_stock: totalDistributorStock,
       total_distributor_stock_price: displayAmount(totalDistributorStockPrice),
       total_other_distributor_stock: totalOtherDistributorStock,
-      total_other_distributor_stock_price: displayAmount(totalOtherDistributorStockPrice),
+      total_other_distributor_stock_price: displayAmount(
+        totalOtherDistributorStockPrice
+      ),
       total_admin_stock: totalAdminStock,
       total_admin_stock_price: displayAmount(totalAdminStockPrice),
       total_other_admin_stock: totalOtherAdminStock,
@@ -494,18 +699,17 @@ exports.index = async (req, res) => {
       total_manager_stock: totalManagerStockPrice,
       total_manager_stock_price: displayAmount(totalManagerStockPrice),
       total_purchase_product: totalPurchaseProduct,
-      total_own_sale_products: totalOwnUsersSaleProducts
-
-
-    }
+      total_own_sale_products: totalOwnUsersSaleProducts,
+    };
 
     res.send(formatResponse(result, "Dashboard"));
-
   } catch (error) {
-    console.log(error)
-    return res.status(errorCodes.default).send(formatErrorResponse(error.toString()));
+    console.log(error);
+    return res
+      .status(errorCodes.default)
+      .send(formatErrorResponse(error.toString()));
   }
-}
+};
 
 /**
  * Get Next User name
@@ -514,11 +718,11 @@ exports.index = async (req, res) => {
  * @param res
  */
 exports.nextUserName = async (req, res) => {
-  let id = req.query.id || '';
+  let id = req.query.id || "";
   let name = await getNextUserName(req.query.role, id);
 
   res.send(formatResponse(name));
-}
+};
 
 /**
  * Auto Notification
@@ -527,18 +731,27 @@ exports.nextUserName = async (req, res) => {
  * @param res
  */
 exports.autoNotifications = async (req, res) => {
-  let today = moment().format('YYYY-MM-DD');
-  let todayFormat = moment().format('DD/MM/YYYY');
+  let today = moment().format("YYYY-MM-DD");
+  let todayFormat = moment().format("DD/MM/YYYY");
   let sales = await saleModel.findAll({
-    where: { [Op.or]: [{ due_date: today }, { settlement_date: today }], is_approved: 1, is_assigned: false, is_approval: false, due_amount: { [Op.gt]: 0 } }
+    where: {
+      [Op.or]: [{ due_date: today }, { settlement_date: today }],
+      is_approved: 1,
+      is_assigned: false,
+      is_approval: false,
+      due_amount: { [Op.gt]: 0 },
+    },
   });
   for (let i = 0; i < sales.length; i++) {
-
     //due date
-    if (moment(sales[i].due_date).isSame(moment(), 'day')) {
-      console.log(sales[i].id)
+    if (moment(sales[i].due_date).isSame(moment(), "day")) {
+      console.log(sales[i].id);
       let haveSent = await NoticationModel.findOne({
-        where: { type: 'sale_due', type_id: sales[i].id, ...getDateFromToWhere(today, today) }
+        where: {
+          type: "sale_due",
+          type_id: sales[i].id,
+          ...getDateFromToWhere(today, today),
+        },
       });
       if (!haveSent) {
         let message = `${sales[i].invoice_number} sale due date is ${todayFormat}.`;
@@ -546,19 +759,26 @@ exports.autoNotifications = async (req, res) => {
           user_id: sales[i].sale_by,
           type_id: sales[i].id,
           type: "sale_due",
-          params: JSON.stringify({ sale_id: sales[i].id, due_date: moment(sales.due_date).format('YYYY-MM-DD') }),
-          message: message
+          params: JSON.stringify({
+            sale_id: sales[i].id,
+            due_date: moment(sales.due_date).format("YYYY-MM-DD"),
+          }),
+          message: message,
         };
         let notification = await NoticationModel.create(data);
         notification = NotificationCollection(notification);
-        req.pusher.trigger("ratnvihar_channel", `${sales[i].sale_by}-notification`, notification);
+        req.pusher.trigger(
+          "ratnvihar_channel",
+          `${sales[i].sale_by}-notification`,
+          notification
+        );
       }
     }
 
     //settlement date
-    if (moment(sales[i].settlement_date).isSame(moment(), 'day')) {
+    if (moment(sales[i].settlement_date).isSame(moment(), "day")) {
       let haveSent = await NoticationModel.findOne({
-        where: { type: 'sale_settlement', type_id: sales[i].id }
+        where: { type: "sale_settlement", type_id: sales[i].id },
       });
       if (!haveSent) {
         let message = `${sales[i].invoice_number} sale settlement date is ${todayFormat}.`;
@@ -566,20 +786,33 @@ exports.autoNotifications = async (req, res) => {
           user_id: sales[i].sale_by,
           type_id: sales[i].id,
           type: "sale_settlement",
-          params: JSON.stringify({ sale_id: sales[i].id, settlement_date: moment(sales[i].settlement_date).format('YYYY-MM-DD') }),
-          message: message
+          params: JSON.stringify({
+            sale_id: sales[i].id,
+            settlement_date: moment(sales[i].settlement_date).format(
+              "YYYY-MM-DD"
+            ),
+          }),
+          message: message,
         };
         let notification = await NoticationModel.create(data);
         notification = NotificationCollection(notification);
-        req.pusher.trigger("ratnvihar_channel", `${sales[i].sale_by}-notification`, notification);
+        req.pusher.trigger(
+          "ratnvihar_channel",
+          `${sales[i].sale_by}-notification`,
+          notification
+        );
       }
     }
-
-
   }
 
   let purchases = await PurchaseModel.findAll({
-    where: { due_date: today, is_approved: 1, is_approval: false, sale_id: { [Op.is]: null }, due_amount: { [Op.gt]: 0 } }
+    where: {
+      due_date: today,
+      is_approved: 1,
+      is_approval: false,
+      sale_id: { [Op.is]: null },
+      due_amount: { [Op.gt]: 0 },
+    },
   });
   for (let i = 0; i < purchases.length; i++) {
     if (!purchases[i].sale_id) {
@@ -587,9 +820,13 @@ exports.autoNotifications = async (req, res) => {
     }
 
     //due date
-    if (moment(purchases[i].due_date).isSame(moment(), 'day')) {
+    if (moment(purchases[i].due_date).isSame(moment(), "day")) {
       let haveSent = await NoticationModel.findOne({
-        where: { type: 'purchase_due', type_id: purchases[i].id, ...getDateFromToWhere(today, today) }
+        where: {
+          type: "purchase_due",
+          type_id: purchases[i].id,
+          ...getDateFromToWhere(today, today),
+        },
       });
       if (!haveSent) {
         let message = `${purchases[i].invoice_number} purchase due date is ${todayFormat}.`;
@@ -597,39 +834,57 @@ exports.autoNotifications = async (req, res) => {
           user_id: purchases[i].user_id,
           type_id: purchases[i].id,
           type: "purchase_due",
-          params: JSON.stringify({ purchase_id: purchases[i].id, due_date: moment(purchases[i].due_date).format('YYYY-MM-DD') }),
-          message: message
+          params: JSON.stringify({
+            purchase_id: purchases[i].id,
+            due_date: moment(purchases[i].due_date).format("YYYY-MM-DD"),
+          }),
+          message: message,
         };
         let notification = await NoticationModel.create(data);
         notification = NotificationCollection(notification);
-        req.pusher.trigger("ratnvihar_channel", `${purchases[i].user_id}-notification`, notification);
+        req.pusher.trigger(
+          "ratnvihar_channel",
+          `${purchases[i].user_id}-notification`,
+          notification
+        );
       }
     }
   }
 
   //visit notification
   let visits = await RetailerVisitModel.findAll({
-    where: { [Op.and]: [{date: {[Op.not]: null}}, {date: today} ]}
+    where: { [Op.and]: [{ date: { [Op.not]: null } }, { date: today }] },
   });
-  for(let i = 0; i < visits.length; i++){
+  for (let i = 0; i < visits.length; i++) {
     let haveSent = await NoticationModel.findOne({
-      where: { type: 'retailer_visit', type_id: visits[i].id, ...getDateFromToWhere(today, today) }
+      where: {
+        type: "retailer_visit",
+        type_id: visits[i].id,
+        ...getDateFromToWhere(today, today),
+      },
     });
-    if(!haveSent){
+    if (!haveSent) {
       let message = visits[i].notes;
       let data = {
         user_id: visits[i].user_id,
         type_id: visits[i].id,
         type: "retailer_visit",
-        params: JSON.stringify({ visit_id: visits[i].id, date: moment(visits[i].date).format('YYYY-MM-DD'), retailer_id: visits[i].visit_user_id }),
-        message: message
+        params: JSON.stringify({
+          visit_id: visits[i].id,
+          date: moment(visits[i].date).format("YYYY-MM-DD"),
+          retailer_id: visits[i].visit_user_id,
+        }),
+        message: message,
       };
       let notification = await NoticationModel.create(data);
       notification = NotificationCollection(notification);
-      req.pusher.trigger("ratnvihar_channel", `${visits[i].user_id}-notification`, notification);
+      req.pusher.trigger(
+        "ratnvihar_channel",
+        `${visits[i].user_id}-notification`,
+        notification
+      );
     }
   }
 
   res.send(formatResponse());
-
-}
+};

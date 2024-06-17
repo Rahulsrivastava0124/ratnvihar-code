@@ -31,6 +31,13 @@ module.exports = {
         },
       },
       {
+        test: /\.(js|jsx)$/,
+        include: [
+          path.join(__dirname, "node_modules/@datadog/browser-rum"), // <-this line
+        ],
+        loader: "babel-loader",
+      },
+      {
         test: /\.html$/,
         use: [
           {
