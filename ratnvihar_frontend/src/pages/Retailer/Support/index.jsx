@@ -31,7 +31,7 @@ const Support = () => {
             <div className='support-contact'>
                 <p>For any Queries Conatct Us @ </p>
                 <p><FaPhoneAlt /> +91-7827293791 </p>
-                <p><MdEmail /> customer.support@ratnvihar.com </p>
+                <p><MdEmail /> customer.support@Prakriti.com </p>
             </div>
             <div className='faq-wrapper'>
                 <Container>

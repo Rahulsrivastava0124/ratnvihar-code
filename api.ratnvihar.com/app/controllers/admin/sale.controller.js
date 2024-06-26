@@ -575,7 +575,7 @@ exports.downloadInvoice = async (req, res) => {
   let saleData = SaleCollection(sale);
 
   //const logoUrl = process.env.BASE_URL + "public/images/logo.png";
-  const logoUrl = "file://var/www/html/ratnvihar/api.ratnvihar.com/public/images/logo.png";
+  const logoUrl = "file://var/www/html/Prakriti/api.prakriti.one/public/images/logo.png";
 
 
   let html = `<!DOCTYPE html>
@@ -1011,7 +1011,7 @@ exports.downloadInvoice = async (req, res) => {
                                                   </div>
                                                   <div style="display: table-cell; width:
                                                   50%;">
-                                              <h2 style="margin: 0; font-size: 10px; text-align: center; padding-top: 30px; padding-bottom: 4px;">For Ratn Vihar</h2>    
+                                              <h2 style="margin: 0; font-size: 10px; text-align: center; padding-top: 30px; padding-bottom: 4px;">For Prakriti</h2>    
                                               </div>
                                           </div>
                                       </td>

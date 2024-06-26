@@ -55,6 +55,6 @@ exports.update = async (req, res) => {
 
   res.send(formatResponse("", 'Permissions Updated.'));
 
-  req.pusher.trigger("ratnvihar_channel", "permission_updated", {});
+  req.pusher.trigger("Prakriti_channel", "permission_updated", {});
 
 };

@@ -82,7 +82,7 @@ app.use(demoLogger);
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to our RATNVIHAR API application server."});
+  res.json({ message: "Welcome to our PRAKRITI API application server."});
 });
 
 app.use(function(req, res, next) {
@@ -164,12 +164,12 @@ const PORT = process.env.PORT;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 }).on('error', (error) => { 
-  // console.log(`Something wrong`, error);
-  // log = JSON.stringify(error);
-  // fs.appendFile("logs/request_logs.txt", log + "\n", err => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  // });
+  console.log(`Something wrong`, error);
+  log = JSON.stringify(error);
+  fs.appendFile("logs/request_logs.txt", log + "\n", err => {
+    if (err) {
+      console.log(err);
+    }
+  });
 });
 

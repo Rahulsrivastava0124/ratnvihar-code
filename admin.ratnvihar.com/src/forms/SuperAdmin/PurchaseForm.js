@@ -97,6 +97,7 @@ class PurchaseForm extends React.Component {
 
     let formData = "formData" in this.props ? this.props.formData : null;
     this.state = {
+      SubmitSave: false,
       formData: formData,
       isCreateFrom: !formData,
       isReturnForm: this.props.isReturnForm,
@@ -877,9 +878,27 @@ class PurchaseForm extends React.Component {
 
       let formValues = { ...this.state.formValues };
       let _data = { ...this.state.productFormValues };
+      // console.log("this hdkh", this.state.productFormValues);
       let products = [...formValues.products];
       //products.push(_data);
       //formValues.products = [...products];
+      _data.materials && _data.materials.length > 0
+        ? _data.materials?.map((item, index) => {
+            console.log("index is the ----------------", index);
+            if (
+              item.weight == "" &&
+              item.quantity == "" &&
+              item.rate == "" &&
+              item.purity_id == ""
+            ) {
+              _data.materials.splice(index, index);
+              // console.log(" removed ", removeProductFormValue);
+            }
+          })
+        : null;
+
+      console.log("_data", _data);
+
       this.setState(
         {
           formValues: {
@@ -956,44 +975,44 @@ class PurchaseForm extends React.Component {
     if (!productFormValues.materials.length) {
       hasErr = true;
     }
-    for (let i = 0; i < productFormValues.materials.length; i++) {
-      if (isEmpty(productFormValues.materials[i].weight)) {
-        materialFormErros[i].weight = true;
-        hasErr = true;
-      } else {
-        materialFormErros[i].weight = false;
-      }
-      /*if (isEmpty(productFormValues.materials[i].quantity)) {
-                materialFormErros[i].quantity = true;
-                hasErr = true;
-            } else {
-                materialFormErros[i].quantity = false;
-            }*/
-      if (isEmpty(productFormValues.materials[i].purity_id)) {
-        materialFormErros[i].purity_id = true;
-        hasErr = true;
-      } else {
-        materialFormErros[i].purity_id = false;
-      }
-      if (isEmpty(productFormValues.materials[i].purity_id)) {
-        materialFormErros[i].purity_id = true;
-        hasErr = true;
-      } else {
-        materialFormErros[i].purity_id = false;
-      }
-      if (isEmpty(productFormValues.materials[i].unit_id)) {
-        materialFormErros[i].unit_id = true;
-        hasErr = true;
-      } else {
-        materialFormErros[i].unit_id = false;
-      }
-      if (isEmpty(productFormValues.materials[i].rate)) {
-        materialFormErros[i].rate = true;
-        hasErr = true;
-      } else {
-        materialFormErros[i].rate = false;
-      }
-    }
+    // for (let i = 0; i < productFormValues.materials.length; i++) {
+    //   if (isEmpty(productFormValues.materials[i].weight)) {
+    //     materialFormErros[i].weight = true;
+    //     hasErr = true;
+    //   } else {
+    //     materialFormErros[i].weight = false;
+    //   }
+    //   /*if (isEmpty(productFormValues.materials[i].quantity)) {
+    //             materialFormErros[i].quantity = true;
+    //             hasErr = true;
+    //         } else {
+    //             materialFormErros[i].quantity = false;
+    //         }*/
+    //   if (isEmpty(productFormValues.materials[i].purity_id)) {
+    //     materialFormErros[i].purity_id = true;
+    //     hasErr = true;
+    //   } else {
+    //     materialFormErros[i].purity_id = false;
+    //   }
+    //   if (isEmpty(productFormValues.materials[i].purity_id)) {
+    //     materialFormErros[i].purity_id = true;
+    //     hasErr = true;
+    //   } else {
+    //     materialFormErros[i].purity_id = false;
+    //   }
+    //   if (isEmpty(productFormValues.materials[i].unit_id)) {
+    //     materialFormErros[i].unit_id = true;
+    //     hasErr = true;
+    //   } else {
+    //     materialFormErros[i].unit_id = false;
+    //   }
+    //   if (isEmpty(productFormValues.materials[i].rate)) {
+    //     materialFormErros[i].rate = true;
+    //     hasErr = true;
+    //   } else {
+    //     materialFormErros[i].rate = false;
+    //   }
+    // }
 
     //check if has same certificate no
     if (
@@ -1014,8 +1033,8 @@ class PurchaseForm extends React.Component {
       }
     }
 
-    // console.log(productFormErros);
-    // console.log(materialFormErros);
+    console.log(productFormErros);
+    console.log(materialFormErros);
 
     this.setState({
       productFormErros: productFormErros,
@@ -1587,6 +1606,7 @@ class PurchaseForm extends React.Component {
       : null;
     // console.log(formValues);
     console.log(productFormValues);
+
     return (
       <Box sx={{ flexGrow: 1, m: 0.5 }} className="ratn-dialog-inner">
         {return_sale_data ? (
@@ -2211,8 +2231,6 @@ class PurchaseForm extends React.Component {
                               </TableCell>
                             </TableRow>
                           ))}
-
-                          
                         </TableBody>
                       </Table>
                     </TableContainer>
@@ -2327,8 +2345,9 @@ class PurchaseForm extends React.Component {
                     >
                       <Button
                         variant="contained"
-                        className="conf-button"
+                        className="conf-button PurshasFormSave"
                         type="button"
+                        // disabled={this.saveDisabled()}
                         onClick={this.handleProductSubmit}
                       >
                         Save

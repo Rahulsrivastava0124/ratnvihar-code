@@ -370,7 +370,7 @@ exports.update = async (req, res) => {
     let prevExpense = admin.expense ? true : false;
     let newExpense = data.expense ? true : false;
     if(prevExpense != newExpense){
-      req.pusher.trigger("ratnvihar_channel", "permission_updated", {});
+      req.pusher.trigger("Prakriti_channel", "permission_updated", {});
     }
 
   }).catch(error => { 

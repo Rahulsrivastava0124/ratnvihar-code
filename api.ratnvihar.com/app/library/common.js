@@ -758,6 +758,9 @@ const getTotalStockPriceByUser = async (byCategory, userId, type) => {
         include: _include
     });
 
+   // console.log("This is stock value :- " + JSON.stringify( stocks));
+
+
     let total_price = 0, categories = [];
     for (let i = 0; i < stocks.length; i++) {
         let stock = stocks[i];
@@ -783,7 +786,9 @@ const getTotalStockPriceByUser = async (byCategory, userId, type) => {
         }
 
         let priceMaterials = await calculateProductPrice(stock.stockMaterials, sub_category, isMaterial, 'admin', taxInfo, true);
-        let thisPrice = priceMaterials.total_mrp_price - priceMaterials.total_tax; //priceMaterials.total_mrp_price
+        console.log(priceMaterials)
+         thisPrice = priceMaterials.total_mrp_price - priceMaterials.total_tax; //priceMaterials.total_mrp_price
+        //thisPrice = priceMaterials.total_mrp_price;
         total_price += thisPrice
 
         let index = _.findIndex(categories, (item) => item.category_id == category_id);
@@ -801,6 +806,8 @@ const getTotalStockPriceByUser = async (byCategory, userId, type) => {
         }
 
     }
+
+    console.log(" Total_Prize :- ", + total_price);
 
     return byCategory ? categories : priceFormat(total_price);
 }
@@ -1139,7 +1146,7 @@ const sendNotification = async (type, req, params, userId) => {
             };
             let notification = await NoticationModel.create(data);
             notification = NotificationCollection(notification);
-            req.pusher.trigger("ratnvihar_channel", `${i}-notification`, notification);
+            req.pusher.trigger("Prakriti_channel", `${i}-notification`, notification);
         }
 
     }

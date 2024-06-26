@@ -1911,7 +1911,7 @@ exports.downloadInvoice = async (req, res) => {
                                           left;">
                                           <h3 style="margin: 0;">
                                               <span style="font-size: 16px;
-                                                  font-weight: 600;">Ratn Vihar
+                                                  font-weight: 600;">Prakriti
                                                   Patna</span></h3>
                                           <h3 style="margin: 0; font-weight: 400;
                                               font-size: 14px;">GST No -
@@ -1924,7 +1924,7 @@ exports.downloadInvoice = async (req, res) => {
                                               Bihar 800 020</h3>
                                           <h3 style="font-weight: 600; font-size:
                                               12px; margin: 0;">
-                                              support@ratnvihar.com, +91 98744
+                                              support@Prakriti.com, +91 98744
                                               45878
                                           </h3>
                                       </div>

@@ -27,15 +27,15 @@
       crossorigin="anonymous"
     ></script>
     <script>
-
-let title = window.location.pathname;
-let titleSplite=title.split('/');
       window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
-          document.title=` Prakriti- ( ${titleSplite[1]} )`;
+          let title = window.location.host;
+          console.log(title);
+          let titleSplite = title.split(".");
+          console.log(title.split);
+          document.title = ` Prakriti- ( ${titleSplite[0].toUpperCase()} )`;
         }, 2);
-      })
-
+      });
     </script>
   </body>
 </html>

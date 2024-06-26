@@ -739,7 +739,7 @@ class ProductDetails extends React.Component {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className='product-details-items mt-4'>
+                                                <div className='product-details-items mt-4 rounded'>
                                                     <div className='header'>
                                                         <h2>Product Details</h2>
                                                         <a href=''><MdKeyboardArrowDown /></a>

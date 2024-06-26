@@ -658,12 +658,12 @@ class HomePage extends Component {
         <section className="blue-pearl mt-3 mb-3 mt-md-4 mb-md-4 position-relative">
           <Container>
             <Row>
-              <Col xs={4} md={4}>
-                <div className="blue-pearl-image shadow rounded">
+              <Col xs={4} md={4} className="blue-pearl-image-div">
+                <div className="blue-pearl-image  shadow rounded">
                   <img src={pearlBlue} className="rounded" alt="" />
                 </div>
               </Col>
-              <Col xs={8} md={8}>
+              <Col  md={8} className="blue-pearl-div">
                 {/* <div className="blue-pearl-inner position-relative">
                   <img src={pearlBlue2} alt="" />
                   <div className="overlay"></div>
@@ -850,11 +850,11 @@ class HomePage extends Component {
                     <h2>Free Trial</h2>
                     <div className="overlay-underline"></div>
                     <p>
-                      Yes, RATNVIHAR assures you that you can choose your
+                      Yes, PRAKRITI assures you that you can choose your
                       favorite jewelry from anywhere and order it on time, for
                       which you will not have to pay any charge, you can shop if
                       you like, want to try? so contact now 98744 00341, Email:
-                      support@ratnvihar.com :
+                      support@Prakriti.com :
                     </p>
                   </div>
                 </div>
@@ -931,7 +931,7 @@ class HomePage extends Component {
                     <p>
                       <strong>Email:</strong>
                     </p>
-                    <p>support@ratnvihar.com</p>
+                    <p>support@Prakriti.com</p>
                   </div>
                 </div>
               </Col>
@@ -1055,11 +1055,11 @@ class HomePage extends Component {
                   </div>
                   <div className="promise-overlay-mob">
                     <p>
-                      Yes, RATNVIHAR assures you that you can choose your
+                      Yes, PRAKRITI assures you that you can choose your
                       favorite jewelry from anywhere and order it on time, for
                       which you will not have to pay any charge, you can shop if
                       you like, want to try? so contact now 98744 00341, Email:
-                      support@ratnvihar.com :
+                      support@Prakriti.com :
                     </p>
                   </div>
                 </div>
@@ -1163,7 +1163,7 @@ class HomePage extends Component {
                     <p>
                       <strong>Email:</strong>
                     </p>
-                    <p>support@ratnvihar.com</p>
+                    <p>support@Prakriti.com</p>
                   </div>
                 </div>
               </Col>
@@ -1316,7 +1316,7 @@ class HomePage extends Component {
         <section className="address-map">
           <Container>
             <div className="review-header">
-              <h3 className="text-center">The Ratn Vihar Store</h3>
+              <h3 className="text-center">The Prakriti Store</h3>
               <p>
                 Our stores are cool and contemporary spaces that offer an
                 immersive jewellery browsing and shopping experience, and
@@ -1333,7 +1333,7 @@ class HomePage extends Component {
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
                                     <ul className='address-info'>
                                         <li> <FaPhoneAlt /> 92732926392 </li>
-                                        <li> <IoMdMail /> info@ratnvihar.com </li>
+                                        <li> <IoMdMail /> info@Prakriti.com </li>
                                     </ul>
                                     <div className='gap-100'></div>
                                     <a href='' className='view-more'>Learn More Branches</a>
@@ -1428,7 +1428,7 @@ class HomePage extends Component {
                                   </p>
                                   <p>
                                     Contact: +91 98744 00341, Email:
-                                    support@ratnvihar.com
+                                    support@Prakriti.com
                                   </p>
                                 </div>
                                 <div className="list-name right-para">
@@ -1508,7 +1508,7 @@ class HomePage extends Component {
                                   </p>
                                   <p>
                                     Contact: +91 98744 45878, Email:
-                                    support@ratnvihar.com
+                                    support@Prakriti.com
                                   </p>
                                 </div>
                                 <div className="list-name right-para">
@@ -1523,7 +1523,7 @@ class HomePage extends Component {
                                     inquiries, contact us.
                                   </p>
                                   <p> Store Timings: 11am to 9pm </p>
-                                  <p> WEBSITE: www.ratnvihar.com </p>
+                                  <p> WEBSITE: www.Prakriti.com </p>
                                   <p> Contact Number: 9874445878</p>
                                   <div className="list-name margin-right">
                                     <a
@@ -1562,11 +1562,13 @@ class HomePage extends Component {
                       </Container>
                     </Tab.Pane>
                   </Tab.Content>
+                  
                 </Col>
               </Row>
             </Tab.Container>
           </Container>
         </section>
+        
         <section className="socialmedia-wrapper">
           <Container>
             <div className="social-container-wrapper">

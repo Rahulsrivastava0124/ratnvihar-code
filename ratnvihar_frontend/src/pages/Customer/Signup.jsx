@@ -262,7 +262,7 @@ class Signup extends React.Component {
                     >
                       <Form.Check type="checkbox" label="" />
                       <span>
-                        I accept Ratn Vihar{" "}
+                        I accept Prakriti{" "}
                         <a href="/terms-condition" target="_blank">
                           {" "}
                           Terms of Service{" "}

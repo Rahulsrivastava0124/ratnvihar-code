@@ -15394,7 +15394,7 @@
         const dt = ut,
           pt = (0, n(45892).H7)("access_token"),
           ht = dt.create({
-            baseURL: "https://api.prakriti.one/api",
+            baseURL: "http://localhost:9083/api",
             headers: { Authorization: pt ? "Bearer " + pt : "" },
           });
       },
@@ -66577,7 +66577,7 @@
           this.props.actions.getNotifiactions();
           const e = new (hd())("09f950cd54a3bae697ec", {
               cluster: "ap2",
-            }).subscribe("ratnvihar_channel"),
+            }).subscribe("Prakriti_channel"),
             t = this.state.user
               ? this.state.user.id + "-notification"
               : "notification";
@@ -73196,7 +73196,7 @@
               e.actions.getPermissions();
             }, []),
             new (hd())("09f950cd54a3bae697ec", { cluster: "ap2" })
-              .subscribe("ratnvihar_channel")
+              .subscribe("Prakriti_channel")
               .bind("permission_updated", (t) => {
                 e.actions.getPermissions();
               }),

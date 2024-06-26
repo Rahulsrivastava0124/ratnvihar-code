@@ -78,7 +78,7 @@ const getModelObject = async(data) => {
         notes: data.notes ?? "",
         image: data.image ? getFileAbsulatePath(data.image) : "",
         help_mobile: '+91 98744 45878',
-        help_email: 'ratnvihar@gmail.com',
+        help_email: 'Prakriti@gmail.com',
         is_due: is_due
     }
 }

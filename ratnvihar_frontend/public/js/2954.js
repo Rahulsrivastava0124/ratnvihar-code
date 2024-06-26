@@ -43,7 +43,7 @@
             }),
             b(this, "onSubmit", (e) => {
               e.preventDefault(),
-                fetch("http://localhost:8089/signup/customer")
+                fetch("https://api.prakriti.one/signup/customer")
                   .then((e) => e.json())
                   .then((e) => {
                     console.log(e);
@@ -273,7 +273,7 @@
                                   }),
                                   (0, j.jsxs)("span", {
                                     children: [
-                                      "I accept Ratn Vihar",
+                                      "I accept Prakriti",
                                       " ",
                                       (0, j.jsxs)("a", {
                                         href: "/terms-condition",

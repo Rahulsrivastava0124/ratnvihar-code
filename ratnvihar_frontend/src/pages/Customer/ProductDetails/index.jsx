@@ -334,11 +334,11 @@ class ProductDetails extends React.Component {
   };
 
   handleWishlist = async () => {
-    if (isEmpty(this.state.auth)) {
-      setLastVisitPage();
-      this.props.navigate("/login");
-      return;
-    }
+    // if (isEmpty(this.state.auth)) {
+    //   setLastVisitPage();
+    //   this.props.navigate("/login");
+    //   return;
+    // }
 
     const { product } = this.state;
     if (!product) {
@@ -609,7 +609,7 @@ class ProductDetails extends React.Component {
                             className="mySwiper2"
                           >
                             <SwiperSlide
-                              className="p_details_slider_wrapper"
+                              className="p_details_slider_wrapper border rounded"
                               style={{ maxHeight: "100px" }}
                             >
                               {this.state.play_video && product.video != "" ? (
@@ -645,7 +645,7 @@ class ProductDetails extends React.Component {
                             onSwiper={this.setThumbsSwiper}
                           >
                             {product.video != "" ? (
-                              <SwiperSlide className="slider-thumbnail">
+                              <SwiperSlide className="slider-thumbnail border rounded">
                                 <img
                                   className="thumnail-slider rounded"
                                   src={videoThumb}
@@ -655,7 +655,7 @@ class ProductDetails extends React.Component {
                             ) : null}
                             {product.images.map((item, key) => (
                               <SwiperSlide
-                                className="slider-thumbnail"
+                                className="slider-thumbnail border rounded"
                                 key={key}
                               >
                                 <img
@@ -799,7 +799,7 @@ class ProductDetails extends React.Component {
                                   : ""}
                               </h2>
                             </div>
-                            <div className="price-breakup rounded bg-white shadow">
+                            <div className="price-breakup mt-3 rounded bg-white shadow">
                               <h2>Price Breakup</h2>
                               <div className="underline"></div>
                               <div className="breakup-content">
@@ -1358,8 +1358,11 @@ class ProductDetails extends React.Component {
                             modules={[FreeMode, Navigation, Thumbs]}
                             className="mySwiper2"
                           >
-                            <SwiperSlide
-                              className="p_details_slider_wrapper"
+                            {
+                              product.images.map((image,index)=>
+                                <SwiperSlide
+                                key={index}
+                              className="p_details_slider_wrapper border rounded"
                               style={{ maxHeight: "100px" }}
                             >
                               {this.state.play_video && product.video != "" ? (
@@ -1378,10 +1381,15 @@ class ProductDetails extends React.Component {
                               ) : (
                                 <img
                                   className="p_details_slider rounded"
-                                  src={product.images[this.state.imageIndex]}
+                                  src={image}
                                 />
                               )}
                             </SwiperSlide>
+                              
+                              )
+
+                            }
+                          
                           </Swiper>
                           <Swiper
                             spaceBetween={10}
@@ -1395,7 +1403,7 @@ class ProductDetails extends React.Component {
                             onSwiper={this.setThumbsSwiper}
                           >
                             {product.video != "" ? (
-                              <SwiperSlide className="slider-thumbnail">
+                              <SwiperSlide className="slider-thumbnail border rounded">
                                 <img
                                   className="thumnail-slider rounded"
                                   src={videoThumb}
@@ -1405,7 +1413,7 @@ class ProductDetails extends React.Component {
                             ) : null}
                             {product.images.map((item, key) => (
                               <SwiperSlide
-                                className="slider-thumbnail"
+                                className="slider-thumbnail border rounded"
                                 key={key}
                               >
                                 <img
@@ -1519,7 +1527,7 @@ class ProductDetails extends React.Component {
                                                                         </span> */}
                           </div>
 
-                          <div className="price-breakup rounded bg-light shadow">
+                          <div className="price-breakup mt-3 rounded bg-light shadow">
                             <h2>Price Breakup</h2>
                             <div className="underline"></div>
                             <div className="breakup-content">
@@ -1701,7 +1709,7 @@ class ProductDetails extends React.Component {
                                                         </div>*/}
                         </div>
 
-                        <div className="product-details-items mt-2">
+                        <div className="product-details-items mt-2 rounded">
                           <Accordion alwaysOpen>
                             <Accordion.Item eventKey="0">
                               <Accordion.Header>

@@ -768,7 +768,7 @@ exports.autoNotifications = async (req, res) => {
         let notification = await NoticationModel.create(data);
         notification = NotificationCollection(notification);
         req.pusher.trigger(
-          "ratnvihar_channel",
+          "Prakriti_channel",
           `${sales[i].sale_by}-notification`,
           notification
         );
@@ -797,7 +797,7 @@ exports.autoNotifications = async (req, res) => {
         let notification = await NoticationModel.create(data);
         notification = NotificationCollection(notification);
         req.pusher.trigger(
-          "ratnvihar_channel",
+          "Prakriti_channel",
           `${sales[i].sale_by}-notification`,
           notification
         );
@@ -843,7 +843,7 @@ exports.autoNotifications = async (req, res) => {
         let notification = await NoticationModel.create(data);
         notification = NotificationCollection(notification);
         req.pusher.trigger(
-          "ratnvihar_channel",
+          "Prakriti_channel",
           `${purchases[i].user_id}-notification`,
           notification
         );
@@ -879,7 +879,7 @@ exports.autoNotifications = async (req, res) => {
       let notification = await NoticationModel.create(data);
       notification = NotificationCollection(notification);
       req.pusher.trigger(
-        "ratnvihar_channel",
+        "Prakriti_channel",
         `${visits[i].user_id}-notification`,
         notification
       );

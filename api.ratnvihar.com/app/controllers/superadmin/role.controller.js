@@ -152,7 +152,7 @@ exports.update = async (req, res) => {
       settings: data.permissions.settings
     });
 
-    req.pusher.trigger("ratnvihar_channel", "permission_updated", {});
+    req.pusher.trigger("Prakriti_channel", "permission_updated", {});
 
     res.send(formatResponse("", "Role updated successfully!"));
   }).catch(error => {

@@ -74,12 +74,12 @@ class OrdersPage extends React.Component {
                   <div key={index}>
                     <div className="bg-light border mb-2 my-order-wrapper px-4 rounded">
                       <div className="order-id mb-2 d-block">
-                        <div className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center justify-content-between  ">
                           <div>
                             <div className="id-no">
                               <h2 className="mb-0">
                                 <span className="fw-bold me-2">Order ID:</span>{" "}
-                                <span>#RATN{item.order_no}</span>
+                                <span>#PRA{item.order_no}</span>
                               </h2>
                               {/*<h3>Gold Plated Ring + 1 Item</h3>*/}
                             </div>
@@ -90,9 +90,41 @@ class OrdersPage extends React.Component {
                               </h2>
                               {/*<h3>Gold Plated Ring + 1 Item</h3>*/}
                             </div>
-                            <hr />
                           </div>
                           <div className="tracker">
+                            <div className="order-status rounded ">
+                              <h4 className="text-warning-emphasis">
+                                Status: <span> {item.status_display}</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="d-flex  align-items-center justify-content-between flex-wrap">
+                          <div className="d-flex ">
+                            <img
+                              src={item.orderProducts[0].image}
+                              alt=""
+                              srcset=""
+                              width={`100px`}
+                              className="rounded me-3"
+                            />
+                            <div className="total">
+                              <h5 className="text-primary-emphasis">
+                                {item.orderProducts[0].product_name}
+                              </h5>
+                              <h6 className="my-2">{item.total_amount}</h6>
+                              <h6>
+                                Quantity :{" "}
+                                <span>{item.orderProducts[0].quantity}</span>
+                              </h6>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        
+                      </div>
+                      <div className="tracker sm:mb-2">
                             {/*<Button variant="primary" onClick={onTrack}>TRACK ORDER</Button>*/}
                             <Button
                               variant="primary"
@@ -114,37 +146,6 @@ class OrdersPage extends React.Component {
                               </Button>
                             ) : null}
                           </div>
-                        </div>
-
-                        <div className="d-flex  align-items-center justify-content-between flex-wrap">
-                          <div className="d-flex ">
-                            <img
-                              src={item.orderProducts[0].image}
-                              alt=""
-                              srcset=""
-                              width={`100px`}
-                              className="rounded me-3"
-                            />
-                            <div className="total">
-                              <h5 className="text-primary-emphasis">
-                                {item.orderProducts[0].product_name}
-                              </h5>
-                              <h6 className="my-2">{item.total_amount}</h6>
-                              <h6>
-                                Quantity :{" "}
-                                <span>{item.orderProducts[0].quantity}</span>
-                              </h6>
-                            </div>
-                          </div>
-                          <div className="tracker">
-                            <div className="order-status rounded ">
-                              <h4 className="text-warning-emphasis">
-                                Status: <span> {item.status_display}</span>
-                              </h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <hr />
                       <div className="my-order-footer">
                         <div className="order-address">

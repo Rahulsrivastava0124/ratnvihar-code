@@ -669,7 +669,7 @@ class CartPage extends React.Component {
                                             </Button>
                                             <Button
                                               variant="primary"
-                                              className="rounded"
+                                              className="rounded border"
                                               onClick={() =>
                                                 this.handleMoveToWishlist(val)
                                               }
@@ -873,7 +873,7 @@ class CartPage extends React.Component {
                                         </div>*/}
                       {cartList.length ? (
                         <>
-                          <div className="place-order-button mt-4">
+                          <div className="place-order-button my-2">
                             <Button
                               variant="primary"
                               className="rounded"
@@ -1270,7 +1270,7 @@ class CartPage extends React.Component {
                     </div>*/}
                     {cartList.length ? (
                       <>
-                        <div className="place-order-button mt-4">
+                        <div className="place-order-button my-2">
                           <Button
                             variant="primary"
                             onClick={this.handlePlaceOrder}

@@ -508,13 +508,13 @@
                               sx: { mt: 6, mb: 0 },
                               className: "copyright",
                               children: [
-                                "Copyright ©  RatnVihar ",
+                                "Copyright ©  Prakriti ",
                                 new Date().getFullYear(),
                                 (0, v.jsx)(f.Z, {
                                   color: "inherit",
                                   href: "https://webappssol.com/",
                                   target: "_blank",
-                                  children: "  | Developed by: webappsSOL",
+                                  children: "  ",
                                 }),
                               ],
                             }),

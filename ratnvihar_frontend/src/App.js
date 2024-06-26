@@ -30,7 +30,7 @@ function App() {
         pauseOnHover
       />
       <Helmet>
-        <title>Ratn Vihar - Jewellers since 1990</title>
+        <title>Prakriti - Jewellers since 1990</title>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
       </Helmet>

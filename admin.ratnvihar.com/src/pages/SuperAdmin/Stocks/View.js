@@ -147,6 +147,7 @@ class StockViewPage extends React.Component {
                                 <TableCell>{item.weight}</TableCell>
                                 <TableCell>{item.unit_name}</TableCell>
                                 <TableCell>{item.quantity}</TableCell>
+                             
                               </TableRow>
                             ))
                           }
@@ -157,8 +158,6 @@ class StockViewPage extends React.Component {
                   </Grid>
                 </>
             }
-
-      
         </div>
       </MainCard>
     );

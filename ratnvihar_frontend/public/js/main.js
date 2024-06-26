@@ -4789,7 +4789,7 @@
             "undefined" != typeof WorkerGlobalScope &&
             self instanceof WorkerGlobalScope &&
             "function" == typeof self.importScripts,
-          de = (ie && window.location.href) || "https://prakriti.one",
+          de = (ie && window.location.href) || "http://localhost:9083",
           fe = { ...r, ...ae },
           pe = function (e) {
             function t(e, n, r, o) {
@@ -30826,7 +30826,7 @@
                             children: [
                               "Copyright ",
                               t.getFullYear(),
-                              " ratnvihar.com, All rights reserved.",
+                              " Prakriti.com, All rights reserved.",
                             ],
                           }),
                         }),
@@ -31551,7 +31551,7 @@
                   children: [
                     "Copyright ",
                     e.getFullYear(),
-                    " ratnvihar.com, All rights reserved.",
+                    " Prakriti.com, All rights reserved.",
                   ],
                 }),
               }),
@@ -32322,7 +32322,7 @@
                   children: [
                     "Copyright ",
                     e.getFullYear(),
-                    " ratnvihar.com, All rights reserved.",
+                    " Prakriti.com, All rights reserved.",
                   ],
                 }),
               }),
@@ -32563,7 +32563,7 @@
             (0, o.jsxs)(Un.m, {
               children: [
                 (0, o.jsx)("title", {
-                  children: "Ratn Vihar - Jewellers since 1990",
+                  children: "Prakriti - Jewellers since 1990",
                 }),
                 (0, o.jsx)("meta", { name: "description", content: "" }),
                 (0, o.jsx)("meta", { name: "keywords", content: "" }),

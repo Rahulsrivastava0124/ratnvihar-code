@@ -133,6 +133,10 @@ class StockPage extends Component {
         display_name: 'Price'
       },
       {
+        name:'tax_prize',
+        display_name: 'Tax Price'
+      },
+      {
         name: 'stock_user_name',
         display_name: 'Avl By'
       }
@@ -318,6 +322,7 @@ class StockPage extends Component {
             weight: row.stock_materials[i].weight,
             unit_id: row.stock_materials[i].unit_id,
             quantity: row.stock_materials[i].quantity,
+            
           })
         }
         let data = {
@@ -595,6 +600,7 @@ class StockPage extends Component {
                             <TableCell>Available Qty</TableCell>
                             <TableCell>Avl. Weight</TableCell>
                             <TableCell>Sale Unit</TableCell>
+                           
                           </TableRow>
                         </TableHead>
                         <TableBody>

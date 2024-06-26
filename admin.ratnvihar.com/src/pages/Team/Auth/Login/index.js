@@ -397,10 +397,10 @@ class LoginPage extends Component {
 
             </Box>
             <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 6, mb: 0 }} className='copyright'>
-              {'Copyright ©  RatnVihar '}
+              {'Copyright ©  Prakriti '}
               {new Date().getFullYear()}
               <Link color="inherit" href="https://webappssol.com/" target="_blank">
-                &nbsp; | Developed by: webappsSOL
+                &nbsp; 
               </Link>
             </Typography>
           </div>
