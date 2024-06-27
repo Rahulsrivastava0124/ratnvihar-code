@@ -43,7 +43,7 @@
             }),
             b(this, "onSubmit", (e) => {
               e.preventDefault(),
-                fetch("https://api.prakriti.one/signup/customer")
+                fetch("http://localhost:9083/signup/customer")
                   .then((e) => e.json())
                   .then((e) => {
                     console.log(e);

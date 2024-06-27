@@ -647,7 +647,7 @@ function Row(props) {
                   {row.materials.map((item, i) => (
                     <TableRow key={i}>
                       <TableCell scope="row">
-                        {item.material_name}
+                                 {item.material_name}
                       </TableCell>
                       <TableCell>{item.purity_name}</TableCell>
                       <TableCell>{item.quantity}</TableCell>

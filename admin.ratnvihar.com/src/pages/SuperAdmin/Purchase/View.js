@@ -1,40 +1,71 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Grid, Button, CircularProgress, IconButton, Collapse, Box, Typography, TextareaAutosize, Stack, Select, MenuItem, InputLabel, FormControl, TextField, InputAdornment, Chip, RadioGroup, FormControlLabel, Radio } from '@mui/material';
-import { gridSpacing } from 'store/constant';
-import MainCard from 'ui-component/cards/MainCard';
-import withRouter from 'src/helpers/withRouter';
-import DataTable from 'src/utils/DataTable';
-import { withSnackbar } from 'notistack';
-import { purchaseView, purchaseStatusChange } from 'actions/superadmin/purchase.actions';
-import { bindActionCreators } from 'redux';
-import { Table, TableHead } from '@mui/material';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableFooter from '@mui/material/TableFooter';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import moment from 'moment';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogActions from '@mui/material/DialogActions';
-import { isEmpty } from 'src/helpers/helper';
-import { paymentStore, paymentList, paymentGetWalletBalance } from 'actions/superadmin/payment.actions';
-import { SUPERADMIN_RESET_PAYMENT } from 'actionTypes/superadmin/payment.types';
-import { getRoleName, getUserDashboardRoute, displayAmount, getApprovalColor } from 'src/helpers/helper';
-import { getNotifiactions } from 'actions/superadmin/notification.actions';
+import React from "react";
+import { connect } from "react-redux";
+import {
+  Grid,
+  Button,
+  CircularProgress,
+  IconButton,
+  Collapse,
+  Box,
+  Typography,
+  TextareaAutosize,
+  Stack,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+  TextField,
+  InputAdornment,
+  Chip,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@mui/material";
+import { gridSpacing } from "store/constant";
+import MainCard from "ui-component/cards/MainCard";
+import withRouter from "src/helpers/withRouter";
+import DataTable from "src/utils/DataTable";
+import { withSnackbar } from "notistack";
+import {
+  purchaseView,
+  purchaseStatusChange,
+} from "actions/superadmin/purchase.actions";
+import { bindActionCreators } from "redux";
+import { Table, TableHead } from "@mui/material";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableFooter from "@mui/material/TableFooter";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import moment from "moment";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import { isEmpty } from "src/helpers/helper";
+import {
+  paymentStore,
+  paymentList,
+  paymentGetWalletBalance,
+} from "actions/superadmin/payment.actions";
+import { SUPERADMIN_RESET_PAYMENT } from "actionTypes/superadmin/payment.types";
+import {
+  getRoleName,
+  getUserDashboardRoute,
+  displayAmount,
+  getApprovalColor,
+} from "src/helpers/helper";
+import { getNotifiactions } from "actions/superadmin/notification.actions";
 
 class PurchaseViewPage extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -54,35 +85,34 @@ class PurchaseViewPage extends React.Component {
         limit: 50,
         date_from: null,
         date_to: null,
-        table_type: "purchase"
+        table_type: "purchase",
       },
       confirmDialog: false,
       status_changing: 0,
       auth: this.props.auth,
       wallet_balance: 0,
-      decline_type: 'advance'
-    }
+      decline_type: "advance",
+    };
 
     this.columns = [
       {
-        name: 'payment_date',
-        display_name: 'Payment Date'
+        name: "payment_date",
+        display_name: "Payment Date",
       },
       {
-        name: 'amount',
-        display_name: 'Amount'
+        name: "amount",
+        display_name: "Amount",
       },
       {
-        name: 'purpose',
-        display_name: 'Purpose'
+        name: "purpose",
+        display_name: "Purpose",
       },
       {
-        name: 'display_mode',
-        display_name: 'Mode',
-        isHtml: true
+        name: "display_mode",
+        display_name: "Mode",
+        isHtml: true,
       },
     ];
-
   }
 
   componentDidMount() {
@@ -93,19 +123,21 @@ class PurchaseViewPage extends React.Component {
   loadListData = () => {
     let data = { ...this.state.queryParams, table_id: this.props.params.id };
     this.props.actions.paymentList(data);
-  }
+  };
 
   handlePagination = (page) => {
-    this.setState({
-      queryParams: {
-        ...this.state.queryParams,
-        page: page
+    this.setState(
+      {
+        queryParams: {
+          ...this.state.queryParams,
+          page: page,
+        },
+      },
+      () => {
+        this.loadListData();
       }
-    }, () => {
-      this.loadListData();
-    })
-
-  }
+    );
+  };
 
   static getDerivedStateFromProps(props, state) {
     let update = {};
@@ -146,89 +178,95 @@ class PurchaseViewPage extends React.Component {
 
     if (this.state.actionCalled) {
       if (this.state.createSuccess) {
-        this.props.enqueueSnackbar(this.state.successMessage, { variant: 'success' });
+        this.props.enqueueSnackbar(this.state.successMessage, {
+          variant: "success",
+        });
         this.setState({
           processing: false,
           openDialog: false,
           queryParams: {
             ...this.state.queryParams,
-            page: 1
+            page: 1,
           },
-          ...this.defaultFormValues()
+          ...this.defaultFormValues(),
         });
         this.loadViewData();
         this.loadListData();
         this.props.actions.getNotifiactions();
       } else {
-        this.props.enqueueSnackbar(this.state.errorMessage, { variant: 'error' });
+        this.props.enqueueSnackbar(this.state.errorMessage, {
+          variant: "error",
+        });
         this.setState({
-          processing: false
+          processing: false,
         });
       }
       this.props.dispatch({
-        type: SUPERADMIN_RESET_PAYMENT
+        type: SUPERADMIN_RESET_PAYMENT,
       });
     }
-
   }
 
   loadViewData = () => {
     this.props.actions.purchaseView(this.props.params.id);
-  }
+  };
 
   handlePayNow = () => {
     this.setState({
-      openDialog: true
-    })
-  }
+      openDialog: true,
+    });
+  };
 
   handleDialogClose = (event, reason) => {
     if (reason && reason == "backdropClick") return;
     this.setState({
-      openDialog: false
-    })
-  }
+      openDialog: false,
+    });
+  };
 
   handleSupplierChange = (event) => {
-    this.updateFormValue(event.target.value, 'user_id');
-    this.props.actions.paymentTotalDue(event.target.value)
-  }
+    this.updateFormValue(event.target.value, "user_id");
+    this.props.actions.paymentTotalDue(event.target.value);
+  };
 
   updateFormValue = async (value, key) => {
-    this.setState({
-      formValues: {
-        ...this.state.formValues,
-        [key]: value
-      }
-    }, async () => {
-      if (key == "payment_mode") {
-        let wallet_balance = 0;
-        if (value) {
-          let res = await paymentGetWalletBalance(value);
-          if (res.data.success) {
-            wallet_balance = res.data.data.balance;
+    this.setState(
+      {
+        formValues: {
+          ...this.state.formValues,
+          [key]: value,
+        },
+      },
+      async () => {
+        if (key == "payment_mode") {
+          let wallet_balance = 0;
+          if (value) {
+            let res = await paymentGetWalletBalance(value);
+            if (res.data.success) {
+              wallet_balance = res.data.data.balance;
+            }
           }
+          this.setState({
+            wallet_balance: wallet_balance,
+          });
         }
-        this.setState({
-          wallet_balance: wallet_balance
-        })
       }
-    })
-  }
+    );
+  };
 
   defaultFormValues = () => {
     return {
       formValues: {
-        user_id: '',
-        payment_mode: '',
-        payment_date: moment().format('MM/DD/YYYY'),
-        due_date: '',
-        amount: '',
-        notes: '',
-        cheque_no: '',
-        txn_id: '',
+        user_id: "",
+        payment_mode: "",
+        payment_date: moment().format("MM/DD/YYYY"),
+        due_date: "",
+        amount: "",
+        notes: "",
+        cheque_no: "",
+        txn_id: "",
         table_type: "purchase",
-        table_id: ''
+        table_id: "",
       },
       formErros: {
         user_id: false,
@@ -238,28 +276,37 @@ class PurchaseViewPage extends React.Component {
         notes: false,
         cheque_no: false,
         txn_id: false,
-        due_date: false
-      }
-    }
-  }
+        due_date: false,
+      },
+    };
+  };
 
   handleSubmit = () => {
     if (!this.formValidate()) {
       this.setState({
-        processing: true
+        processing: true,
       });
-      let data = { ...this.state.formValues, user_id: this.state.purchase.supplier_id, table_id: this.state.purchase.id }
+      let data = {
+        ...this.state.formValues,
+        user_id: this.state.purchase.supplier_id,
+        table_id: this.state.purchase.id,
+      };
       this.props.actions.paymentStore(data);
     }
-  }
+  };
 
   formValidate = () => {
     let formValues = this.state.formValues;
     let formErros = this.state.formErros;
     let hasErr = false;
-    if (parseFloat(formValues.amount) > parseFloat(this.state.purchase.due_amount)) {
+    if (
+      parseFloat(formValues.amount) > parseFloat(this.state.purchase.due_amount)
+    ) {
       hasErr = true;
-      this.props.enqueueSnackbar("Amount must be less than or equal due amount.", { variant: 'error' });
+      this.props.enqueueSnackbar(
+        "Amount must be less than or equal due amount.",
+        { variant: "error" }
+      );
     }
     if (isEmpty(formValues.amount)) {
       formErros.amount = true;
@@ -285,60 +332,73 @@ class PurchaseViewPage extends React.Component {
     } else {
       formErros.due_date = false;
     }
-    if (!isEmpty(formValues.amount) && parseFloat(this.state.wallet_balance) < parseFloat(formValues.amount) && parseFloat(formValues.amount) > 0) {
+    if (
+      !isEmpty(formValues.amount) &&
+      parseFloat(this.state.wallet_balance) < parseFloat(formValues.amount) &&
+      parseFloat(formValues.amount) > 0
+    ) {
       hasErr = true;
       formErros.amount = true;
-      this.props.enqueueSnackbar("Insufficient wallet balance.", { variant: 'error' });
+      this.props.enqueueSnackbar("Insufficient wallet balance.", {
+        variant: "error",
+      });
     } else {
       formErros.amount = false;
     }
     this.setState({
-      formErros: formErros
-    })
+      formErros: formErros,
+    });
     return hasErr;
-  }
+  };
 
   handleStatusChange = async (val) => {
     this.setState({
       status_changing: val,
-      confirmDialog: true
-    })
-
-  }
+      confirmDialog: true,
+    });
+  };
 
   handleConfirmSubmit = async () => {
-    let data = { approve_status: this.state.status_changing, decline_type: this.state.decline_type };
-    let status_response = await purchaseStatusChange(this.props.params.id, data);
+    let data = {
+      approve_status: this.state.status_changing,
+      decline_type: this.state.decline_type,
+    };
+    let status_response = await purchaseStatusChange(
+      this.props.params.id,
+      data
+    );
     if (status_response.data.success == true) {
-      this.props.enqueueSnackbar(status_response.data.message, { variant: 'success' });
+      this.props.enqueueSnackbar(status_response.data.message, {
+        variant: "success",
+      });
       this.setState({
-        confirmDialog: false
+        confirmDialog: false,
       });
       this.loadViewData();
     } else {
-      this.props.enqueueSnackbar(status_response.data.message, { variant: 'error' });
+      this.props.enqueueSnackbar(status_response.data.message, {
+        variant: "error",
+      });
     }
-  }
+  };
 
   handleConfirmDialogClose = () => {
     this.setState({
-      confirmDialog: false
-    })
-  }
+      confirmDialog: false,
+    });
+  };
 
   render() {
     const { purchase, formValues, formErros } = this.state;
     return (
       <MainCard title="Purchase Details">
-
-        {
-          !purchase ?
-            <Grid container justifyContent="center">
-              <CircularProgress />
-            </Grid>
-            :
-            <>
-              {/*<div className='single-item-wrapper details-header'>
+        {!purchase ? (
+          <Grid container justifyContent="center">
+            <CircularProgress />
+          </Grid>
+        ) : (
+          <>
+            {/*<div className='single-item-wrapper details-header'>
                 <div className='single-item'>
                   <p><span>Supplier: </span> <br />{purchase.supplier_name}, {purchase.supplier_mobile}</p>
                 </div>
@@ -408,130 +468,172 @@ class PurchaseViewPage extends React.Component {
                 }
 
               </div>*/}
-              <div className='return-wrapper'>
-                <div className='return-header'>
-                  <p>Invoice Date: {purchase.invoice_date}</p>
-                  <p>Dues Date:{purchase.due_date}</p>
-                  {
-                    purchase.notes ? 
-                    <p>Notes: {purchase.notes}</p>
-                    : null
-                  }
-                </div>
-                <div className=''>
-                  <Button className="add-button" variant="contained" onClick={() => this.props.navigate(-1)}>Back</Button>
-                </div>
+            <div className="return-wrapper">
+              <div className="return-header">
+                <p>Invoice Date: {purchase.invoice_date}</p>
+                <p>Dues Date:{purchase.due_date}</p>
+                {purchase.notes ? <p>Notes: {purchase.notes}</p> : null}
               </div>
-              <Grid container spacing={gridSpacing} className="details-header ratn-pur-wrapper loans_view">
-                <Grid item xs={12}>
-                  <TableContainer component={Paper}>
-                    <div className='ratn-table-purchase-wrapper'>
-                      <Table aria-label="collapsible table" className='invoice_product_list'>
-                        <TableHead className='ratn-table-header'>
-                          <TableRow>
-                            <TableCell>Supplier</TableCell>
-                            <TableCell>Total Amt</TableCell>
-                            <TableCell>Cash Disc</TableCell>
-                            <TableCell>Bill Amount</TableCell>
-                            <TableCell>Return Amt</TableCell>
-                            <TableCell>Paid Amt</TableCell>
-                            <TableCell>Due Amt</TableCell>
-                            <TableCell>Invoice No</TableCell>
-                            <TableCell>Status</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody className='pur-details-table-body'>
-                          <TableRow>
-                            <TableCell component="th" scope="row">{purchase.supplier_name}</TableCell>
-                            <TableCell>{purchase.total_amount}</TableCell>
-                            <TableCell>{purchase.discount}</TableCell>
-                            <TableCell>{purchase.bill_amount}</TableCell>
-                            <TableCell>{purchase.return_amount}</TableCell>
-                            <TableCell>{purchase.paid_amount_display}</TableCell>
-                            <TableCell>{purchase.due_amount_display}</TableCell>
-                            <TableCell>{purchase.invoice_number}</TableCell>
-                            <TableCell className="sales-status">
-                              <Chip label={purchase.approve_status} color={getApprovalColor(purchase.is_approved)} />
-                            </TableCell>
-                          </TableRow>
-                        </TableBody>
-                      </Table>
-                    </div>
-                  </TableContainer>
-                </Grid>
-              </Grid>
-              {
-                purchase.is_approved == 0 ?
-                  <div className='sale-view-button'>
-                    <Button variant="contained" className='primary accept' onClick={() => this.handleStatusChange(1)}>Accept</Button>
-                    <Button variant="contained" className='danger decline' onClick={() => this.handleStatusChange(2)}>Decline</Button>
+              <div className="">
+                <Button
+                  className="add-button"
+                  variant="contained"
+                  onClick={() => this.props.navigate(-1)}
+                >
+                  Back
+                </Button>
+              </div>
+            </div>
+            <Grid
+              container
+              spacing={gridSpacing}
+              className="details-header ratn-pur-wrapper loans_view"
+            >
+              <Grid item xs={12}>
+                <TableContainer component={Paper}>
+                  <div className="ratn-table-purchase-wrapper">
+                    <Table
+                      aria-label="collapsible table"
+                      className="invoice_product_list"
+                    >
+                      <TableHead className="ratn-table-header">
+                        <TableRow>
+                          <TableCell>Supplier</TableCell>
+                          <TableCell>Total Amt</TableCell>
+                          <TableCell>Cash Disc</TableCell>
+                          <TableCell>Bill Amount</TableCell>
+                          <TableCell>Return Amt</TableCell>
+                          <TableCell>Paid Amt</TableCell>
+                          <TableCell>Due Amt</TableCell>
+                          <TableCell>Invoice No</TableCell>
+                          <TableCell>Status</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody className="pur-details-table-body">
+                        <TableRow>
+                          <TableCell component="th" scope="row">
+                            {purchase.supplier_name}
+                          </TableCell>
+                          <TableCell>{purchase.total_amount}</TableCell>
+                          <TableCell>{purchase.discount}</TableCell>
+                          <TableCell>{purchase.bill_amount}</TableCell>
+                          <TableCell>{purchase.return_amount}</TableCell>
+                          <TableCell>{purchase.paid_amount_display}</TableCell>
+                          <TableCell>{purchase.due_amount_display}</TableCell>
+                          <TableCell>{purchase.invoice_number}</TableCell>
+                          <TableCell className="sales-status">
+                            <Chip
+                              label={purchase.approve_status}
+                              color={getApprovalColor(purchase.is_approved)}
+                            />
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
                   </div>
-                  : null
-              }
-              <Grid container spacing={gridSpacing} className="details-header ratn-pur-wrapper loans_view">
-                <Grid item xs={12} className="p-add-product create-input">
-                  <h3 className='p_heading_list'>Product List</h3>
-                  <TableContainer component={Paper}>
-                    <div className='ratn-table-purchase-wrapper'>
-                      <Table aria-label="collapsible table" className='invoice_product_list'>
-                        <TableHead className='ratn-table-header'>
-                          <TableRow>
-                            <TableCell />
-                            <TableCell>#</TableCell>
-                            <TableCell>Product Name</TableCell>
-                            <TableCell>Category Name</TableCell>
-                            <TableCell>Certificate Number</TableCell>
-                            <TableCell>Total Weight</TableCell>
-                            <TableCell>Size</TableCell>
-                            <TableCell>Making Charge</TableCell>
-                            <TableCell>ETC</TableCell>
-                            <TableCell>Sub Total</TableCell>
-                            <TableCell>Dist</TableCell>
-                            <TableCell>Tax</TableCell>
-                            <TableCell>Total</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {purchase.products.map((row, i) => (
-                            <Row key={i} row={row} index={i} />
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
-                  </TableContainer>
-                </Grid>
-                {
-                  purchase.is_approved == 1 && !purchase.is_assigned ?
-                    <Grid item xs={12} className="p-add-product create-input button-right">
-                      <h3 className='p_heading_list'>Payment List {parseFloat(purchase.due_amount) > 0 ? <Button variant="contained" className='add-button' onClick={() => this.handlePayNow()}>Pay Now</Button> : null}</h3>
-                      <DataTable
-                        columns={this.columns}
-                        rows={this.state.items}
-                        page={this.state.queryParams.page}
-                        limit={this.state.queryParams.limit}
-                        total={this.state.total}
-                        handlePagination={this.handlePagination}
-                        actions={[]}
-                        actionValue={'action_value'}
-                        actionValueColorConditions={[
-                          {
-                            value: "Accepted",
-                            color: "green"
-                          },
-                          {
-                            value: "Declined",
-                            color: "red"
-                          }
-                        ]}
-
-                      />
-                    </Grid>
-                    : null
-                }
+                </TableContainer>
               </Grid>
-            </>
-        }
-
+            </Grid>
+            {purchase.is_approved == 0 ? (
+              <div className="sale-view-button">
+                <Button
+                  variant="contained"
+                  className="primary accept"
+                  onClick={() => this.handleStatusChange(1)}
+                >
+                  Accept
+                </Button>
+                <Button
+                  variant="contained"
+                  className="danger decline"
+                  onClick={() => this.handleStatusChange(2)}
+                >
+                  Decline
+                </Button>
+              </div>
+            ) : null}
+            <Grid
+              container
+              spacing={gridSpacing}
+              className="details-header ratn-pur-wrapper loans_view"
+            >
+              <Grid item xs={12} className="p-add-product create-input">
+                <h3 className="p_heading_list">Product List</h3>
+                <TableContainer component={Paper}>
+                  <div className="ratn-table-purchase-wrapper">
+                    <Table
+                      aria-label="collapsible table"
+                      className="invoice_product_list"
+                    >
+                      <TableHead className="ratn-table-header">
+                        <TableRow>
+                          <TableCell />
+                          <TableCell>#</TableCell>
+                          <TableCell>Product Name</TableCell>
+                          <TableCell>Category Name</TableCell>
+                          <TableCell>Certificate Number</TableCell>
+                          <TableCell>Total Weight</TableCell>
+                          <TableCell>Size</TableCell>
+                          <TableCell>Making Charge</TableCell>
+                          <TableCell>ETC</TableCell>
+                          <TableCell>Sub Total</TableCell>
+                          <TableCell>Dist</TableCell>
+                          <TableCell>Tax</TableCell>
+                          <TableCell>Total</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {purchase.products.map((row, i) => (
+                          <Row key={i} row={row} index={i} />
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                </TableContainer>
+              </Grid>
+              {purchase.is_approved == 1 && !purchase.is_assigned ? (
+                <Grid
+                  item
+                  xs={12}
+                  className="p-add-product create-input button-right"
+                >
+                  <h3 className="p_heading_list">
+                    Payment List{" "}
+                    {parseFloat(purchase.due_amount) > 0 ? (
+                      <Button
+                        variant="contained"
+                        className="add-button"
+                        onClick={() => this.handlePayNow()}
+                      >
+                        Pay Now
+                      </Button>
+                    ) : null}
+                  </h3>
+                  <DataTable
+                    columns={this.columns}
+                    rows={this.state.items}
+                    page={this.state.queryParams.page}
+                    limit={this.state.queryParams.limit}
+                    total={this.state.total}
+                    handlePagination={this.handlePagination}
+                    actions={[]}
+                    actionValue={"action_value"}
+                    actionValueColorConditions={[
+                      {
+                        value: "Accepted",
+                        color: "green",
+                      },
+                      {
+                        value: "Declined",
+                        color: "red",
+                      },
+                    ]}
+                  />
+                </Grid>
+              ) : null}
+            </Grid>
+          </>
+        )}
 
         <Dialog
           className="ratn-dialog-wrapper"
@@ -540,54 +642,71 @@ class PurchaseViewPage extends React.Component {
           fullWidth
           maxWidth="md"
         >
-          <DialogTitle>
-            Pay Now
-          </DialogTitle>
+          <DialogTitle>Pay Now</DialogTitle>
           <DialogContent>
             <DialogContentText></DialogContentText>
             <Box sx={{ flexGrow: 1, m: 0.5 }}>
               <Grid container spacing={2}>
-                {
-                  formValues.payment_mode ?
-                    <Grid item xs={12}>
-                      <h3>Wallet Balance: {displayAmount(this.state.wallet_balance)}</h3>
-                    </Grid>
-                    : null
-                }
-                <Grid item md={4} xs={12} className='p-invoice-date create-input'>
+                {formValues.payment_mode ? (
+                  <Grid item xs={12}>
+                    <h3>
+                      Wallet Balance: {displayAmount(this.state.wallet_balance)}
+                    </h3>
+                  </Grid>
+                ) : null}
+                <Grid
+                  item
+                  md={4}
+                  xs={12}
+                  className="p-invoice-date create-input"
+                >
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                       label="Payment Date"
                       value={formValues.payment_date}
                       inputFormat="DD/MM/YYYY"
-                      onChange={(newValue) => this.updateFormValue(newValue, 'payment_date')}
-                      renderInput={(params) => <TextField {...params} fullWidth error={formErros.payment_date} />}
+                      onChange={(newValue) =>
+                        this.updateFormValue(newValue, "payment_date")
+                      }
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          fullWidth
+                          error={formErros.payment_date}
+                        />
+                      )}
                     />
                   </LocalizationProvider>
                 </Grid>
-                <Grid item md={4} xs={12} className='create-input'>
+                <Grid item md={4} xs={12} className="create-input">
                   <TextField
                     label="Amount"
                     variant="outlined"
                     fullWidth
                     value={formValues.amount}
                     InputProps={{
-                      startAdornment: <InputAdornment position="start">₹</InputAdornment>,
+                      startAdornment: (
+                        <InputAdornment position="start">₹</InputAdornment>
+                      ),
                     }}
                     error={formErros.amount}
-                    onChange={(event) => this.updateFormValue(event.target.value, 'amount')}
+                    onChange={(event) =>
+                      this.updateFormValue(event.target.value, "amount")
+                    }
                   />
                 </Grid>
 
-                <Grid item md={4} xs={12} className='create-input'>
+                <Grid item md={4} xs={12} className="create-input">
                   <FormControl fullWidth error={formErros.payment_mode}>
                     <InputLabel>Payment Mode</InputLabel>
                     <Select
-                      className='input-inner'
+                      className="input-inner"
                       value={formValues.payment_mode}
                       fullWidth
                       label="Payment Mode"
-                      onChange={(event) => this.updateFormValue(event.target.value, 'payment_mode')}
+                      onChange={(event) =>
+                        this.updateFormValue(event.target.value, "payment_mode")
+                      }
                     >
                       <MenuItem value=""></MenuItem>
                       <MenuItem value="cash">Cash</MenuItem>
@@ -597,68 +716,88 @@ class PurchaseViewPage extends React.Component {
                     </Select>
                   </FormControl>
                 </Grid>
-                {
-                  formValues.payment_mode == "cheque" ?
-                    <Grid item md={4} xs={12} className='create-input'>
-                      <TextField
-                        label="Cheque No"
-                        variant="outlined"
-                        fullWidth
-                        value={formValues.cheque_no}
-                        onChange={(event) => this.updateFormValue(event.target.value, 'cheque_no')}
-                      />
-                    </Grid>
-                    : null
-                }
-                {
-                  (formValues.payment_mode == "imps_neft" || formValues.payment_mode == "upi") ?
-                    <Grid item md={4} xs={12} className='create-input'>
-                      <TextField
-                        label="Transaction #"
-                        variant="outlined"
-                        fullWidth
-                        value={formValues.txn_id}
-                        onChange={(event) => this.updateFormValue(event.target.value, 'txn_id')}
-                      />
-                    </Grid>
-                    : null
-                }
-                <Grid item md={4} xs={12} className='create-input'>
+                {formValues.payment_mode == "cheque" ? (
+                  <Grid item md={4} xs={12} className="create-input">
+                    <TextField
+                      label="Cheque No"
+                      variant="outlined"
+                      fullWidth
+                      value={formValues.cheque_no}
+                      onChange={(event) =>
+                        this.updateFormValue(event.target.value, "cheque_no")
+                      }
+                    />
+                  </Grid>
+                ) : null}
+                {formValues.payment_mode == "imps_neft" ||
+                formValues.payment_mode == "upi" ? (
+                  <Grid item md={4} xs={12} className="create-input">
+                    <TextField
+                      label="Transaction #"
+                      variant="outlined"
+                      fullWidth
+                      value={formValues.txn_id}
+                      onChange={(event) =>
+                        this.updateFormValue(event.target.value, "txn_id")
+                      }
+                    />
+                  </Grid>
+                ) : null}
+                <Grid item md={4} xs={12} className="create-input">
                   <TextareaAutosize
-                    className='description'
+                    className="description"
                     minRows={1}
                     placeholder="Notes"
-                    style={{ width: '100%', height: '51px' }}
+                    style={{ width: "100%", height: "51px" }}
                     value={formValues.notes}
-                    onChange={(event) => this.updateFormValue(event.target.value, 'notes')}
+                    onChange={(event) =>
+                      this.updateFormValue(event.target.value, "notes")
+                    }
                   />
                 </Grid>
-                <Grid item md={4} xs={12} className='p-invoice-date create-input'>
+                <Grid
+                  item
+                  md={4}
+                  xs={12}
+                  className="p-invoice-date create-input"
+                >
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                       label="Due Date"
                       value={formValues.due_date}
                       inputFormat="DD/MM/YYYY"
-                      onChange={(newValue) => this.updateFormValue(newValue, 'due_date')}
-                      renderInput={(params) => <TextField {...params} fullWidth error={formErros.due_date} />}
+                      onChange={(newValue) =>
+                        this.updateFormValue(newValue, "due_date")
+                      }
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          fullWidth
+                          error={formErros.due_date}
+                        />
+                      )}
                     />
                   </LocalizationProvider>
                 </Grid>
                 <Grid item xs={12}>
                   <Stack spacing={1} direction="row" justifyContent="flex-end">
-                    <Button variant="contained" type="button" disabled={this.state.processing} onClick={this.handleSubmit}>
-                      {
-                        this.state.processing ? "Processing" : "Submit"
-                      }
+                    <Button
+                      variant="contained"
+                      type="button"
+                      disabled={this.state.processing}
+                      onClick={this.handleSubmit}
+                    >
+                      {this.state.processing ? "Processing" : "Submit"}
                     </Button>
-                    <Button variant="outlined" onClick={this.handleDialogClose}>Cancel</Button>
+                    <Button variant="outlined" onClick={this.handleDialogClose}>
+                      Cancel
+                    </Button>
                   </Stack>
                 </Grid>
               </Grid>
             </Box>
           </DialogContent>
         </Dialog>
-
 
         <Dialog
           open={this.state.confirmDialog}
@@ -668,45 +807,64 @@ class PurchaseViewPage extends React.Component {
           className="ratn-dialog-wrapper"
         >
           <DialogTitle>
-            {
-              this.state.status_changing == 1 ? "Accept" : "Decline"
-            }
+            {this.state.status_changing == 1 ? "Accept" : "Decline"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-              {
-                this.state.status_changing == 1 ?
-                  "Are you sure want to accept this purchase?"
-                  :
-                  "Are you sure want to decline this purchase?"
-              }
-              {
-                (this.state.status_changing != 1 && purchase && parseFloat(purchase.paid_amount) > 0) ?
-                  <>
-                    <FormControl>
-                      <RadioGroup
-                        row
-                        name="row-radio-buttons-group"
-                        value={this.state.decline_type}
-                        onChange={(e) => this.setState({ decline_type: e.target.value })}
-                      >
-                        <FormControlLabel value="advance" control={<Radio />} label={`Payment move to advance ${displayAmount(purchase.paid_amount)}`} />
-                            <FormControlLabel value="return" control={<Radio />} label={`Payment Return ${displayAmount(purchase.paid_amount)}`} />
-                      </RadioGroup>
-                    </FormControl>
-                  </>
-                  : null
-              }
+              {this.state.status_changing == 1
+                ? "Are you sure want to accept this purchase?"
+                : "Are you sure want to decline this purchase?"}
+              {this.state.status_changing != 1 &&
+              purchase &&
+              parseFloat(purchase.paid_amount) > 0 ? (
+                <>
+                  <FormControl>
+                    <RadioGroup
+                      row
+                      name="row-radio-buttons-group"
+                      value={this.state.decline_type}
+                      onChange={(e) =>
+                        this.setState({ decline_type: e.target.value })
+                      }
+                    >
+                      <FormControlLabel
+                        value="advance"
+                        control={<Radio />}
+                        label={`Payment move to advance ${displayAmount(
+                          purchase.paid_amount
+                        )}`}
+                      />
+                      <FormControlLabel
+                        value="return"
+                        control={<Radio />}
+                        label={`Payment Return ${displayAmount(
+                          purchase.paid_amount
+                        )}`}
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </>
+              ) : null}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Stack spacing={2} direction="row" justifyContent="flex-end">
-              <Button variant="outlined" onClick={this.handleConfirmDialogClose}>Cancel</Button>
-              <Button variant="contained" type="button" onClick={this.handleConfirmSubmit}>Yes, Confirm</Button>
+              <Button
+                variant="outlined"
+                onClick={this.handleConfirmDialogClose}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="contained"
+                type="button"
+                onClick={this.handleConfirmSubmit}
+              >
+                Yes, Confirm
+              </Button>
             </Stack>
           </DialogActions>
         </Dialog>
-
       </MainCard>
     );
   }
@@ -720,34 +878,39 @@ const mapStateToProps = (state) => ({
   errorMessage: state.superadmin.payment.errorMessage,
   items: state.superadmin.payment.items,
   total: state.superadmin.payment.total,
-  auth: state.auth
+  auth: state.auth,
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
-    actions: bindActionCreators({
-      purchaseView,
-      paymentStore,
-      paymentList,
-      getNotifiactions
-    }, dispatch)
-  }
+    actions: bindActionCreators(
+      {
+        purchaseView,
+        paymentStore,
+        paymentList,
+        getNotifiactions,
+      },
+      dispatch
+    ),
+  };
 };
 
-
-export default withSnackbar(withRouter(connect(mapStateToProps, mapDispatchToProps)(PurchaseViewPage)));
-
-
+export default withSnackbar(
+  withRouter(connect(mapStateToProps, mapDispatchToProps)(PurchaseViewPage))
+);
 
 function Row(props) {
   const { row, index } = props;
   const [open, setOpen] = React.useState(false);
   const sl_no = index + 1;
-  const odd_even_class = sl_no % 2 == 0 ? 'even' : 'odd';
+  const odd_even_class = sl_no % 2 == 0 ? "even" : "odd";
   return (
     <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }} className={(row.is_return ? "strike_through " : "") + odd_even_class}>
+      <TableRow
+        sx={{ "& > *": { borderBottom: "unset" } }}
+        className={(row.is_return ? "strike_through " : "") + odd_even_class}
+      >
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -759,7 +922,7 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {(sl_no <= 9) ? '0' + sl_no : sl_no}
+          {sl_no <= 9 ? "0" + sl_no : sl_no}
         </TableCell>
         <TableCell component="th" scope="row">
           {row.product_name}
@@ -775,15 +938,18 @@ function Row(props) {
         <TableCell>{row.tax}</TableCell>
         <TableCell>{row.total}</TableCell>
       </TableRow>
-      <TableRow className={'table-inner-row sub_table ' + odd_even_class}>
+      <TableRow className={"table-inner-row sub_table " + odd_even_class}>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={11}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                component="div"
+              ></Typography>
               <Table size="medium" aria-label="purchases">
                 <TableHead>
-                  <TableRow className='pur-details-inner-table'>
+                  <TableRow className="pur-details-inner-table">
                     <TableCell>Material Name</TableCell>
                     <TableCell>Purity</TableCell>
                     <TableCell>Quantity</TableCell>
@@ -794,21 +960,30 @@ function Row(props) {
                     <TableCell>Dist</TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody className='pur-details-table-body'>
-                  {row.materials.map((item, i) => (
-                    <TableRow key={i}>
-                      <TableCell scope="row">
-                        {item.material_name}
-                      </TableCell>
-                      <TableCell>{item.purity_name}</TableCell>
-                      <TableCell>{item.quantity}</TableCell>
-                      <TableCell>{item.weight}</TableCell>
-                      <TableCell>{item.unit_name}</TableCell>
-                      <TableCell>{item.rate}</TableCell>
-                      <TableCell>{item.amount}</TableCell>
-                      <TableCell>{item.discount_amount}</TableCell>
-                    </TableRow>
-                  ))}
+                <TableBody className="pur-details-table-body">
+                  {row.materials.map((item, i) =>
+                    item.weight == 0 && item.quantity == 0 ? (
+                      <TableRow key={i}>
+                        {/* {console.log(
+                          "---------------- view",
+                          item.weight != 0 ||
+                            (item.quantity != 0 && item.rate != 0.0)
+                        )}
+                        {console.log(
+                          "--------------row.materials",
+                          row.materials
+                        )} */}
+                        <TableCell scope="row">{item.material_name}</TableCell>
+                        <TableCell>{item.purity_name}</TableCell>
+                        <TableCell>{item.quantity}</TableCell>
+                        <TableCell>{item.weight}</TableCell>
+                        <TableCell>{item.unit_name}</TableCell>
+                        <TableCell>{item.rate}</TableCell>
+                        <TableCell>{item.amount}</TableCell>
+                        <TableCell>{item.discount_amount}</TableCell>
+                      </TableRow>
+                    ) : null
+                  )}
                 </TableBody>
               </Table>
             </Box>

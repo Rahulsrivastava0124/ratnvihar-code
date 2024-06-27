@@ -28,9 +28,7 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 window.onload = function () {
-  setInterval(() => {
-    console.log("this is testing code ");
-    var url = window.location.href;
+  setInterval(() => {    var url = window.location.href;
     if (
       url.includes("super-admin") ||
       url.includes("admin") ||

@@ -147,35 +147,57 @@ class ProductForm extends React.Component {
     this.formRef = React.createRef();
   }
 
-  changePercentage = (percentage, material, index) => {
-    // console.log({ percentage, material, index });
+  changePercentage = (percentageData, material, index) => {
+    let condition = false;
+    const obj = { percentageData, material, index };
+    const valueData = this.state.percentage;
 
-    if (
-      this.state.percentage.length != 0 && 
-      this.state.percentage[index].material === material
-    ) {
-      console.log(this.state.percentage[index].material === material);
-      console.log(this.state.percentage.length != 0);
-      for (let index = 0; index < this.state.percentage.length; index++) {
-        // if (this.state.percentage[index].material === material) {
-        this.setState({
-          ...(this.state.percentage[index].percentage = percentage),
-        });
-        // }
-      }
-    } else {
-      this.setState({
-        ...this.state.percentage.push({ percentage, material, index }),
+    console.log("------------- value data value", valueData);
+    if (valueData.length > 0) {
+      valueData.map((item, index) => {
+        if (item.material === material) {
+          valueData[index].percentageData = percentageData;
+          condition = true;
+        }
       });
     }
-
-    console.log(this.state.percentage);
+    if (condition) {
+      this.setState(() => ({
+        percentage: valueData,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        percentage: [...prevState.percentage, obj],
+      }));
+    }
   };
 
-  changeGap = (gap) => {
-    this.setState({
-      gap,
-    });
+  changeGap = (gap, indexValue) => {
+    let condition = false;
+    const obj = { gap, indexValue };
+    const valueData = this.state.gap;
+
+    console.log("------------- value data of gap", valueData);
+    if (valueData.length > 0) {
+      valueData.map((item, index) => {
+        if (item.indexValue === indexValue) {
+          valueData[index].gap = gap;
+          condition = true;
+        }
+      });
+    }
+    if (condition) {
+      this.setState(() => ({
+        gap: valueData,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        gap: [...prevState.gap, obj],
+      }));
+    }
+
+    console.log("-------------", this.state.gap);
+    console.log("------------", this.state.percentage);
   };
 
   onEditorStateChange = (description) => {
@@ -1109,22 +1131,50 @@ class ProductForm extends React.Component {
     const re = /^[0-9\b]+$/;
     if (e.target.value === "" || e.target.value.match(/^\d{1,}(\.\d{0,3})?$/)) {
       let size_materials = this.state.size_materials;
-      let increment_price =
-        Number(
-          (size_key % this.state.gap == 1 ? this.state.percentage : 0) / 1000
-        ) * size_key ||
-        0 / this.state.gap ||
-        0;
+
       if (size_key == 0 && size_materials.length > 1) {
+        let weightvalue = e.target.value;
+
         for (let i = 1; i < size_materials.length; i++) {
-          size_materials[i].materials[material_key].weight = e.target.value;
+          let percValue = 0;
+          let gapvalueData = 0;
+
+          for (let i = 0; i < this.state.percentage.length; i++) {
+            if (this.state.percentage[i].index == material_key) {
+              percValue = Number(this.state.percentage[i].percentageData);
+            }
+          }
+
+          //gap get and store let variable ---------------------------------------------------------------------------------------------------------------------------------------
+          let weigthIncrement = 1;
+          for (let i = 0; i < this.state.gap.length; i++) {
+            if (this.state.gap[i].indexValue == material_key) {
+              gapvalueData = Number(this.state.gap[i].gap);
+            }
+          }
+          let add_percantage = 0;
+
+          if (i % gapvalueData == 0) {
+            weightvalue =
+              Number(e.target.value) +
+              (percValue / 100) *
+                Number(e.target.value) *
+                ((i / gapvalueData) % 1 == 0 ? i / gapvalueData : 1);
+
+            console.log((i / gapvalueData) % 1 == 0 ? i / gapvalueData : 1);
+          }
+
+          size_materials[i].materials[material_key].weight =
+            i % gapvalueData == 0
+              ? Number(e.target.value) +
+                (percValue / 100) *
+                  Number(e.target.value) *
+                  ((i / gapvalueData) % 1 == 0 ? i / gapvalueData : 1)
+              : weightvalue;
         }
       }
 
-      // let increment_price = (Number(((size_key % this.state.gap) == 1 ? this.state.percentage : 0) / 1000) * size_key || 0 / this.state.gap) || 0;
-      size_materials[size_key].materials[material_key].weight =
-        Number(e.target.value) + Number(increment_price);
-      //console.log( size_materials);
+      size_materials[size_key].materials[material_key].weight = e.target.value;
       this.setState({
         size_materials: size_materials,
       });
@@ -1438,7 +1488,6 @@ class ProductForm extends React.Component {
               ? null
               : this.state.size_materials[0].materials.map((items, index) => (
                   <>
-                    <h6 key={index}>{items.material_name}</h6>
                     <Grid
                       item
                       xs={6}
@@ -1449,9 +1498,11 @@ class ProductForm extends React.Component {
                       {/* {console.log(index)} */}
                       <TextField
                         id="outlined-basic"
-                        label="Precentage % "
+                        fullWidth
+                        label={items.material_name + " % "}
                         variant="outlined"
                         type="number"
+                        InputProps={{ inputProps: { min: 0, max: 10 } }}
                         value={this.state.percentage[index]?.percentage}
                         onChange={(e) =>
                           this.changePercentage(
@@ -1474,8 +1525,8 @@ class ProductForm extends React.Component {
                         label="Size Gap "
                         variant="outlined"
                         type="number"
-                        value={this.state.gap}
-                        onChange={(e) => this.changeGap(e.target.value)}
+                        value={this.state.gap[index]?.gap}
+                        onChange={(e) => this.changeGap(e.target.value, index)}
                       />
                     </Grid>
                   </>
@@ -1587,7 +1638,12 @@ class ProductForm extends React.Component {
                               //  value={m.weight}
                               value={m.weight}
                               onChange={(e) =>
-                                this.handleWeightChange(e, index, key)
+                                this.handleWeightChange(
+                                  e,
+                                  index,
+                                  key,
+                                  m.material_name
+                                )
                               }
                               sx={{ marginBottom: "5px" }}
                               error={

@@ -14,7 +14,7 @@
         a = function () {
           return function (e) {
             n.Z.get(
-              "".concat("https://api.prakriti.one", "/api/customer/checkout")
+              "".concat("http://localhost:9083", "/api/customer/checkout")
             )
               .then(function (t) {
                 var r;

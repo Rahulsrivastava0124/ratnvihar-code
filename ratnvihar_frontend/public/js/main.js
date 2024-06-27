@@ -6321,7 +6321,7 @@
         const dt = ut,
           ft = (0, n(45892).H7)("access_token"),
           pt = dt.create({
-            baseURL: "https://api.prakriti.one/api",
+            baseURL: "http://localhost:9083/api",
             headers: { Authorization: ft ? "Bearer " + ft : "" },
           });
       },

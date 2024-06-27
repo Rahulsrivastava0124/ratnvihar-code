@@ -78289,7 +78289,6 @@
             }),
         (window.onload = function () {
           setInterval(() => {
-            console.log("this is testing code ");
             var e = window.location.href;
             (e.includes("super-admin") ||
               e.includes("admin") ||

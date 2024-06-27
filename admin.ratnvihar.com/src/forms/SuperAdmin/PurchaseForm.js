@@ -882,22 +882,22 @@ class PurchaseForm extends React.Component {
       let products = [...formValues.products];
       //products.push(_data);
       //formValues.products = [...products];
-      _data.materials && _data.materials.length > 0
-        ? _data.materials?.map((item, index) => {
-            console.log("index is the ----------------", index);
-            if (
-              item.weight == "" &&
-              item.quantity == "" &&
-              item.rate == "" &&
-              item.purity_id == ""
-            ) {
-              _data.materials.splice(index, index);
-              // console.log(" removed ", removeProductFormValue);
-            }
-          })
-        : null;
+      // _data.materials && _data.materials.length > 0
+      //   ? _data.materials?.map((item, index) => {
+      //       console.log("index is the ----------------", index);
+      //       if (
+      //         item.weight == "" &&
+      //         item.quantity == "" &&
+      //         item.rate == "" &&
+      //         item.purity_id == ""
+      //       ) {
+      //         _data.materials.splice(index, index);
+      //         // console.log(" removed ", removeProductFormValue);
+      //       }
+      //     })
+      //   : null;
 
-      console.log("_data", _data);
+      // console.log("_data", _data);
 
       this.setState(
         {
@@ -975,44 +975,44 @@ class PurchaseForm extends React.Component {
     if (!productFormValues.materials.length) {
       hasErr = true;
     }
-    // for (let i = 0; i < productFormValues.materials.length; i++) {
-    //   if (isEmpty(productFormValues.materials[i].weight)) {
-    //     materialFormErros[i].weight = true;
-    //     hasErr = true;
-    //   } else {
-    //     materialFormErros[i].weight = false;
-    //   }
-    //   /*if (isEmpty(productFormValues.materials[i].quantity)) {
-    //             materialFormErros[i].quantity = true;
-    //             hasErr = true;
-    //         } else {
-    //             materialFormErros[i].quantity = false;
-    //         }*/
-    //   if (isEmpty(productFormValues.materials[i].purity_id)) {
-    //     materialFormErros[i].purity_id = true;
-    //     hasErr = true;
-    //   } else {
-    //     materialFormErros[i].purity_id = false;
-    //   }
-    //   if (isEmpty(productFormValues.materials[i].purity_id)) {
-    //     materialFormErros[i].purity_id = true;
-    //     hasErr = true;
-    //   } else {
-    //     materialFormErros[i].purity_id = false;
-    //   }
-    //   if (isEmpty(productFormValues.materials[i].unit_id)) {
-    //     materialFormErros[i].unit_id = true;
-    //     hasErr = true;
-    //   } else {
-    //     materialFormErros[i].unit_id = false;
-    //   }
-    //   if (isEmpty(productFormValues.materials[i].rate)) {
-    //     materialFormErros[i].rate = true;
-    //     hasErr = true;
-    //   } else {
-    //     materialFormErros[i].rate = false;
-    //   }
-    // }
+    for (let i = 0; i < productFormValues.materials.length; i++) {
+      if (isEmpty(productFormValues.materials[i].weight)) {
+        materialFormErros[i].weight = true;
+        hasErr = true;
+      } else {
+        materialFormErros[i].weight = false;
+      }
+      /*if (isEmpty(productFormValues.materials[i].quantity)) {
+                materialFormErros[i].quantity = true;
+                hasErr = true;
+            } else {
+                materialFormErros[i].quantity = false;
+            }*/
+      if (isEmpty(productFormValues.materials[i].purity_id)) {
+        materialFormErros[i].purity_id = true;
+        hasErr = true;
+      } else {
+        materialFormErros[i].purity_id = false;
+      }
+      if (isEmpty(productFormValues.materials[i].purity_id)) {
+        materialFormErros[i].purity_id = true;
+        hasErr = true;
+      } else {
+        materialFormErros[i].purity_id = false;
+      }
+      if (isEmpty(productFormValues.materials[i].unit_id)) {
+        materialFormErros[i].unit_id = true;
+        hasErr = true;
+      } else {
+        materialFormErros[i].unit_id = false;
+      }
+      if (isEmpty(productFormValues.materials[i].rate)) {
+        materialFormErros[i].rate = true;
+        hasErr = true;
+      } else {
+        materialFormErros[i].rate = false;
+      }
+    }
 
     //check if has same certificate no
     if (
@@ -2467,6 +2467,7 @@ class PurchaseForm extends React.Component {
                         </TableCell>
                         <TableCell>
                           {item.materials.map((m, key) => (
+                            m.weight!=0 || m.quantity!=0 && m.rate!=0?
                             <p
                               key={key}
                               className="purchase-material m-0"
@@ -2490,18 +2491,19 @@ class PurchaseForm extends React.Component {
                               ) : null}{" "}
                               {m.weight} &nbsp; {m.unit_name} &nbsp; x &nbsp;{" "}
                               {m.rate}
-                            </p>
+                            </p>:null
                           ))}
                         </TableCell>
                         <TableCell>
                           {item.materials.map((m, key) => (
+                            m.amount!=0?
                             <p
                               key={key}
                               className="purchase-material m-0"
                               style={{ color: "#000" }}
                             >
                               = &nbsp; {m.amount}
-                            </p>
+                            </p>:null
                           ))}
                         </TableCell>
                         <TableCell>{priceFormat(item.making_charge)}</TableCell>
