@@ -16,8 +16,8 @@
     }
   },
   "production": {
-    "username": "root",
-    "password": "RatnJai@MS!",
+     "username": "mysql",
+    "password": "mgkc9ojy8ytnpwf7",
     "database": "ratnvihar",
     "host": "127.0.0.1",
     "port": 3306,
