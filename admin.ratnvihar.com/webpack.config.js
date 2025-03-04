@@ -22,6 +22,9 @@ module.exports = {
       path: path.resolve(__dirname, "build"),
       filename: "bundled.js",
     },
+    devServer: {
+      contentBase: "./build",
+    },
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
