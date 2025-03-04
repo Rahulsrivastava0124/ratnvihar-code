@@ -18,13 +18,16 @@ module.exports = {
     mode: 'production',
     entry: './index.js',
     output: {
-      publicPath: "/",
-      path: path.resolve(__dirname, "build"),
-      filename: "bundled.js",
+      path: path.join(__dirname, 'build'),
+      publicPath: '/',
+      filename: 'bundle.js'
     },
     devServer: {
-      contentBase: "./build",
-    },
+      contentBase: path.join(__dirname, 'build'),
+      port: 8888,
+      historyApiFallback: true,
+      hot: true
+  },
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
@@ -97,10 +100,5 @@ performance: {
     hints: false,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
-  },
-    devServer: {
-      port: 8888,
-      historyApiFallback: true,
-      hot: true
   }
 };
