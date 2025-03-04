@@ -19,7 +19,7 @@
      "username": "mysql",
     "password": "mgkc9ojy8ytnpwf7",
     "database": "ratnvihar",
-    "host": "127.0.0.1",
+    "host": "147.93.110.206",
     "port": 3306,
     "dialect": "mysql",
     "timezone": "+05:30",
