@@ -11,9 +11,11 @@
     "nodejs",
     "express"
   ],
-  "engines": {
-    "node": "10.15.1"
-  },
+"engines": {
+  "node": "18.x",
+  "npm": "9.x"
+},
+  "postinstall": "puppeteer/install.js || echo 'Skipping Puppeteer installation'",
   "author": "",
   "license": "ISC",
   "dependencies": {
