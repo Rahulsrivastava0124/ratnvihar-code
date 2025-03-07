@@ -27,7 +27,7 @@ const SearchResult = Loadable(lazy(() => import('pages/SalesExecutive/SearchResu
 const TrackOrder = Loadable(lazy(() => import('pages/SalesExecutive/TrackOrder')));
 const Vision = Loadable(lazy(() => import('pages/SalesExecutive/Vision')));
 const WhyBuyFromUs = Loadable(lazy(() => import('pages/SalesExecutive/WhyBuyFromUs')));
-const CustomerLogin = Loadable(lazy(()=>import('/pages/SalesExecutive/Login')));
+const CustomerLogin = Loadable(lazy(()=>import('/pages/SalesExecutive/login')));
 const CustomerSignup= Loadable(lazy(()=> import('pages/SalesExecutive/Signup')));
 const OrderSuccessful= Loadable(lazy(()=> import('pages/SalesExecutive/Orders/OrderSuccess')));
 const Wishlist = Loadable(lazy(()=>import('pages/SalesExecutive/Wishlist')));
