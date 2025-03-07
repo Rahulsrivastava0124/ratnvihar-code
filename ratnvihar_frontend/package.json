@@ -63,7 +63,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": [
