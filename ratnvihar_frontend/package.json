@@ -64,7 +64,6 @@
     "deploy": "gh-pages -d build",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "lint": "eslint src/**/*.js src/**/*.jsx",
   },
   "eslintConfig": {
     "extends": [
