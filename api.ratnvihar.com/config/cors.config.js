@@ -21,7 +21,8 @@ module.exports = {
             "https://admin.ratnvihar.com",
             "https://team.ratnvihar.com",
             "https://ratnvihar.com",
-	        "https://www.ratnvihar.com"
+	        "https://www.ratnvihar.com",
+		https://dr.drsumananandjha.com/
         ]
     }
 };
