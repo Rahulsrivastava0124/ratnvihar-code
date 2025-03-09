@@ -1,6 +1,8 @@
 module.exports = {
     corsOptions: {
         origin: [
+		"https://dr.drsumananandjha.com/",
+		"http://dr.drsumananandjha.com/",
             "http://localhost:8080",
             "http://localhost:8080/",
             "http://localhost:8888/",
@@ -21,7 +23,7 @@ module.exports = {
             "https://admin.ratnvihar.com",
             "https://team.ratnvihar.com",
             "https://ratnvihar.com",
-	        "https://www.ratnvihar.com",
+		"https://www.ratnvihar.com",
 		"https://dr.drsumananandjha.com/"
         ]
     }
