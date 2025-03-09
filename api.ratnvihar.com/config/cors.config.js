@@ -22,7 +22,7 @@ module.exports = {
             "https://team.ratnvihar.com",
             "https://ratnvihar.com",
 	        "https://www.ratnvihar.com",
-		https://dr.drsumananandjha.com/
+		"https://dr.drsumananandjha.com/"
         ]
     }
 };
