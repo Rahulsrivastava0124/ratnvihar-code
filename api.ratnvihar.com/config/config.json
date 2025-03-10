@@ -18,9 +18,9 @@
   "production": {
      "username": "mysql",
     "password": "dhcnahbirpa1kmzo",
-    "database": "ratnvihar",
+    "database": "ratnvihartest",
     "host": "147.93.110.206",
-    "port": 3306,
+    "port": 3307,
     "dialect": "mysql",
     "timezone": "+05:30",
     "logging": false,

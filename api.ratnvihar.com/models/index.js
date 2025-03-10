@@ -13,12 +13,12 @@ const db = {};
 
 const config = {
   use_env_variable: false, // Set to 'DATABASE_URL' if using an environment variable
-  database: 'ratnvihar',
+  database: 'ratnvihartest',
   username: 'mysql',
   password: 'dhcnahbirpa1kmzo',
   host: '147.93.110.206',
   dialect: 'mysql',
-  port: 3306,
+  port: 3307,
   logging: false, // Enable for debugging SQL queries
   dialectOptions: {
     connectTimeout: 10000, // Set timeout for external connections
