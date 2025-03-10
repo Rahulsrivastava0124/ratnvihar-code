@@ -15,7 +15,7 @@ const config = {
   use_env_variable: false, // Set to 'DATABASE_URL' if using an environment variable
   database: 'ratnvihar',
   username: 'mysql',
-  password: 'dhcnahbirpa1kmzo',
+  password: 'Password@11#',
   host: '147.93.110.206',
   dialect: 'mysql',
   port: 3306,
