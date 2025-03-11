@@ -239,6 +239,7 @@ exports.index = async (req, res) => {
             attributes: ["id"],
           },
         ],
+        group: ['user.id'] // Add this line to group by user.id
       });
 
       returnStock = await getTotalStockByUser(userID, "return");
