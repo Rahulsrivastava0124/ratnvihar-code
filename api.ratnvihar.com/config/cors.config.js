@@ -3,6 +3,9 @@ module.exports = {
     origin: [
       "https://dr.drsumananandjha.com",
       "http://dr.drsumananandjha.com/",
+      "https://super.drsumananandjha.com/",
+      "https://admin.drsumananandjha.com/",
+      "https://team.drsumananandjha.com/",
       "http://localhost:8080",
       "http://localhost:8080/",
       "http://localhost:8888/",
