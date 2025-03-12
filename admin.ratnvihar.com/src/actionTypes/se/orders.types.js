@@ -1,3 +1,0 @@
-export const SE_LIST_ORDERS = 'SE_LIST_ORDERS';
-export const SE_GET_ORDERS = 'SE_GET_ORDERS';
-export const SE_RESET_ORDERS = 'SE_RESET_ORDERS';
